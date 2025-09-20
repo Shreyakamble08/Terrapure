@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terrapure - Sustainable Water Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Rubik", sans-serif;
+      }
+
+      .font-alansans {
+        font-family: "Alan Sans", sans-serif;
+      }
+
+      .hero-slide {
+        height: 400px;
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body class="font-['Rubik'] bg-white">
+    <!-- ✅ Top Info Bar -->
+    <div class="bg-gradient-to-r from-green-500 to-teal-600 text-white text-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between py-1 sm:py-2"
+        >
+          <!-- Contact Info -->
+          <div
+            class="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-6 text-center sm:text-left"
+          >
+            <a
+              href="mailto:info@terrapure.com"
+              class="flex items-center space-x-2 hover:text-gray-200 transition"
+            >
+              <i class="fas fa-envelope"></i>
+              <span>info@terrapure.com</span>
+            </a>
+            <a
+              href="tel:+1234567890"
+              class="flex items-center space-x-2 hover:text-gray-200 transition"
+            >
+              <i class="fas fa-phone"></i>
+              <span>+1 234 567 890</span>
+            </a>
+          </div>
+
+          <!-- Social Icons -->
+          <div class="flex space-x-4 mt-2 sm:mt-0">
+            <a href="#" class="hover:text-gray-200 transition"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="hover:text-gray-200 transition"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="hover:text-gray-200 transition"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="#" class="hover:text-gray-200 transition"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ Main Navigation -->
+    <nav
+      class="backdrop-blur-md bg-white/70 shadow-md w-full border-b border-teal-200"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a href="index.html" class="flex-shrink-0 flex items-center ml-4">
+              <img
+                src="Images/Logo.png"
+                alt="Terrapure Logo"
+                class="h-16 w-auto mr-2 rounded-md"
+              />
+            </a>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-6">
+            <a
+              href="index.html"
+              class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium"
+              >Home</a
+            >
+            <a
+              href="about.html"
+              class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium"
+              >About</a
+            >
+            <a
+              href="services.html"
+              class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium"
+              >Services</a
+            >
+            <a
+              href="projects.html"
+              class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium"
+              >Projects</a
+            >
+            <a
+              href="contact.html"
+              class="bg-gradient-to-r from-teal-500 to-green-400 text-white px-5 py-2 rounded-full text-sm font-medium hover:from-teal-600 hover:to-green-500 shadow-md transition-all"
+              >Contact</a
+            >
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-button"
+              class="text-teal-800 hover:bg-teal-100 p-2 rounded-md transition"
+            >
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden">
+        <div
+          class="px-4 pt-4 pb-6 space-y-2 bg-white/80 backdrop-blur-md shadow-md rounded-b-lg"
+        >
+          <a
+            href="index.html"
+            class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium"
+            >About</a
+          >
+          <a
+            href="services.html"
+            class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium"
+            >Services</a
+          >
+          <a
+            href="projects.html"
+            class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium"
+            >Projects</a
+          >
+          <a
+            href="contact.html"
+            class="block bg-gradient-to-r from-teal-500 to-green-400 text-white px-3 py-2 rounded-md text-base font-medium shadow-md"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- ✅ Hero Section -->
+    <section class="pt-8 md:pt-12 pb-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative overflow-hidden rounded-lg ">
+          <!-- Slides Wrapper -->
+          <div
+            id="hero-slider"
+            class="flex transition-transform duration-700 ease-in-out"
+          >
+            <!-- Slide 1 -->
+            <div
+              class="relative min-w-full flex items-center justify-start py-12 px-4"
+            >
+              <!-- Background Image with Gradient Overlay -->
+              <div
+                class="absolute top-0 left-0 w-full h-full bg-cover bg-center"
+                style="
+                  background-image: linear-gradient(
+                      to right,
+                      rgba(207, 249, 255, 0.995),
+                      rgba(126, 233, 174, 0)
+                    ),
+                    url('Images/banner1.png');
+                "
+              ></div>
+              <!-- Text Content -->
+              <div class="relative z-10 max-w-lg text-left animate-slideIn">
+                <h1 class="text-2xl md:text-4xl font-bold text-blue-900 mb-4">
+                  Empowering Sustainable Water Solutions
+                </h1>
+                <p class="text-base md:text-lg text-gray-700 mb-6">
+                  We provide innovative water and wastewater management
+                  solutions for industrial, municipal, and commercial clients
+                  worldwide.
+                </p>
+                <a
+                  href="contact.html"
+                  class="inline-block bg-[#0E5E8B] text-white px-6 py-2.5 rounded-md font-medium hover:bg-[#0A4569] transition duration-300"
+                >
+                  Get a Quote
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div
+              class="relative min-w-full flex items-center justify-start py-12 px-4"
+            >
+              <!-- Background Image with Gradient Overlay -->
+              <div
+                class="absolute top-0 left-0 w-full h-full bg-cover bg-center"
+                style="
+                  background-image: linear-gradient(
+                      to right,
+                      rgba(188, 236, 217, 0.95),
+                      rgba(243, 211, 155, 0)
+                    ),
+                    url('Images/banner2.png');
+                "
+              ></div>
+              <!-- Text Content -->
+              <div class="relative z-10 max-w-lg text-left animate-slideIn">
+                <h1 class="text-2xl md:text-4xl font-bold text-[#0A4569] mb-4">
+                  Innovative RO & STP Technologies
+                </h1>
+                <p class="text-base md:text-lg text-gray-700 mb-6">
+                  Advanced reverse osmosis and sewage treatment plants for pure,
+                  reusable water.
+                </p>
+                <a
+                  href="services.html"
+                  class="inline-block bg-[#0E5E8B] text-white px-6 py-2.5 rounded-md font-medium hover:bg-[#0A4569] transition duration-300"
+                >
+                  Explore Services
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div
+              class="relative min-w-full flex items-center justify-start py-12 px-4"
+            >
+              <!-- Background Image with Gradient Overlay -->
+              <div
+                class="absolute top-0 left-0 w-full h-full bg-cover bg-center"
+                style="
+                  background-image: linear-gradient(
+                      to right,
+                      rgba(195, 239, 223, 0.95),
+                      rgba(168, 230, 207, 0)
+                    ),
+                    url('Images/banner3.png');
+                "
+              ></div>
+              <!-- Text Content -->
+              <div class="relative z-10 max-w-lg text-left animate-slideIn">
+                <h1 class="text-2xl md:text-4xl font-bold text-blue-900 mb-4">
+                  Zero Liquid Discharge Solutions
+                </h1>
+                <p class="text-base md:text-lg text-gray-700 mb-6">
+                  Sustainable ZLD systems ensuring 100% water recovery and zero
+                  environmental impact.
+                </p>
+                <a
+                  href="services.html#zld"
+                  class="inline-block bg-[#0E5E8B] text-white px-6 py-2.5 rounded-md font-medium hover:bg-[#0A4569] transition duration-300"
+                >
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Dots -->
+          <div
+            class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3"
+          >
+            <button
+              onclick="currentSlide(0)"
+              class="w-3 h-3 bg-gray-400 rounded-full opacity-70 hover:opacity-100"
+              id="dot-0"
+            ></button>
+            <button
+              onclick="currentSlide(1)"
+              class="w-3 h-3 bg-gray-400 rounded-full opacity-70 hover:opacity-100"
+              id="dot-1"
+            ></button>
+            <button
+              onclick="currentSlide(2)"
+              class="w-3 h-3 bg-gray-400 rounded-full opacity-70 hover:opacity-100"
+              id="dot-2"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animation CSS -->
+    <style>
+      @keyframes slideIn {
+        0% {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .animate-slideIn {
+        animation: slideIn 1s ease-out forwards;
+      }
+    </style>
+
+    <!--About section-->
+    <section class="py-16 relative">
+      <!-- Background -->
+      <div class="absolute inset-0">
+        <!-- Gradient Background -->
+        <div
+          class="w-full h-full bg-white"
+        ></div>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-white/80"></div>
+      </div>
+
+      <!-- Content -->
+      <div
+        class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+      >
+        <!-- Image -->
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+            alt="Terrapure"
+            class="w-[600px] h-[350px] object-cover rounded-full shadow-2xl shadow-gray-800/70 mx-auto"
+          />
+        </div>
+
+        <!-- Text -->
+        <div>
+          <h2 class="text-3xl font-semibold  text-teal-800 mb-6">
+            About Terrapure
+          </h2>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Since 2014,
+            <span class="font-medium text-teal-700">
+              Terrapure Environment Services Pvt. Ltd.(formerly Earth Environment Services)
+            </span>
+            has been a trusted name in water and wastewater treatment. We
+            deliver
+            <span class="font-semibold font-alansans text-teal-700">
+              ETPs, STPs, WTPs, RO systems, ZLD, and recycling technologies
+            </span>
+            that keep industries compliant, communities healthy, and the
+            environment safe.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Our mission is to provide sustainable, technology-driven solutions
+            that reduce waste, recycle water, and move industries closer to zero
+            liquid discharge.
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            Led by
+            <span class="font-semibold text-teal-700">
+              Mr. Dhairyashil Gaud </span
+            >, with 35+ years of engineering experience, our team is committed
+            to innovation, precision, and sustainability.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="relative py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Section Heading -->
+    <h2 class="text-3xl font-bold font-alansans text-center text-teal-800 mb-12">
+      Our Achievements
+    </h2>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      
+      <!-- Card 1 -->
+      <div class="rounded-2xl p-8 relative hover:translate-y-2 transition-transform duration-300 border-2 border-dashed border-gray-400 flex flex-col items-center text-center"
+           style="background: radial-gradient(circle at center, #ffffff 70%, #ddf4e7 100%);">
+        <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-teal-700 font-bold">01</div>
+        </div>
+        <h3 class="mt-6 text-xl font-semibold text-teal-800">100+ Projects</h3>
+        <p class="mt-2 text-gray-700 text-sm">
+          Successfully completed projects across diverse sectors with high client satisfaction.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="rounded-2xl p-8 relative hover:translate-y-2 transition-transform duration-300 border-2 border-dashed border-gray-400 flex flex-col items-center text-center"
+           style="background: radial-gradient(circle at center, #ffffff 70%, #ddf4e7 100%);">
+        <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-teal-700 font-bold">02</div>
+        </div>
+        <h3 class="mt-6 text-xl font-semibold text-teal-800">11+ Years Experience</h3>
+        <p class="mt-2 text-gray-700 text-sm">
+          Over a decade of proven expertise in designing and delivering water & wastewater solutions.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="rounded-2xl p-8 relative hover:translate-y-2 transition-transform duration-300 border-2 border-dashed border-gray-400 flex flex-col items-center text-center"
+           style="background: radial-gradient(circle at center, #ffffff 70%, #ddf4e7 100%);">
+        <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-teal-700 font-bold">03</div>
+        </div>
+        <h3 class="mt-6 text-xl font-semibold text-teal-800">Government Certified</h3>
+        <p class="mt-2 text-gray-700 text-sm">
+          Properly authorized and certified under government standards for environmental compliance.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="rounded-2xl p-8 relative hover:translate-y-2 transition-transform duration-300 border-2 border-dashed border-gray-400 flex flex-col items-center text-center"
+           style="background: radial-gradient(circle at center, #ffffff 70%, #ddf4e7 100%);">
+        <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-teal-700 font-bold">04</div>
+        </div>
+        <h3 class="mt-6 text-xl font-semibold text-teal-800">10+ Industries Served</h3>
+        <p class="mt-2 text-gray-700 text-sm">
+          Delivering customized water and wastewater solutions across multiple industry sectors.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- Core Services Section -->
+   <section class="py-10 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl md:text-3xl font-bold text-center text-teal-800 mb-6">
+      Core Services
+    </h2>
+
+    <div class="flex flex-wrap justify-center gap-4">
+      <!-- RO Plants -->
+      <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 flex items-center space-x-4 p-4 w-full sm:w-[48%] lg:w-[23%] text-left">
+        <div class="w-16 h-16 bg-[#A8E6CF] rounded-full flex items-center justify-center text-white text-2xl">
+          <i class="fas fa-tint"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-1">RO Plants</h3>
+          <p class="text-gray-600 text-sm mb-1">
+            Municipal, industrial, commercial, and residential water purification solutions.
+          </p>
+          <a href="services.html#ro" class="text-teal-700 font-medium hover:underline text-sm">Learn More</a>
+        </div>
+      </div>
+
+      <!-- STP -->
+      <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 flex items-center space-x-4 p-4 w-full sm:w-[48%] lg:w-[23%] text-left">
+        <div class="w-16 h-16 bg-[#A3D5F7] rounded-full flex items-center justify-center text-white text-2xl">
+          <i class="fas fa-recycle"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-1">STP</h3>
+          <p class="text-gray-600 text-sm mb-1">
+            Sewage treatment plants for agriculture, construction, and community use.
+          </p>
+          <a href="services.html#stp" class="text-teal-700 font-medium hover:underline text-sm">Learn More</a>
+        </div>
+      </div>
+
+      <!-- ZLD Systems -->
+      <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 flex items-center space-x-4 p-4 w-full sm:w-[48%] lg:w-[23%] text-left">
+        <div class="w-16 h-16 bg-[#FFD3BD] rounded-full flex items-center justify-center text-white text-2xl">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-1">ZLD Systems</h3>
+          <p class="text-gray-600 text-sm mb-1">
+            Zero Liquid Discharge systems for sustainable wastewater management.
+          </p>
+          <a href="services.html#zld" class="text-teal-700 font-medium hover:underline text-sm">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Water Softeners -->
+      <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 flex items-center space-x-4 p-4 w-full sm:w-[48%] lg:w-[23%] text-left">
+        <div class="w-16 h-16 bg-[#A8E6CF] rounded-full flex items-center justify-center text-white text-2xl">
+          <i class="fas fa-hand-holding-water"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800 mb-1">Water Softeners</h3>
+          <p class="text-gray-600 text-sm mb-1">
+            Residential and commercial water softening solutions for better water quality.
+          </p>
+          <a href="services.html#softeners" class="text-teal-700 font-medium hover:underline text-sm">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Industries Served -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+          Industries Served
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="bg-gray-100 p-6 rounded-lg text-center">
+            <i class="fas fa-city text-4xl text-[#0E5E8B] mb-3"></i>
+            <h3 class="font-medium text-gray-800">Municipal</h3>
+          </div>
+          <div class="bg-gray-100 p-6 rounded-lg text-center">
+            <i class="fas fa-industry text-4xl text-[#0E5E8B] mb-3"></i>
+            <h3 class="font-medium text-gray-800">Industrial</h3>
+          </div>
+          <div class="bg-gray-100 p-6 rounded-lg text-center">
+            <i class="fas fa-hospital text-4xl text-[#0E5E8B] mb-3"></i>
+            <h3 class="font-medium text-gray-800">Healthcare</h3>
+          </div>
+          <div class="bg-gray-100 p-6 rounded-lg text-center">
+            <i class="fas fa-hotel text-4xl text-[#0E5E8B] mb-3"></i>
+            <h3 class="font-medium text-gray-800">Hospitality</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">Terrapure</h3>
+            <p class="mb-4">
+              Vishv-parvati building, above Canara Bank, Bijalinagar Chinchwad,
+              Pune
+            </p>
+            <p class="mb-2">
+              <i class="fas fa-phone mr-2"></i> 8080473916 / 9370812640
+            </p>
+            <p><i class="fas fa-envelope mr-2"></i> info@terrapure.com</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="index.html" class="hover:text-[#A8E6CF]">Home</a>
+              </li>
+              <li>
+                <a href="about.html" class="hover:text-[#A8E6CF]">About Us</a>
+              </li>
+              <li>
+                <a href="services.html" class="hover:text-[#A8E6CF]"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a href="projects.html" class="hover:text-[#A8E6CF]"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a href="contact.html" class="hover:text-[#A8E6CF]">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Our Services</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="services.html#ro" class="hover:text-[#A8E6CF]"
+                  >RO Plants</a
+                >
+              </li>
+              <li>
+                <a href="services.html#stp" class="hover:text-[#A8E6CF]"
+                  >Sewage Treatment</a
+                >
+              </li>
+              <li>
+                <a href="services.html#etp" class="hover:text-[#A8E6CF]"
+                  >Effluent Treatment</a
+                >
+              </li>
+              <li>
+                <a href="services.html#zld" class="hover:text-[#A8E6CF]"
+                  >ZLD Systems</a
+                >
+              </li>
+              <li>
+                <a href="services.html#softeners" class="hover:text-[#A8E6CF]"
+                  >Water Softeners</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+          <p>&copy; 2025 Terrapure. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      let currentHeroSlide = 0;
+      const heroSlides = document.querySelectorAll("#hero-slider > div");
+      const heroDots = document.querySelectorAll('[onclick^="currentSlide"]');
+
+      function showHeroSlide(n) {
+        currentHeroSlide = (n + heroSlides.length) % heroSlides.length;
+        document.getElementById("hero-slider").style.transform = `translateX(-${
+          currentHeroSlide * 100
+        }%)`;
+        heroDots.forEach((dot) => dot.classList.remove("opacity-100"));
+        heroDots[currentHeroSlide].classList.add("opacity-100");
+      }
+
+      function nextHeroSlide() {
+        showHeroSlide(currentHeroSlide + 1);
+      }
+
+      // Auto-scroll every 5 seconds
+      setInterval(nextHeroSlide, 5000);
+
+      // Init first slide
+      showHeroSlide(0);
+
+      // Manual dot click
+      function currentSlide(n) {
+        showHeroSlide(n - 1);
+      }
+    </script>
+  </body>
+</html>
