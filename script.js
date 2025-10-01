@@ -1,71 +1,82 @@
 // script.js
 
 // Mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
+ // Mobile menu functionality
+  document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-        });
+    const mobileServicesToggle = document.getElementById('mobile-services-toggle');
+    const mobileServicesMenu = document.getElementById('mobile-services-menu');
+    const servicesArrow = document.getElementById('services-arrow');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const crossIcon = document.getElementById('cross-icon');
+
+    // Function to toggle menu icons
+    function toggleMenuIcons(isMenuOpen) {
+      if (isMenuOpen) {
+        hamburgerIcon.classList.add('hidden');
+        crossIcon.classList.remove('hidden');
+      } else {
+        hamburgerIcon.classList.remove('hidden');
+        crossIcon.classList.add('hidden');
+      }
     }
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
+
+    // Function to close mobile menu
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+      mobileServicesMenu.classList.add('hidden');
+      servicesArrow.classList.remove('rotate-180');
+      toggleMenuIcons(false);
+    }
+
+    // Function to open mobile menu
+    function openMobileMenu() {
+      mobileMenu.classList.remove('hidden');
+      toggleMenuIcons(true);
+    }
+
+    // Toggle mobile menu
+    mobileMenuButton.addEventListener('click', function() {
+      if (mobileMenu.classList.contains('hidden')) {
+        openMobileMenu();
+      } else {
+        closeMobileMenu();
+      }
     });
-    
-    // Form validation for contact page
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            if (validateForm()) {
-                // Form is valid, you can submit it here
-                alert('Form submitted successfully!');
-                contactForm.reset();
-            }
-        });
-    }
-    
-    // Projects filtering
-    const filterButtons = document.querySelectorAll('.project-filter');
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    if (filterButtons.length > 0 && projectCards.length > 0) {
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const filter = this.getAttribute('data-filter');
-                
-                // Update active button
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Filter projects
-                projectCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-    }
-});
+
+    // Toggle mobile services dropdown
+    mobileServicesToggle.addEventListener('click', function(e) {
+      e.stopPropagation(); // Prevent event bubbling
+      mobileServicesMenu.classList.toggle('hidden');
+      servicesArrow.classList.toggle('rotate-180');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const isClickInsideNav = document.querySelector('nav').contains(event.target);
+      const isClickInsideMobileMenu = mobileMenu.contains(event.target);
+      
+      if (!isClickInsideNav && !isClickInsideMobileMenu) {
+        closeMobileMenu();
+      }
+    });
+
+    // Close services dropdown when clicking on a service link
+    const serviceLinks = mobileServicesMenu.querySelectorAll('a');
+    serviceLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        closeMobileMenu();
+      });
+    });
+
+    // Close menu when window is resized to desktop size
+    window.addEventListener('resize', function() {
+      if (window.innerWidth >= 768) {
+        closeMobileMenu();
+      }
+    });
+  });
 
 function validateForm() {
     const name = document.getElementById('name');
@@ -112,3 +123,34 @@ function isValidEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
 }
+
+
+//hero slider 
+      let currentHeroSlide = 0;
+      const heroSlides = document.querySelectorAll("#hero-slider > div");
+      const heroDots = document.querySelectorAll('[onclick^="currentSlide"]');
+
+      function showHeroSlide(n) {
+        currentHeroSlide = (n + heroSlides.length) % heroSlides.length;
+        document.getElementById("hero-slider").style.transform = `translateX(-${
+          currentHeroSlide * 100
+        }%)`;
+        heroDots.forEach((dot) => dot.classList.remove("opacity-100"));
+        heroDots[currentHeroSlide].classList.add("opacity-100");
+      }
+
+      function nextHeroSlide() {
+        showHeroSlide(currentHeroSlide + 1);
+      }
+
+      // Auto-scroll every 5 seconds
+      setInterval(nextHeroSlide, 5000);
+
+      // Init first slide
+      showHeroSlide(0);
+
+      // Manual dot click
+      function currentSlide(n) {
+        showHeroSlide(n - 1);
+      }
+    
