@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Case Studies - Terrapure Environment Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0d9488 0%, #059669 100%);
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .industry-btn.active {
+            background-color: #0d9488;
+            color: white;
+        }
+        .project-detail {
+            display: none;
+        }
+        .project-detail.active {
+            display: block;
+        }
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-auto-rows: 250px;
+            grid-gap: 25px;
+        }
+        .masonry-item {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+        .masonry-item:nth-child(3n) {
+            grid-row: span 2;
+        }
+        .masonry-item:nth-child(5n) {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="backdrop-blur-md bg-white/70 shadow-md w-full border-b border-teal-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center ml-4">
+                        <img
+                            src="Images/Logo.png"
+                            alt="Terrapure Logo"
+                            class="h-16 w-auto mr-2 rounded-md"
+                        />
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a
+                        href="index.html"
+                        class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors"
+                        >Home</a
+                    >
+                    <a
+                        href="about.html"
+                        class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors"
+                        >About</a
+                    >
+                    
+                    <!-- Services Dropdown -->
+                    <div class="relative group">
+                        <button class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors flex items-center">
+                            Services
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 top-full mt-0 w-56 bg-white/95 backdrop-blur-md rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-teal-100 transform translate-y-2 group-hover:translate-y-0">
+                            <div class="py-2">
+                                <a
+                                    href="services.html#ro"
+                                    class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                                    >RO Plants</a
+                                >
+                                <a
+                                    href="services.html#stp"
+                                    class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                                    >Sewage Treatment</a
+                                >
+                                <a
+                                    href="services.html#etp"
+                                    class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                                    >Effluent Treatment</a
+                                >
+                                <a
+                                    href="services.html#zld"
+                                    class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                                    >ZLD Systems</a
+                                >
+                                <a
+                                    href="services.html#softeners"
+                                    class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                                    >Water Softeners</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <a
+                        href="projects.html"
+                        class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors border-b-2 border-teal-500"
+                        >Projects</a
+                    >
+                    <a
+                        href="contact.html"
+                        class="bg-gradient-to-r from-teal-500 to-green-400 text-white px-5 py-2 rounded-full text-sm font-medium hover:from-teal-600 hover:to-green-500 shadow-md transition-all"
+                        >Contact</a
+                    >
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button
+                        id="mobile-menu-button"
+                        class="text-teal-800 hover:bg-teal-100 p-2 rounded-md transition"
+                    >
+                        <i id="hamburger-icon" class="fas fa-bars text-2xl"></i>
+                        <i id="cross-icon" class="fas fa-times text-2xl hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 right-0 z-50">
+            <div class="px-4 pt-4 pb-6 space-y-2 bg-white/95 backdrop-blur-md shadow-md rounded-b-lg relative border-t border-teal-100">
+                <a
+                    href="index.html"
+                    class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50"
+                    >Home</a
+                >
+                <a
+                    href="about.html"
+                    class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50"
+                    >About</a
+                >
+                
+                <!-- Mobile Services Dropdown -->
+                <div class="pt-2">
+                    <button id="mobile-services-toggle" class="w-full text-left text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors flex justify-between items-center rounded-md hover:bg-teal-50">
+                        <span>Services</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300" id="services-arrow"></i>
+                    </button>
+                    <div id="mobile-services-menu" class="hidden pl-6 space-y-2 mt-2 border-l-2 border-teal-200 ml-3">
+                        <a
+                            href="services.html#ro"
+                            class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50"
+                            >RO Plants</a
+                        >
+                        <a
+                            href="services.html#stp"
+                            class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50"
+                            >Sewage Treatment</a
+                        >
+                        <a
+                            href="services.html#etp"
+                            class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50"
+                            >Effluent Treatment</a
+                        >
+                        <a
+                            href="services.html#zld"
+                            class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50"
+                            >ZLD Systems</a
+                        >
+                        <a
+                            href="services.html#softeners"
+                            class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50"
+                            >Water Softeners</a
+                        >
+                    </div>
+                </div>
+
+                <a
+                    href="projects.html"
+                    class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50 bg-teal-50"
+                    >Projects</a
+                >
+                <a
+                    href="contact.html"
+                    class="block bg-gradient-to-r from-teal-500 to-green-400 text-white px-3 py-2 rounded-md text-base font-medium shadow-md text-center hover:from-teal-600 hover:to-green-500 transition-all mt-4"
+                    >Contact</a
+                >
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient py-20 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Projects & Case Studies</h1>
+                <p class="text-xl max-w-3xl mx-auto opacity-90">Showcasing sustainable environmental solutions worldwide</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Filter -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Browse by Industry</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Select an industry to view our projects and case studies</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button class="industry-btn bg-teal-100 text-teal-800 px-6 py-3 rounded-lg font-medium hover:bg-teal-200 transition-colors active" data-industry="all">All Projects</button>
+                <button class="industry-btn bg-gray-100 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors" data-industry="industrial">Industrial</button>
+                <button class="industry-btn bg-gray-100 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors" data-industry="municipal">Municipal</button>
+                <button class="industry-btn bg-gray-100 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors" data-industry="healthcare">Healthcare</button>
+                <button class="industry-btn bg-gray-100 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors" data-industry="educational">Educational</button>
+                <button class="industry-btn bg-gray-100 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors" data-industry="commercial">Commercial</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="masonry-grid" id="projects-grid">
+                <!-- Project 1 -->
+                <div class="masonry-item project-card" data-industry="municipal">
+                    <div class="h-full bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+                        <div class="absolute inset-0 bg-black/40 hover:bg-black/20 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm mb-2 self-start">Municipal</span>
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm mb-2 self-start">#A3UF</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Urban Water Reclamation Project</h3>
+                            <p class="text-white/80 text-sm mb-4">Innovative wastewater treatment system for urban areas</p>
+                            <button class="view-details-btn bg-white text-teal-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 self-start" data-project="project1">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="masonry-item project-card" data-industry="industrial">
+                    <div class="h-full bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+                        <div class="absolute inset-0 bg-black/40 hover:bg-black/20 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm mb-2 self-start">Industrial</span>
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm mb-2 self-start">#R5B6V</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Industrial ZLD System</h3>
+                            <p class="text-white/80 text-sm mb-4">Advanced zero liquid discharge technology</p>
+                            <button class="view-details-btn bg-white text-blue-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 self-start" data-project="project2">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="masonry-item project-card" data-industry="healthcare">
+                    <div class="h-full bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+                        <div class="absolute inset-0 bg-black/40 hover:bg-black/20 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm mb-2 self-start">Healthcare</span>
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm mb-2 self-start">#AD6F</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Hospital Purification System</h3>
+                            <p class="text-white/80 text-sm mb-4">Medical-grade water treatment system</p>
+                            <button class="view-details-btn bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 self-start" data-project="project3">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="masonry-item project-card" data-industry="educational">
+                    <div class="h-full bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+                        <div class="absolute inset-0 bg-black/40 hover:bg-black/20 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm mb-2 self-start">Educational</span>
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm mb-2 self-start">#ED7B</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Campus Water Management</h3>
+                            <p class="text-white/80 text-sm mb-4">Sustainable water solutions for education</p>
+                            <button class="view-details-btn bg-white text-orange-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 self-start" data-project="project4">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="masonry-item project-card" data-industry="commercial">
+                    <div class="h-full bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+                        <div class="absolute inset-0 bg-black/40 hover:bg-black/20 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm mb-2 self-start">Commercial</span>
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm mb-2 self-start">#CM9A</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Commercial Water Recycling</h3>
+                            <p class="text-white/80 text-sm mb-4">Water recycling for commercial complexes</p>
+                            <button class="view-details-btn bg-white text-green-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 self-start" data-project="project5">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="masonry-item project-card" data-industry="municipal">
+                    <div class="h-full bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+                        <div class="absolute inset-0 bg-black/40 hover:bg-black/20 transition-all duration-300 flex flex-col justify-end p-6">
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm mb-2 self-start">Municipal</span>
+                            <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm mb-2 self-start">#M2C8</span>
+                            <h3 class="text-white text-xl font-bold mb-2">Sewage Treatment Upgrade</h3>
+                            <p class="text-white/80 text-sm mb-4">Municipal plant modernization</p>
+                            <button class="view-details-btn bg-white text-cyan-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 self-start" data-project="project6">
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Project 1 Details -->
+            <div id="project1" class="project-detail">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <div class="mb-6">
+                            <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Municipal</span>
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium ml-2">#A3UF</span>
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4">Urban Water Reclamation Project #A3UF</h2>
+                        <div class="flex items-center text-gray-600 mb-6">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>New York, USA</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 text-lg">Innovative wastewater treatment system for urban areas with advanced filtration technology, designed to handle high-volume municipal wastewater while maximizing water reuse.</p>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Challenge</h3>
+                            <p class="text-gray-600 mb-4">High urban water consumption with limited freshwater resources and aging infrastructure unable to meet current demand.</p>
+                            <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                                <li>Outdated treatment facilities</li>
+                                <li>Increasing population pressure</li>
+                                <li>Stringent environmental regulations</li>
+                                <li>High operational costs</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-teal-50 p-6 rounded-lg mb-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Solution</h3>
+                            <p class="text-gray-600 mb-4">Implementation of advanced MBR technology with integrated water reclamation system.</p>
+                            <ul class="text-gray-600 list-disc pl-5 space-y-2">
+                                <li>Membrane Bioreactor (MBR) technology</li>
+                                <li>Advanced filtration systems</li>
+                                <li>Real-time monitoring and control</li>
+                                <li>Energy-efficient design</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 mb-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Project Results</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-center p-4 bg-teal-50 rounded-lg">
+                                    <div class="text-3xl font-bold text-teal-700 mb-1">85%</div>
+                                    <div class="text-sm text-gray-600">Water Saved</div>
+                                </div>
+                                <div class="text-center p-4 bg-green-50 rounded-lg">
+                                    <div class="text-3xl font-bold text-green-700 mb-1">40%</div>
+                                    <div class="text-sm text-gray-600">Cost Reduction</div>
+                                </div>
+                                <div class="text-center p-4 bg-blue-50 rounded-lg">
+                                    <div class="text-3xl font-bold text-blue-700 mb-1">95%</div>
+                                    <div class="text-sm text-gray-600">Efficiency</div>
+                                </div>
+                                <div class="text-center p-4 bg-purple-50 rounded-lg">
+                                    <div class="text-3xl font-bold text-purple-700 mb-1">12</div>
+                                    <div class="text-sm text-gray-600">Months</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Client Testimonial</h3>
+                            <div class="flex items-start mb-4">
+                                <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-user text-teal-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 italic mb-2">"Terrapure Environment Services transformed our municipal water operations. Their innovative approach and technical expertise delivered results beyond our expectations."</p>
+                                    <p class="text-gray-800 font-medium">- John Smith, City Water Director</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-calendar-alt mr-2"></i>
+                                <span>Project Duration: 12 months</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 Details -->
+            <div id="project2" class="project-detail">
+                <!-- Similar structure for project 2 details -->
+                <div class="text-center py-12">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Industrial Water Treatment Project Details</h3>
+                    <p class="text-gray-600">Detailed information about the industrial project would be displayed here.</p>
+                </div>
+            </div>
+
+            <!-- Project 3 Details -->
+            <div id="project3" class="project-detail">
+                <!-- Similar structure for project 3 details -->
+                <div class="text-center py-12">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Healthcare Water Purification Project Details</h3>
+                    <p class="text-gray-600">Detailed information about the healthcare project would be displayed here.</p>
+                </div>
+            </div>
+
+            <!-- Back to Projects Button -->
+            <div class="text-center mt-12">
+                <button id="back-to-projects" class="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to All Projects
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative bg-gradient-to-br from-teal-800 to-green-900 text-white pt-16 pb-8">
+        <!-- Top Border Curve -->
+        <div class="absolute top-0 left-0 right-0 h-8 bg-white rounded-b-full"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info with Logo and Address -->
+                <div class="md:col-span-1">
+                    <div class="mb-6">
+                        <img src="Images/Logo.png" alt="Terrapure Logo" class="h-20 bg-white p-2 rounded-lg shadow-md" />
+                    </div>
+                    <p class="text-teal-100 mb-4 text-sm leading-relaxed">
+                        Leading environmental solutions provider specializing in water and wastewater treatment systems for sustainable future.
+                    </p>
+                    <div class="text-teal-100 text-sm">
+                        <p class="font-semibold mb-2">Office Address:</p>
+                        <a
+                            href="https://maps.google.com/?q=Office+No.+301,+7+Bizz+Sonigara+Business+Complex,+Ravet+BRT+Road,+Pune+412101"
+                            target="_blank"
+                            class="hover:text-white transition-colors block"
+                        >
+                            Office No. 301, 7 Bizz Sonigara Business Complex,<br />
+                            Ravet BRT Road, Pune – 412101,<br />
+                            Maharashtra, India.
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2">
+                        Quick Links
+                    </h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a
+                                href="index.html"
+                                class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                            >
+                                <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="about.html"
+                                class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                            >
+                                <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="services.html"
+                                class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                            >
+                                <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="projects.html"
+                                class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                            >
+                                <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="contact.html"
+                                class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                            >
+                                <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Our Services -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2">
+                        Our Services
+                    </h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a
+                                href="services.html#ro"
+                                class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                            >
+                                <i class="fas fa-tint text-xs mr-2"></i>
+                                RO Plants
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="services.html#stp"
+                                class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                            >
+                                <i class="fas fa-recycle text-xs mr-2"></i>
+                                Sewage Treatment
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="services.html#etp"
+                                class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                            >
+                                <i class="fas fa-industry text-xs mr-2"></i>
+                                Effluent Treatment
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="services.html#zld"
+                                class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                            >
+                                <i class="fas fa-infinity text-xs mr-2"></i>
+                                ZLD Systems
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="services.html#softeners"
+                                class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                            >
+                                <i class="fas fa-filter text-xs mr-2"></i>
+                                Water Softeners
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Connect With Us -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2">
+                        Connect With Us
+                    </h3>
+                    <div class="space-y-4">
+                        <!-- Phone Numbers -->
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-teal-700 rounded-full flex items-center justify-center mr-3 mt-1">
+                                <i class="fas fa-phone text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <a
+                                    href="tel:+919921174727"
+                                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
+                                    >+91 9921174727</a
+                                >
+                                <a
+                                    href="tel:+917507082185"
+                                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
+                                    >+91 7507082185</a
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Email Addresses -->
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-teal-700 rounded-full flex items-center justify-center mr-3 mt-1">
+                                <i class="fas fa-envelope text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <a
+                                    href="mailto:enquiry@tpes.in"
+                                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
+                                    >enquiry@tpes.in</a
+                                >
+                                <a
+                                    href="mailto:info@tpes.in"
+                                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
+                                    >info@tpes.in</a
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Social Media Icons -->
+                        <div class="pt-2">
+                            <p class="text-teal-100 text-sm mb-3">Follow us on:</p>
+                            <div class="flex space-x-3">
+                                <a
+                                    href="#"
+                                    class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
+                                    title="Facebook"
+                                >
+                                    <i class="fab fa-facebook-f text-white"></i>
+                                </a>
+                                <a
+                                    href="#"
+                                    class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
+                                    title="Twitter"
+                                >
+                                    <i class="fab fa-twitter text-white"></i>
+                                </a>
+                                <a
+                                    href="#"
+                                    class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
+                                    title="LinkedIn"
+                                >
+                                    <i class="fab fa-linkedin-in text-white"></i>
+                                </a>
+                                <a
+                                    href="#"
+                                    class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
+                                    title="Instagram"
+                                >
+                                    <i class="fab fa-instagram text-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="border-t border-teal-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="text-teal-200 text-sm text-center md:text-left">
+                        <p>&copy; 2025 Terrapure Environment Services Pvt. Ltd. All rights reserved.</p>
+                    </div>
+                    <div class="flex space-x-6 text-sm text-teal-200">
+                        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                        <a href="#" class="hover:text-white transition-colors">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileServicesToggle = document.getElementById('mobile-services-toggle');
+            const mobileServicesMenu = document.getElementById('mobile-services-menu');
+            const servicesArrow = document.getElementById('services-arrow');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const crossIcon = document.getElementById('cross-icon');
+
+            // Function to toggle menu icons
+            function toggleMenuIcons(isMenuOpen) {
+                if (isMenuOpen) {
+                    hamburgerIcon.classList.add('hidden');
+                    crossIcon.classList.remove('hidden');
+                } else {
+                    hamburgerIcon.classList.remove('hidden');
+                    crossIcon.classList.add('hidden');
+                }
+            }
+
+            // Function to close mobile menu
+            function closeMobileMenu() {
+                mobileMenu.classList.add('hidden');
+                mobileServicesMenu.classList.add('hidden');
+                servicesArrow.classList.remove('rotate-180');
+                toggleMenuIcons(false);
+            }
+
+            // Function to open mobile menu
+            function openMobileMenu() {
+                mobileMenu.classList.remove('hidden');
+                toggleMenuIcons(true);
+            }
+
+            // Toggle mobile menu
+            mobileMenuButton.addEventListener('click', function() {
+                if (mobileMenu.classList.contains('hidden')) {
+                    openMobileMenu();
+                } else {
+                    closeMobileMenu();
+                }
+            });
+
+            // Toggle mobile services dropdown
+            mobileServicesToggle.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent event bubbling
+                mobileServicesMenu.classList.toggle('hidden');
+                servicesArrow.classList.toggle('rotate-180');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const isClickInsideNav = document.querySelector('nav').contains(event.target);
+                const isClickInsideMobileMenu = mobileMenu.contains(event.target);
+                
+                if (!isClickInsideNav && !isClickInsideMobileMenu) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Close services dropdown when clicking on a service link
+            const serviceLinks = mobileServicesMenu.querySelectorAll('a');
+            serviceLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    closeMobileMenu();
+                });
+            });
+
+            // Close menu when window is resized to desktop size
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Industry Filter Functionality
+            const industryButtons = document.querySelectorAll('.industry-btn');
+            const projectCards = document.querySelectorAll('.masonry-item');
+            
+            industryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    industryButtons.forEach(btn => btn.classList.remove('active', 'bg-teal-100', 'text-teal-800'));
+                    industryButtons.forEach(btn => btn.classList.add('bg-gray-100', 'text-gray-800'));
+                    
+                    // Add active class to clicked button
+                    this.classList.remove('bg-gray-100', 'text-gray-800');
+                    this.classList.add('active', 'bg-teal-100', 'text-teal-800');
+                    
+                    const industry = this.getAttribute('data-industry');
+                    
+                    // Show/hide projects based on industry
+                    projectCards.forEach(card => {
+                        if (industry === 'all' || card.getAttribute('data-industry') === industry) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Project Details Functionality
+            const viewDetailsButtons = document.querySelectorAll('.view-details-btn');
+            const projectDetails = document.querySelectorAll('.project-detail');
+            const backToProjectsButton = document.getElementById('back-to-projects');
+            const projectsGridSection = document.querySelector('.bg-gray-50');
+            const projectDetailsSection = document.querySelector('.bg-white');
+            
+            // Initially hide all project details
+            projectDetails.forEach(detail => {
+                detail.classList.remove('active');
+            });
+            
+            viewDetailsButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const projectId = this.getAttribute('data-project');
+                    
+                    // Hide projects grid
+                    projectsGridSection.style.display = 'none';
+                    
+                    // Show project details section
+                    projectDetailsSection.style.display = 'block';
+                    
+                    // Hide all project details
+                    projectDetails.forEach(detail => {
+                        detail.classList.remove('active');
+                    });
+                    
+                    // Show selected project details
+                    document.getElementById(projectId).classList.add('active');
+                    
+                    // Scroll to project details
+                    projectDetailsSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            backToProjectsButton.addEventListener('click', function() {
+                // Show projects grid
+                projectsGridSection.style.display = 'block';
+                
+                // Hide project details section
+                projectDetailsSection.style.display = 'none';
+                
+                // Scroll to projects grid
+                projectsGridSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

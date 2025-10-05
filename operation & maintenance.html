@@ -1,0 +1,701 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operation & Maintenance - Terrapure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Top Info Bar -->
+    <div class="bg-gradient-to-r from-green-500 to-teal-600 text-white text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between py-1 sm:py-2">
+                <!-- Contact Info -->
+                <div class="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-6 text-center sm:text-left">
+                    <a href="mailto:enquiry@tpes.in" class="flex items-center space-x-2 hover:text-gray-200 transition">
+                        <i class="fas fa-envelope"></i>
+                        <span>enquiry@tpes.in</span>
+                    </a>
+                    <a href="tel:+91 9921174727" class="flex items-center space-x-2 hover:text-gray-200 transition">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 9921174727 / 7507082185</span>
+                    </a>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="flex space-x-4 mt-2 sm:mt-0">
+                    <a href="#" class="hover:text-gray-200 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-gray-200 transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-gray-200 transition"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="hover:text-gray-200 transition"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="backdrop-blur-md bg-white/70 shadow-md w-full border-b border-teal-200 relative z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center ml-4">
+                        <img src="Images/Logo.png" alt="Terrapure Logo" class="h-16 mt-2 w-auto mr-2 rounded-md" />
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                    <a href="about.html" class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
+
+                    <!-- Services Dropdown -->
+                    <div class="relative group">
+                        <button class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors flex items-center">
+                            Services
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 top-full mt-0 w-56 bg-white/95 backdrop-blur-md rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-teal-100 transform translate-y-2 group-hover:translate-y-0">
+                            <div class="py-2">
+                                <a href="services.html#ro" class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">RO Plants</a>
+                                <a href="services.html#stp" class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Sewage Treatment</a>
+                                <a href="services.html#etp" class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Effluent Treatment</a>
+                                <a href="services.html#zld" class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">ZLD Systems</a>
+                                <a href="services.html#softeners" class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Water Softeners</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="career.html" class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">Career</a>
+                    <a href="contact.html" class="bg-gradient-to-r from-teal-500 to-green-400 text-white px-5 py-2 rounded-full text-sm font-medium hover:from-teal-600 hover:to-green-500 shadow-md transition-all">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-teal-800 hover:bg-teal-100 p-2 rounded-md transition">
+                        <!-- Hamburger Icon (visible by default) -->
+                        <i id="hamburger-icon" class="fas fa-bars text-2xl"></i>
+                        <!-- Cross Icon (hidden by default) -->
+                        <i id="cross-icon" class="fas fa-times text-2xl hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 right-0 z-50">
+            <div class="px-4 pt-4 pb-6 space-y-2 bg-white/95 backdrop-blur-md shadow-md rounded-b-lg relative border-t border-teal-100">
+                <a href="index.html" class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50">Home</a>
+                <a href="about.html" class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50">About</a>
+
+                <!-- Mobile Services Dropdown -->
+                <div class="pt-2">
+                    <button id="mobile-services-toggle" class="w-full text-left text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors flex justify-between items-center rounded-md hover:bg-teal-50">
+                        <span>Services</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300" id="services-arrow"></i>
+                    </button>
+                    <div id="mobile-services-menu" class="hidden pl-6 space-y-2 mt-2 border-l-2 border-teal-200 ml-3">
+                        <a href="services.html#ro" class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">RO Plants</a>
+                        <a href="services.html#stp" class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Sewage Treatment</a>
+                        <a href="services.html#etp" class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Effluent Treatment</a>
+                        <a href="services.html#zld" class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">ZLD Systems</a>
+                        <a href="services.html#softeners" class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Water Softeners</a>
+                    </div>
+                </div>
+
+                <a href="career.html" class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50">Career</a>
+                <a href="contact.html" class="block bg-gradient-to-r from-teal-500 to-green-400 text-white px-3 py-2 rounded-md text-base font-medium shadow-md text-center hover:from-teal-600 hover:to-green-500 transition-all mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner for Operation & Maintenance -->
+    <section class="relative h-96 bg-cover bg-center bg-no-repeat" style="background-image: url('');">
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-black/60"></div>
+        
+        <!-- Watermark Headings -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-white opacity-10 pointer-events-none">
+            <h1 class="text-9xl font-bold tracking-widest drop-shadow-2xl">Operation & Maintenance</h1>
+            <p class="text-5xl font-light mt-4 tracking-wide drop-shadow-2xl">Ensuring Optimal Performance</p>
+        </div>
+        
+        <!-- Content Overlay for Button -->
+        <div class="absolute bottom-8 left-8 z-10">
+            <!-- Request a Quote Button -->
+            <a href="contact.html" class="bg-gradient-to-r from-teal-500 to-green-400 hover:from-teal-600 hover:to-green-500 text-white font-semibold py-4 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-lg">
+                <i class="fas fa-file-alt mr-2"></i>Contact us
+            </a>
+        </div>
+    </section>
+
+    <!-- Operation & Maintenance Overview Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-teal-900 mb-6">Operation & Maintenance Services</h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-4">An Annual Maintenance Contract (AMC) from Terrapure is the key to a water treatment plant's long-term health and efficiency. Our renowned service, synonymous with quality in the water treatment industry, guarantees year-round peak performance.</p>
+                    <p class="text-gray-700 text-lg leading-relaxed">The water and wastewater industries are embracing automation for a reason: it paves the way for predictive maintenance. At Terrapure, we leverage the power of automation to transform your operations.</p>
+                </div>
+                <div class="bg-teal-50 p-8 rounded-lg">
+                    <img src="" alt="Operation & Maintenance Services" class="w-full rounded-lg shadow-md">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AMC Services Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-teal-900 text-center mb-12">Annual Maintenance Contract Services</h2>
+            
+            <!-- Water Treatment Plant AMC -->
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Water Treatment Plant Annual Maintenance Contract AMC Service</h3>
+                    <p class="text-gray-700 leading-relaxed">A well-known industry leader, provides an excellent AMC service that ensures your plant will run smoothly all year long. Terrapure maintains your water treatment plant operating at peak efficiency by handling routine maintenance, emergency repairs, and preventive measures with a committed team of specialists.</p>
+                </div>
+                <div class="bg-teal-50 p-6 rounded-lg">
+                    <img src="" alt="Water Treatment Plant Maintenance" class="w-full rounded-lg shadow-md">
+                </div>
+            </div>
+
+            <!-- Sewage Treatment Plant AMC -->
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div class="bg-teal-50 p-6 rounded-lg order-2 md:order-1">
+                    <img src="" alt="Sewage Treatment Plant Maintenance" class="w-full rounded-lg shadow-md">
+                </div>
+                <div class="order-1 md:order-2">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Sewage Treatment Plant (STP) Annual Maintenance Contract AMC Service</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">For your sewage treatment plant, obtaining an Annual Maintenance Contract (AMC) is similar to having a dependable service plan that will keep your plant operating efficiently all year long. An outstanding AMC service is provided by Terrapure, a reputable business in this industry.</p>
+                    <p class="text-gray-700 leading-relaxed">Their staff will take care of routine examinations, emergency repairs, and preventative measures. This guarantees that your sewage treatment plant operates efficiently and complies with environmental regulations. By selecting Terrapure for this service, you're ensuring that your plant not only looks good but also contributes to environmental protection and lasts a long time.</p>
+                </div>
+            </div>
+
+            <!-- Effluent Treatment Plant AMC -->
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Effluent Treatment Plant (ETP) Annual Maintenance Contract AMC Service</h3>
+                    <p class="text-gray-700 leading-relaxed">Their steadfast dedication to excellence and dependability guarantees that your facility will always be in complete accordance with industry norms, efficiently handling and processing wastewater. Choosing Terrapure AMC service is a smart move that will protect your Effluent Treatment Plant's durability and performance while maintaining environmental responsibility.</p>
+                </div>
+                <div class="bg-teal-50 p-6 rounded-lg">
+                    <img src="" alt="Effluent Treatment Plant Maintenance" class="w-full rounded-lg shadow-md">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Operation & Maintenance Services Are Important Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="bg-teal-50 p-8 rounded-lg order-2 md:order-1">
+                    <img src="" alt="Importance of Operation & Maintenance" class="w-full rounded-lg shadow-md">
+                </div>
+                <div class="order-1 md:order-2">
+                    <h2 class="text-3xl font-bold text-teal-900 mb-6">Why Operation & Maintenance Services Are Important?</h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">Proper operation and maintenance are crucial for the longevity and efficiency of water treatment systems. Regular maintenance prevents costly breakdowns and ensures consistent performance while maintaining environmental compliance.</p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
+                            <span class="text-sm md:text-base">Extends equipment lifespan and reduces replacement costs</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
+                            <span class="text-sm md:text-base">Ensures regulatory compliance and environmental protection</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
+                            <span class="text-sm md:text-base">Minimizes downtime and maintains operational efficiency</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
+                            <span class="text-sm md:text-base">Reduces energy consumption and operational costs</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- We Provide Operation & Maintenance Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-blue-900 mb-4">We Provide Operation & Maintenance</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive maintenance solutions for all your water and wastewater treatment needs</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <img src="" alt="Maintenance Service 1" class="w-full rounded-lg shadow-md">
+                </div>
+                <div>
+                    <img src="" alt="Maintenance Service 2" class="w-full rounded-lg shadow-md">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Process Section - Diagrammatic Form -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-teal-900 text-center mb-12">Our Service Process</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-4 lg:space-x-6 max-w-6xl mx-auto overflow-x-auto pb-4">
+                <!-- Step 1: Assessment -->
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <span class="text-gray-700 font-medium text-sm md:text-base">Initial Assessment</span>
+                    <p class="text-xs text-gray-600 w-24 md:w-32">Comprehensive system evaluation and analysis</p>
+                </div>
+                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block"></i>
+                <div class="flex items-center space-x-2 md:hidden">
+                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
+                </div>
+
+                <!-- Step 2: Planning -->
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <span class="text-gray-700 font-medium text-sm md:text-base">Maintenance Planning</span>
+                    <p class="text-xs text-gray-600 w-24 md:w-32">Customized maintenance schedule and protocols</p>
+                </div>
+                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block"></i>
+                <div class="flex items-center space-x-2 md:hidden">
+                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
+                </div>
+
+                <!-- Step 3: Implementation -->
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <span class="text-gray-700 font-medium text-sm md:text-base">Implementation</span>
+                    <p class="text-xs text-gray-600 w-24 md:w-32">Professional execution of maintenance activities</p>
+                </div>
+                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block"></i>
+                <div class="flex items-center space-x-2 md:hidden">
+                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
+                </div>
+
+                <!-- Step 4: Monitoring -->
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <span class="text-gray-700 font-medium text-sm md:text-base">Performance Monitoring</span>
+                    <p class="text-xs text-gray-600 w-24 md:w-32">Continuous system performance tracking</p>
+                </div>
+                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block"></i>
+                <div class="flex items-center space-x-2 md:hidden">
+                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
+                </div>
+
+                <!-- Step 5: Support -->
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <span class="text-gray-700 font-medium text-sm md:text-base">Ongoing Support</span>
+                    <p class="text-xs text-gray-600 w-24 md:w-32">24/7 technical support and emergency services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services and Benefits Section -->
+    <!-- <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-teal-900 text-center mb-12">Our Services & Benefits</h2> -->
+            
+            <!-- Services Cards -->
+            <!-- <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-blue-900 mb-8 text-center">Our Services</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"> -->
+                    <!-- Card 1 -->
+                    <!-- <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-tools text-blue-500 text-xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Preventive Maintenance</h4>
+                            <p class="text-gray-600 text-sm">Regular inspections and maintenance to prevent equipment failures</p>
+                        </div>
+                    </div>
+                     -->
+                    <!-- Card 2 -->
+                    <!-- <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-wrench text-blue-500 text-xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Corrective Maintenance</h4>
+                            <p class="text-gray-600 text-sm">Prompt repairs and troubleshooting for system issues</p>
+                        </div>
+                    </div> -->
+                    
+                    <!-- Card 3 -->
+                    <!-- <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-cogs text-blue-500 text-xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Equipment Optimization</h4>
+                            <p class="text-gray-600 text-sm">Performance tuning and efficiency improvements</p>
+                        </div>
+                    </div> -->
+                    
+                    <!-- Card 4 -->
+                    <!-- <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-file-alt text-blue-500 text-xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Compliance Management</h4>
+                            <p class="text-gray-600 text-sm">Ensuring regulatory compliance and documentation</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            
+            <!-- Benefits Cards -->
+            <!-- <div>
+                <h3 class="text-2xl font-semibold text-teal-900 mb-8 text-center">Benefits</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"> -->
+                    <!-- Card 1 -->
+                    <!-- <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-money-bill-wave text-green-500 text-xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Cost Savings</h4>
+                            <p class="text-gray-600 text-sm">Reduced operational costs and extended equipment life</p>
+                        </div>
+                    </div> -->
+                    
+                    <!-- Card 2 -->
+                    <!-- <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-bolt text-green-500 text-xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Improved Efficiency</h4>
+                            <p class="text-gray-600 text-sm">Optimized performance and energy efficiency</p>
+                        </div>
+                    </div> -->
+                    
+                    <!-- Card 3 -->
+                    <!-- <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-shield-alt text-green-500 text-xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Reliability</h4>
+                            <p class="text-gray-600 text-sm">Minimized downtime and consistent operation</p>
+                        </div>
+                    </div> -->
+                    
+                    <!-- Card 4 -->
+                    <!-- <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-certificate text-green-500 text-xl"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Compliance</h4>
+                            <p class="text-gray-600 text-sm">Meeting all environmental and regulatory standards</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </section>
+
+ <!-- Footer -->
+    <footer
+      class="relative bg-gradient-to-br from-teal-800 to-green-900 text-white pt-16 pb-8"
+    >
+      <!-- Top Border Curve -->
+      <div
+        class="absolute top-0 left-0 right-0 h-8 bg-white rounded-b-full"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Company Info with Logo and Address -->
+          <div class="md:col-span-1">
+            <div class="mb-6">
+              <img
+                src="Images/Logo.png"
+                alt="Terrapure Logo"
+                class="h-20 bg-white p-2 rounded-lg shadow-md"
+              />
+            </div>
+            <p class="text-teal-100 mb-4 text-sm leading-relaxed">
+              Leading environmental solutions provider specializing in water and
+              wastewater treatment systems for sustainable future.
+            </p>
+            <div class="text-teal-100 text-sm">
+              <p class="font-semibold mb-2">Office Address:</p>
+              <a
+                href="https://maps.google.com/?q=Office+No.+301,+7+Bizz+Sonigara+Business+Complex,+Ravet+BRT+Road,+Pune+412101"
+                target="_blank"
+                class="hover:text-white transition-colors block"
+              >
+                Office No. 301, 7 Bizz Sonigara Business Complex,<br />
+                Ravet BRT Road, Pune – 412101,<br />
+                Maharashtra, India.
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3
+              class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2"
+            >
+              Quick Links
+            </h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                >
+                  <i
+                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"
+                  ></i>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                >
+                  <i
+                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"
+                  ></i>
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                >
+                  <i
+                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"
+                  ></i>
+                  Services
+                </a>
+              </li>
+               <li>
+                        <a
+                            href="career.html"
+                            class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                        >
+                            <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                            Career
+                        </a>
+                    </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                >
+                  <i
+                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"
+                  ></i>
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Our Services -->
+          <div>
+            <h3
+              class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2"
+            >
+              Our Services
+            </h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="services.html#ro"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                >
+                  <i class="fas fa-tint text-xs mr-2"></i>
+                  RO Plants
+                </a>
+              </li>
+              <li>
+                <a
+                  href="services.html#stp"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                >
+                  <i class="fas fa-recycle text-xs mr-2"></i>
+                  Sewage Treatment
+                </a>
+              </li>
+              <li>
+                <a
+                  href="services.html#etp"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                >
+                  <i class="fas fa-industry text-xs mr-2"></i>
+                  Effluent Treatment
+                </a>
+              </li>
+              <li>
+                <a
+                  href="services.html#zld"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                >
+                  <i class="fas fa-infinity text-xs mr-2"></i>
+                  ZLD Systems
+                </a>
+              </li>
+              <li>
+                <a
+                  href="services.html#softeners"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                >
+                  <i class="fas fa-filter text-xs mr-2"></i>
+                  Water Softeners
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Connect With Us -->
+          <div>
+            <h3
+              class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2"
+            >
+              Connect With Us
+            </h3>
+            <div class="space-y-4">
+              <!-- Phone Numbers -->
+              <div class="flex items-start">
+                <div
+                  class="w-8 h-8 bg-teal-700 rounded-full flex items-center justify-center mr-3 mt-1"
+                >
+                  <i class="fas fa-phone text-white text-xs"></i>
+                </div>
+                <div>
+                  <a
+                    href="tel:+919921174727"
+                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
+                    >+91 9921174727</a
+                  >
+                  <a
+                    href="tel:+917507082185"
+                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
+                    >+91 7507082185</a
+                  >
+                </div>
+              </div>
+
+              <!-- Email Addresses -->
+              <div class="flex items-start">
+                <div
+                  class="w-8 h-8 bg-teal-700 rounded-full flex items-center justify-center mr-3 mt-1"
+                >
+                  <i class="fas fa-envelope text-white text-xs"></i>
+                </div>
+                <div>
+                  <a
+                    href="mailto:enquiry@tpes.in"
+                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
+                    >enquiry@tpes.in</a
+                  >
+                  <a
+                    href="mailto:info@tpes.in"
+                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
+                    >info@tpes.in</a
+                  >
+                </div>
+              </div>
+
+              <!-- Social Media Icons -->
+              <div class="pt-2">
+                <p class="text-teal-100 text-sm mb-3">Follow us on:</p>
+                <div class="flex space-x-3">
+                  <a
+                    href="#"
+                    class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
+                    title="Facebook"
+                  >
+                    <i class="fab fa-facebook-f text-white"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
+                    title="Twitter"
+                  >
+                    <i class="fab fa-twitter text-white"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
+                    title="LinkedIn"
+                  >
+                    <i class="fab fa-linkedin-in text-white"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
+                    title="Instagram"
+                  >
+                    <i class="fab fa-instagram text-white"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="border-t border-teal-700 mt-12 pt-8">
+          <div
+            class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+          >
+            <div class="text-teal-200 text-sm text-center md:text-left">
+              <p>
+                &copy; 2025 Terrapure Environment Services Pvt. Ltd. All rights
+                reserved.
+              </p>
+            </div>
+            <div class="flex space-x-6 text-sm text-teal-200">
+              <a href="#" class="hover:text-white transition-colors"
+                >Privacy Policy</a
+              >
+              <a href="#" class="hover:text-white transition-colors"
+                >Terms of Service</a
+              >
+              <a href="#" class="hover:text-white transition-colors">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
