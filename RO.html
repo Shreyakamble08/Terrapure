@@ -45,149 +45,385 @@
     </div>
 
     <!-- Main Navigation -->
-    <nav class="backdrop-blur-md bg-white/70 shadow-md w-full border-b border-teal-200 relative z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <a href="index.html" class="flex-shrink-0 flex items-center ml-4">
-                        <img src="Images/Logo.png" alt="Terrapure Logo" class="h-16 mt-2 w-auto mr-2 rounded-md" />
-                    </a>
-                </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
-                    <a href="about.html" class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
-
-                    <!-- Services Dropdown -->
-                    <div class="relative group">
-                        <button class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors flex items-center">
-                            Services
-                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </button>
-                        <div class="absolute left-0 top-full mt-0 w-56 bg-white/95 backdrop-blur-md rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-teal-100 transform translate-y-2 group-hover:translate-y-0">
-                            <div class="py-2">
-                                <a href="services.html#ro" class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">RO Plants</a>
-                                <a href="services.html#stp" class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Sewage Treatment</a>
-                                <a href="services.html#etp" class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Effluent Treatment</a>
-                                <a href="services.html#zld" class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">ZLD Systems</a>
-                                <a href="services.html#softeners" class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Water Softeners</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="career.html" class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">Career</a>
-                    <a href="contact.html" class="bg-gradient-to-r from-teal-500 to-green-400 text-white px-5 py-2 rounded-full text-sm font-medium hover:from-teal-600 hover:to-green-500 shadow-md transition-all">Contact</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-teal-800 hover:bg-teal-100 p-2 rounded-md transition">
-                        <!-- Hamburger Icon (visible by default) -->
-                        <i id="hamburger-icon" class="fas fa-bars text-2xl"></i>
-                        <!-- Cross Icon (hidden by default) -->
-                        <i id="cross-icon" class="fas fa-times text-2xl hidden"></i>
-                    </button>
-                </div>
-            </div>
+   <nav class="backdrop-blur-md bg-white/70 shadow-md w-full border-b border-teal-200 relative z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <a href="index.html" class="flex-shrink-0 flex items-center ml-4">
+            <img src="Images/Logo.png" alt="Terrapure Logo" class="h-16 mt-2 w-auto mr-2 rounded-md" />
+          </a>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 right-0 z-50">
-            <div class="px-4 pt-4 pb-6 space-y-2 bg-white/95 backdrop-blur-md shadow-md rounded-b-lg relative border-t border-teal-100">
-                <a href="index.html" class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50">Home</a>
-                <a href="about.html" class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50">About</a>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="index.html"
+            class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
+          <a href="about.html"
+            class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
 
-                <!-- Mobile Services Dropdown -->
-                <div class="pt-2">
-                    <button id="mobile-services-toggle" class="w-full text-left text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors flex justify-between items-center rounded-md hover:bg-teal-50">
-                        <span>Services</span>
-                        <i class="fas fa-chevron-down text-xs transition-transform duration-300" id="services-arrow"></i>
-                    </button>
-                    <div id="mobile-services-menu" class="hidden pl-6 space-y-2 mt-2 border-l-2 border-teal-200 ml-3">
-                        <a href="services.html#ro" class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">RO Plants</a>
-                        <a href="services.html#stp" class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Sewage Treatment</a>
-                        <a href="services.html#etp" class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Effluent Treatment</a>
-                        <a href="services.html#zld" class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">ZLD Systems</a>
-                        <a href="services.html#softeners" class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Water Softeners</a>
-                    </div>
-                </div>
-
-                <a href="career.html" class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50">Career</a>
-                <a href="contact.html" class="block bg-gradient-to-r from-teal-500 to-green-400 text-white px-3 py-2 rounded-md text-base font-medium shadow-md text-center hover:from-teal-600 hover:to-green-500 transition-all mt-4">Contact</a>
+          <!-- Services Dropdown -->
+          <div class="relative group">
+            <button
+              class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors flex items-center">
+              Services
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div
+              class="absolute left-0 top-full mt-0 w-56 bg-white/95 backdrop-blur-md rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-teal-100 transform translate-y-2 group-hover:translate-y-0">
+              <div class="py-2">
+                <a href="RO.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">RO
+                  Plants</a>
+                <a href="sewage.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Sewage
+                  Treatment</a>
+                <a href="ETP.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Effluent
+                  Treatment</a>
+                <a href="ZLD.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">ZLD
+                  Systems</a>
+                <a href="water-softener-plant.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Water
+                  Softeners</a>
+                <!-- New services -->
+             <a href="WTP.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Water
+                  Treatment Plant</a>
+                <a href="wastewater-treatment.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Wastewater
+                  Treatment Plant</a>
+              
+                <a href="demineralization-plants(DM).html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Demineralization
+                  Plant (DM)</a>
+                <a href="operation & maintenance.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Operation
+                  & Maintenance</a>
+                <a href="AMC.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">AMC</a>
+              </div>
             </div>
+          </div>
+
+          <a href="career.html"
+            class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">Career</a>
+          <a href="contact.html"
+            class="bg-gradient-to-r from-teal-500 to-green-400 text-white px-5 py-2 rounded-full text-sm font-medium hover:from-teal-600 hover:to-green-500 shadow-md transition-all">Contact</a>
         </div>
-    </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-teal-800 hover:bg-teal-100 p-2 rounded-md transition">
+            <!-- Hamburger Icon (visible by default) -->
+            <i id="hamburger-icon" class="fas fa-bars text-2xl"></i>
+            <!-- Cross Icon (hidden by default) -->
+            <i id="cross-icon" class="fas fa-times text-2xl hidden"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 right-0 z-50">
+      <div
+        class="px-4 pt-4 pb-6 space-y-2 bg-white/95 backdrop-blur-md shadow-md rounded-b-lg relative border-t border-teal-100">
+        <a href="index.html"
+          class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50">Home</a>
+        <a href="about.html"
+          class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50">About</a>
+
+        <!-- Mobile Services Dropdown -->
+        <div class="pt-2">
+          <button id="mobile-services-toggle"
+            class="w-full text-left text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors flex justify-between items-center rounded-md hover:bg-teal-50">
+            <span>Services</span>
+            <i class="fas fa-chevron-down text-xs transition-transform duration-300" id="services-arrow"></i>
+          </button>
+          <div id="mobile-services-menu" class="hidden pl-6 space-y-2 mt-2 border-l-2 border-teal-200 ml-3">
+            <a href="RO.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">RO
+              Plants</a>
+            <a href="sewage.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Sewage
+              Treatment</a>
+            <a href="ETP.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Effluent
+              Treatment</a>
+            <a href="ZLD.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">ZLD
+              Systems</a>
+            <a href="water-softener-plant.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Water
+              Softeners</a>
+            <!-- New services -->
+            <a href="WTP.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Water
+              Treatment Plant Manufacturer</a>
+
+            <a href="wastewater-treatment.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Water
+              Treatment Plant</a>
+            <a href="demineralization-plants(DM).html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Demineralization
+              Plant (DM)</a>
+            <a href="operation & maintenance.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Operation
+              & Maintenance</a>
+            <a href="AMC.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">AMC</a>
+          </div>
+        </div>
+
+        <a href="career.html"
+          class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50">Career</a>
+        <a href="contact.html"
+          class="block bg-gradient-to-r from-teal-500 to-green-400 text-white px-3 py-2 rounded-md text-base font-medium shadow-md text-center hover:from-teal-600 hover:to-green-500 transition-all mt-4">Contact</a>
+      </div>
+    </div>
+  </nav>
 
     <!-- Banner for Reverse Osmosis Plant -->
-    <section class="relative h-96 bg-cover bg-center bg-no-repeat" style="background-image: url('');">
-        <!-- Dark Overlay -->
-        <div class="absolute inset-0 bg-black/60"></div>
-        
-        <!-- Watermark Headings -->
-        <div class="absolute inset-0 flex flex-col items-center justify-center text-white opacity-10 pointer-events-none">
-            <h1 class="text-9xl font-bold tracking-widest drop-shadow-2xl">Reverse Osmosis Plant</h1>
-            <p class="text-5xl font-light mt-4 tracking-wide drop-shadow-2xl">Pure Water Technology</p>
-        </div>
-        
-        <!-- Content Overlay for Button -->
-        <div class="absolute bottom-8 left-8 z-10">
-            <!-- Request a Quote Button -->
-            <a href="contact.html" class="bg-gradient-to-r from-teal-500 to-green-400 hover:from-teal-600 hover:to-green-500 text-white font-semibold py-4 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-lg">
-                <i class="fas fa-file-alt mr-2"></i>Request a Quote
-            </a>
-        </div>
-    </section>
+   <section class="relative h-60 sm:h-72 md:h-80 bg-cover bg-center bg-no-repeat overflow-hidden" 
+         style="background-image: url('Images/RO.jpeg');">
+    
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black/30"></div>
+    
+    <!-- Animated Text Content -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-white px-4 text-center">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide animate-fade-in-up">
+            Reverse Osmosis Plant
+        </h1>
+        <p class="mt-2 sm:mt-4 text-lg sm:text-xl md:text-2xl animate-fade-in-up delay-200">
+            Pure Water Technology
+        </p>
+        <a href="contact.html" 
+           class="mt-4 sm:mt-6 bg-gradient-to-r from-teal-500 to-green-400 hover:from-teal-600 hover:to-green-500 text-white font-semibold py-2 sm:py-3 md:py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-500 animate-fade-in-up delay-400 inline-flex items-center">
+            <i class="fas fa-file-alt mr-2"></i>Request a Quote
+        </a>
+    </div>
+</section>
+
+<style>
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-in-out forwards;
+  }
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+  .delay-400 {
+    animation-delay: 0.4s;
+  }
+</style>
+
 
     <!-- Product Overview Section -->
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold text-teal-900 mb-6">Product Overview</h2>
-                    <p class="text-gray-700 text-lg leading-relaxed mb-4">Reverse Osmosis (RO) Plants are advanced water purification systems that use semi-permeable membranes to remove dissolved salts, impurities, and contaminants from water. This technology is widely recognized for producing high-quality purified water for various applications.</p>
-                    <p class="text-gray-700 text-lg leading-relaxed">Our RO plants are designed to efficiently remove up to 99% of dissolved solids, bacteria, viruses, and other contaminants from water sources. We provide customized RO solutions for industrial, commercial, and residential applications with varying capacity requirements.</p>
-                </div>
-                <div class="bg-teal-50 p-8 rounded-lg">
-                    <img src="" alt="Reverse Osmosis Plant Facility" class="w-full rounded-lg shadow-md">
-                </div>
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="animate-on-scroll">
+                <h2 class="text-3xl font-bold text-teal-900 mb-6 opacity-0 transform -translate-x-10 transition-all duration-700 ease-out">Product Overview</h2>
+                <p class="text-gray-700 text-lg leading-relaxed mb-4 opacity-0 transform -translate-x-10 transition-all duration-700 ease-out delay-200">Reverse Osmosis (RO) Plants are advanced water purification systems that use semi-permeable membranes to remove dissolved salts, impurities, and contaminants from water. This technology is widely recognized for producing high-quality purified water for various applications.</p>
+                <p class="text-gray-700 text-lg leading-relaxed opacity-0 transform -translate-x-10 transition-all duration-700 ease-out delay-300">Our RO plants are designed to efficiently remove up to 99% of dissolved solids, bacteria, viruses, and other contaminants from water sources. We provide customized RO solutions for industrial, commercial, and residential applications with varying capacity requirements.</p>
+            </div>
+            <div class="bg-teal-50 p-8 rounded-lg animate-on-scroll">
+                <img src="Images/RO!.jpeg" alt="Reverse Osmosis Plant Facility" class="w-full rounded-lg shadow-md opacity-0 transform translate-x-10 transition-all duration-700 ease-out delay-400">
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<style>
+.animate-on-scroll.is-visible .opacity-0 {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+</style>
+
+
 
     <!-- Why RO Plants Are Important Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="bg-teal-50 p-8 rounded-lg order-2 md:order-1">
-                    <img src="" alt="Importance of Reverse Osmosis Plants" class="w-full rounded-lg shadow-md">
-                </div>
-                <div class="order-1 md:order-2">
-                    <h2 class="text-3xl font-bold text-teal-900 mb-6">Why Reverse Osmosis Plants Are Important?</h2>
-                    <p class="text-gray-700 text-lg leading-relaxed mb-6">RO technology provides a reliable solution for producing high-purity water essential for various industrial processes and drinking water applications. It effectively addresses water quality challenges in areas with high TDS and contaminated water sources.</p>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start space-x-3">
-                            <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
-                            <span class="text-sm md:text-base">Removes dissolved salts, heavy metals, and contaminants</span>
-                        </li>
-                        <li class="flex items-start space-x-3">
-                            <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
-                            <span class="text-sm md:text-base">Produces safe drinking water free from harmful substances</span>
-                        </li>
-                        <li class="flex items-start space-x-3">
-                            <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
-                            <span class="text-sm md:text-base">Essential for industrial processes requiring high-purity water</span>
-                        </li>
-                        <li class="flex items-start space-x-3">
-                            <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
-                            <span class="text-sm md:text-base">Cost-effective solution for water purification</span>
-                        </li>
-                    </ul>
-                </div>
+<section class="py-12 bg-gradient-to-r from-green-800 to-green-600 relative overflow-hidden">
+    <!-- Background with pastel green -->
+    <div class="absolute inset-0 bg-gradient-to-br from-green-200 to-green-90/80"></div>
+    <div class="absolute inset-0 grid grid-cols-1 lg:grid-cols-2">
+        <div class="bg-green-800/10 relative">
+            <!-- Floating RO / water elements spread across the entire left side -->
+            <div class="absolute top-10 left-10 w-12 h-12 bg-white/40 rounded-full animate-float-slow shadow-lg">
+                <i class="fas fa-water text-green-600 text-xl flex items-center justify-center w-full h-full"></i>
+            </div>
+            <div class="absolute top-20 right-20 w-16 h-16 bg-white/30 rounded-full animate-float shadow-lg">
+                <i class="fas fa-filter text-green-700 text-2xl flex items-center justify-center w-full h-full"></i>
+            </div>
+            <div class="absolute top-40 left-20 w-10 h-10 bg-white/35 rounded-full animate-float-slower shadow-lg">
+                <i class="fas fa-tint text-green-500 text-lg flex items-center justify-center w-full h-full"></i>
+            </div>
+            <div class="absolute top-60 left-32 w-14 h-14 bg-white/25 rounded-full animate-float shadow-lg">
+                <i class="fas fa-industry text-green-600 text-xl flex items-center justify-center w-full h-full"></i>
+            </div>
+            <div class="absolute top-32 right-10 w-12 h-12 bg-white/40 rounded-full animate-float-slow shadow-lg">
+                <i class="fas fa-recycle text-green-600 text-xl flex items-center justify-center w-full h-full"></i>
+            </div>
+            <div class="absolute top-80 left-16 w-16 h-16 bg-white/30 rounded-full animate-float-slower shadow-lg">
+                <i class="fas fa-flask text-green-700 text-2xl flex items-center justify-center w-full h-full"></i>
+            </div>
+            <div class="absolute top-16 left-40 w-10 h-10 bg-white/35 rounded-full animate-float shadow-lg">
+                <i class="fas fa-droplet text-green-500 text-lg flex items-center justify-center w-full h-full"></i>
+            </div>
+            <div class="absolute top-72 right-24 w-14 h-14 bg-white/25 rounded-full animate-float-slow shadow-lg">
+                <i class="fas fa-cog text-green-600 text-xl flex items-center justify-center w-full h-full"></i>
             </div>
         </div>
-    </section>
+        <div class="bg-cover bg-center bg-no-repeat min-h-[250px] lg:min-h-full" 
+             style="background-image: url('Images/RO.jpeg'); 
+             background-color: #166534;">
+        </div>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-green-900/10 to-green-700/5 lg:from-green-900/5 lg:to-transparent"></div>
+
+    <!-- Content -->
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center min-h-[400px]">
+        <div class="relative bg-white/90 backdrop-blur-sm p-8 md:p-10 rounded-2xl shadow-xl max-w-3xl w-full animate-on-scroll">
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-green-100 to-lime-100 border border-green-200/50 transform scale-100 transition-transform duration-1000 ease-out"></div>
+
+            <div class="relative z-10">
+                <h2 class="text-2xl md:text-3xl font-bold text-green-900 mb-5 text-center opacity-0 transition-all duration-700 ease-out transform translate-y-4">
+                    Why Reverse Osmosis Plants Are Important?
+                </h2>
+
+                <p class="text-gray-700 text-base md:text-lg leading-relaxed mb-6 opacity-0 transition-all duration-700 ease-out delay-200 transform translate-y-4">
+                    RO technology provides a reliable solution for producing high-purity water essential for various industrial processes and drinking water applications. It effectively addresses water quality challenges in areas with high TDS and contaminated water sources.
+                </p>
+
+                <ul class="space-y-4 text-gray-700">
+                    <li class="flex items-start space-x-3 opacity-0 transition-all duration-700 ease-out delay-300 transform translate-y-4">
+                        <i class="fas fa-check-circle text-green-600 text-sm mt-1 flex-shrink-0"></i>
+                        <span class="text-sm md:text-base text-left">Removes dissolved salts, heavy metals, and contaminants</span>
+                    </li>
+                    <li class="flex items-start space-x-3 opacity-0 transition-all duration-700 ease-out delay-400 transform translate-y-4">
+                        <i class="fas fa-check-circle text-green-600 text-sm mt-1 flex-shrink-0"></i>
+                        <span class="text-sm md:text-base text-left">Produces safe drinking water free from harmful substances</span>
+                    </li>
+                    <li class="flex items-start space-x-3 opacity-0 transition-all duration-700 ease-out delay-500 transform translate-y-4">
+                        <i class="fas fa-check-circle text-green-600 text-sm mt-1 flex-shrink-0"></i>
+                        <span class="text-sm md:text-base text-left">Essential for industrial processes requiring high-purity water</span>
+                    </li>
+                    <li class="flex items-start space-x-3 opacity-0 transition-all duration-700 ease-out delay-600 transform translate-y-4">
+                        <i class="fas fa-check-circle text-green-600 text-sm mt-1 flex-shrink-0"></i>
+                        <span class="text-sm md:text-base text-left">Cost-effective solution for water purification</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <style>
+    /* Floating animations */
+    @keyframes float {
+        0%, 100% { 
+            transform: translateY(0px) translateX(0px) rotate(0deg); 
+        }
+        33% { 
+            transform: translateY(-12px) translateX(8px) rotate(2deg); 
+        }
+        66% { 
+            transform: translateY(-8px) translateX(-6px) rotate(-2deg); 
+        }
+    }
+    
+    @keyframes float-slower {
+        0%, 100% { 
+            transform: translateY(0px) translateX(0px) rotate(0deg); 
+        }
+        33% { 
+            transform: translateY(-15px) translateX(-10px) rotate(-3deg); 
+        }
+        66% { 
+            transform: translateY(-5px) translateX(12px) rotate(3deg); 
+        }
+    }
+    
+    .animate-float { 
+        animation: float 5s ease-in-out infinite; 
+    }
+    .animate-float-slow { 
+        animation: float 7s ease-in-out infinite; 
+    }
+    .animate-float-slower { 
+        animation: float-slower 8s ease-in-out infinite; 
+    }
+
+    /* Scroll animations */
+    .animate-on-scroll.is-visible .opacity-0 {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+    
+    .animate-on-scroll.is-visible .scale-100 {
+        transform: scale(1.01) !important;
+    }
+    
+    .animate-on-scroll {
+        transition: all 0.6s ease-out;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+        .absolute.inset-0.grid.grid-cols-1.lg\\:grid-cols-2 > div:first-child {
+            min-height: 200px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .absolute.inset-0.grid.grid-cols-1.lg\\:grid-cols-2 > div:first-child {
+            min-height: 150px;
+        }
+        
+        /* Reposition floating elements for mobile */
+        .absolute.top-20.right-20 {
+            top: 30px;
+            right: 30px;
+        }
+        
+        .absolute.top-60.left-32 {
+            top: 80px;
+            left: 20px;
+        }
+        
+        .absolute.top-80.left-16 {
+            top: 100px;
+            left: 10px;
+        }
+    }
+    </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { 
+            threshold: 0.2, 
+            rootMargin: '0px 0px -50px 0px' 
+        });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(element => {
+            observer.observe(element);
+        });
+    });
+    </script>
+</section>
+
 
     <!-- We Provide RO Plants Section -->
     <section class="py-16 bg-white">
@@ -288,165 +524,140 @@
     </section>
 
     <!-- Applications and Features & Benefits Section -->
-    <section class="py-8 sm:py-12 md:py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-teal-900 text-center mb-6 sm:mb-8 md:mb-12">Applications & Features and Benefits</h2>
-            <div class="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
-                <!-- Applications Column -->
-                <div class="bg-blue-50 p-4 sm:p-6 md:p-8 rounded-lg">
-                    <h3 class="text-xl sm:text-2xl font-semibold text-blue-900 mb-4 sm:mb-6 text-center">Applications</h3>
-                    <ul class="space-y-2 sm:space-y-3 md:space-y-4">
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Drinking water purification for communities</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Pharmaceutical and healthcare industry</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Food and beverage processing</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Hospitality and restaurant industry</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Boiler feed water treatment</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Laboratories and research facilities</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Commercial and residential buildings</span>
-                        </li>
-                    </ul>
-                </div>
+<section class="py-12 bg-white relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 relative">
 
-                <!-- Features and Benefits Column -->
-                <div class="bg-green-50 p-4 sm:p-6 md:p-8 rounded-lg">
-                    <h3 class="text-xl sm:text-2xl font-semibold text-teal-900 mb-4 sm:mb-6 text-center">Features and Benefits</h3>
-                    <ul class="space-y-2 sm:space-y-3 md:space-y-4">
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Removes up to 99% of dissolved solids</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Compact and space-efficient design</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Automated operation with minimal supervision</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Energy-efficient high-pressure pumps</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Easy maintenance and membrane replacement</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Produces consistent high-quality water</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Cost-effective water purification solution</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Decorative Background SVGs behind the card -->
+    <svg class="absolute -top-16 -left-16 w-48 h-48 text-blue-200 opacity-30" viewBox="0 0 100 100" fill="currentColor">
+      <circle cx="50" cy="50" r="50"/>
+    </svg>
+    <svg class="absolute -bottom-16 -right-16 w-56 h-56 text-green-200 opacity-30" viewBox="0 0 100 100" fill="currentColor">
+      <circle cx="50" cy="50" r="50"/>
+    </svg>
+    <svg class="absolute top-1/4 right-1/3 w-32 h-32 text-teal-200 opacity-25" viewBox="0 0 100 100" fill="currentColor">
+      <rect x="10" y="10" width="80" height="80" rx="20"/>
+    </svg>
 
+    <!-- Main Card Container -->
+    <div class="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl shadow-lg p-8 md:p-12 flex flex-col md:flex-row relative z-10 animate-fadeIn">
+      
+      <!-- Applications -->
+      <div class="md:w-1/2 md:pr-8 animate-slideInLeft">
+        <h3 class="text-2xl font-semibold text-blue-900 mb-6 flex items-center">
+          <i class="fas fa-industry mr-3 text-blue-600"></i> Applications
+        </h3>
+        <ul class="space-y-3 text-gray-700">
+          <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2"></i>Drinking water purification for communities</li>
+          <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2"></i>Pharmaceutical and healthcare industry</li>
+          <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2"></i>Food and beverage processing</li>
+          <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2"></i>Hospitality and restaurant industry</li>
+          <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2"></i>Boiler feed water treatment</li>
+          <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2"></i>Laboratories and research facilities</li>
+          <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2"></i>Commercial and residential buildings</li>
+        </ul>
+      </div>
+
+      <!-- Divider -->
+      <div class="hidden md:block w-1 mx-8 relative animate-pulseDivider">
+        <div class="absolute top-0 bottom-0 left-1/2 transform -translate-x-1 w-1 bg-gradient-to-b from-blue-400 via-teal-300 to-green-400 shadow-lg rounded-full"></div>
+      </div>
+
+      <!-- Features -->
+      <div class="md:w-1/2 md:pl-8 mt-8 md:mt-0 animate-slideInRight">
+        <h3 class="text-2xl font-semibold text-teal-900 mb-6 flex items-center">
+          <i class="fas fa-cogs mr-3 text-green-600"></i> Features & Benefits
+        </h3>
+        <ul class="space-y-3 text-gray-700">
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Removes up to 99% of dissolved solids</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Compact and space-efficient design</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Automated operation with minimal supervision</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Energy-efficient high-pressure pumps</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Easy maintenance and membrane replacement</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Produces consistent high-quality water</li>
+          <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i>Cost-effective water purification solution</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    /* Animations */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideInLeft { from { transform: translateX(-50px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes slideInRight { from { transform: translateX(50px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes pulse { 0%,100%{transform:scaleY(1);} 50%{transform:scaleY(1.05);} }
+    .animate-fadeIn { animation: fadeIn 1s ease-in-out; }
+    .animate-slideInLeft { animation: slideInLeft 1s ease-in-out; }
+    .animate-slideInRight { animation: slideInRight 1s ease-in-out; }
+    .animate-pulseDivider { animation: pulse 2s ease-in-out infinite; }
+  </style>
+</section>
 
 
    <!-- Footer -->
-    <footer
-      class="relative bg-gradient-to-br from-teal-800 to-green-900 text-white pt-16 pb-8"
-    >
-      <!-- Top Border Curve -->
-      <div
-        class="absolute top-0 left-0 right-0 h-8 bg-white rounded-b-full"
-      ></div>
-
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <footer class="relative bg-gradient-to-br from-teal-800 to-green-900 text-white pt-16 pb-8">
+    <!-- Top Border Curve -->
+    <div class="absolute top-0 left-0 right-0 h-8 bg-white rounded-b-full"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <!-- Company Info with Logo and Address -->
-          <div class="md:col-span-1">
-            <div class="mb-6">
-              <img
-                src="Images/Logo.png"
-                alt="Terrapure Logo"
-                class="h-20 bg-white p-2 rounded-lg shadow-md"
-              />
+            <!-- Company Info with Logo and Address -->
+            <div class="md:col-span-1">
+                <div class="mb-6">
+                    <img src="Images/Logo.png" alt="Terrapure Logo" class="h-20 bg-white p-2 rounded-lg shadow-md" />
+                </div>
+                <p class="text-teal-100 mb-4 text-sm leading-relaxed">
+                    Leading environmental solutions provider specializing in water and wastewater treatment systems for sustainable future.
+                </p>
+                <div class="text-teal-100 text-sm">
+                    <p class="font-semibold mb-2">Office Address:</p>
+                    <a
+                        href="https://maps.google.com/?q=Office+No.+301,+7+Bizz+Sonigara+Business+Complex,+Ravet+BRT+Road,+Pune+412101"
+                        target="_blank"
+                        class="hover:text-white transition-colors block"
+                    >
+                        Office No. 301, 7 Bizz Sonigara Business Complex,<br />
+                        Ravet BRT Road, Pune – 412101,<br />
+                        Maharashtra, India.
+                    </a>
+                </div>
             </div>
-            <p class="text-teal-100 mb-4 text-sm leading-relaxed">
-              Leading environmental solutions provider specializing in water and
-              wastewater treatment systems for sustainable future.
-            </p>
-            <div class="text-teal-100 text-sm">
-              <p class="font-semibold mb-2">Office Address:</p>
-              <a
-                href="https://maps.google.com/?q=Office+No.+301,+7+Bizz+Sonigara+Business+Complex,+Ravet+BRT+Road,+Pune+412101"
-                target="_blank"
-                class="hover:text-white transition-colors block"
-              >
-                Office No. 301, 7 Bizz Sonigara Business Complex,<br />
-                Ravet BRT Road, Pune – 412101,<br />
-                Maharashtra, India.
-              </a>
-            </div>
-          </div>
 
-          <!-- Quick Links -->
-          <div>
-            <h3
-              class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2"
-            >
-              Quick Links
-            </h3>
-            <ul class="space-y-3">
-              <li>
-                <a
-                  href="index.html"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
-                >
-                  <i
-                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"
-                  ></i>
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="about.html"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
-                >
-                  <i
-                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"
-                  ></i>
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  href="services.html"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
-                >
-                  <i
-                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"
-                  ></i>
-                  Services
-                </a>
-              </li>
-               <li>
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2">
+                    Quick Links
+                </h3>
+                <ul class="space-y-3">
+                    <li>
+                        <a
+                            href="index.html"
+                            class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                        >
+                            <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="about.html"
+                            class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                        >
+                            <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                            About Us
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a
+                            href="services.html"
+                            class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                        >
+                            <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                            Services
+                        </a>
+                    </li> -->
+                     <li>
                         <a
                             href="career.html"
                             class="text-teal-100 hover:text-white transition-colors flex items-center group"
@@ -455,190 +666,188 @@
                             Career
                         </a>
                     </li>
-              <li>
-                <a
-                  href="contact.html"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
-                >
-                  <i
-                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"
-                  ></i>
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Our Services -->
-          <div>
-            <h3
-              class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2"
-            >
-              Our Services
-            </h3>
-            <ul class="space-y-3">
-              <li>
-                <a
-                  href="services.html#ro"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
-                >
-                  <i class="fas fa-tint text-xs mr-2"></i>
-                  RO Plants
-                </a>
-              </li>
-              <li>
-                <a
-                  href="services.html#stp"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
-                >
-                  <i class="fas fa-recycle text-xs mr-2"></i>
-                  Sewage Treatment
-                </a>
-              </li>
-              <li>
-                <a
-                  href="services.html#etp"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
-                >
-                  <i class="fas fa-industry text-xs mr-2"></i>
-                  Effluent Treatment
-                </a>
-              </li>
-              <li>
-                <a
-                  href="services.html#zld"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
-                >
-                  <i class="fas fa-infinity text-xs mr-2"></i>
-                  ZLD Systems
-                </a>
-              </li>
-              <li>
-                <a
-                  href="services.html#softeners"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
-                >
-                  <i class="fas fa-filter text-xs mr-2"></i>
-                  Water Softeners
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Connect With Us -->
-          <div>
-            <h3
-              class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2"
-            >
-              Connect With Us
-            </h3>
-            <div class="space-y-4">
-              <!-- Phone Numbers -->
-              <div class="flex items-start">
-                <div
-                  class="w-8 h-8 bg-teal-700 rounded-full flex items-center justify-center mr-3 mt-1"
-                >
-                  <i class="fas fa-phone text-white text-xs"></i>
-                </div>
-                <div>
-                  <a
-                    href="tel:+919921174727"
-                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
-                    >+91 9921174727</a
-                  >
-                  <a
-                    href="tel:+917507082185"
-                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
-                    >+91 7507082185</a
-                  >
-                </div>
-              </div>
-
-              <!-- Email Addresses -->
-              <div class="flex items-start">
-                <div
-                  class="w-8 h-8 bg-teal-700 rounded-full flex items-center justify-center mr-3 mt-1"
-                >
-                  <i class="fas fa-envelope text-white text-xs"></i>
-                </div>
-                <div>
-                  <a
-                    href="mailto:enquiry@tpes.in"
-                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
-                    >enquiry@tpes.in</a
-                  >
-                  <a
-                    href="mailto:info@tpes.in"
-                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
-                    >info@tpes.in</a
-                  >
-                </div>
-              </div>
-
-              <!-- Social Media Icons -->
-              <div class="pt-2">
-                <p class="text-teal-100 text-sm mb-3">Follow us on:</p>
-                <div class="flex space-x-3">
-                  <a
-                    href="#"
-                    class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
-                    title="Facebook"
-                  >
-                    <i class="fab fa-facebook-f text-white"></i>
-                  </a>
-                  <a
-                    href="#"
-                    class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
-                    title="Twitter"
-                  >
-                    <i class="fab fa-twitter text-white"></i>
-                  </a>
-                  <a
-                    href="#"
-                    class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
-                    title="LinkedIn"
-                  >
-                    <i class="fab fa-linkedin-in text-white"></i>
-                  </a>
-                  <a
-                    href="#"
-                    class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
-                    title="Instagram"
-                  >
-                    <i class="fab fa-instagram text-white"></i>
-                  </a>
-                </div>
-              </div>
+                    <li>
+                        <a
+                            href="contact.html"
+                            class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                        >
+                            <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
             </div>
-          </div>
+
+            <!-- Our Services -->
+            <div>
+                <h3 class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2">
+                    Our Services
+                </h3>
+                <ul class="space-y-3">
+                    <li>
+                        <a
+                            href="services.html#ro"
+                            class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                        >
+                            <i class="fas fa-tint text-xs mr-2"></i>
+                            RO Plants
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="services.html#stp"
+                            class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                        >
+                            <i class="fas fa-recycle text-xs mr-2"></i>
+                            Sewage Treatment
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="services.html#etp"
+                            class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                        >
+                            <i class="fas fa-industry text-xs mr-2"></i>
+                            Effluent Treatment
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="services.html#zld"
+                            class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                        >
+                            <i class="fas fa-infinity text-xs mr-2"></i>
+                            ZLD Systems
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="services.html#softeners"
+                            class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                        >
+                            <i class="fas fa-filter text-xs mr-2"></i>
+                            Water Softeners
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Connect With Us -->
+            <div>
+                <h3 class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2">
+                    Connect With Us
+                </h3>
+                <div class="space-y-4">
+                    <!-- Phone Numbers -->
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-teal-700 rounded-full flex items-center justify-center mr-3 mt-1">
+                            <i class="fas fa-phone text-white text-xs"></i>
+                        </div>
+                        <div>
+                            <a
+                                href="tel:+919921174727"
+                                class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
+                                >+91 9921174727</a
+                            >
+                            <a
+                                href="tel:+917507082185"
+                                class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
+                                >+91 7507082185</a
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Email Addresses -->
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-teal-700 rounded-full flex items-center justify-center mr-3 mt-1">
+                            <i class="fas fa-envelope text-white text-xs"></i>
+                        </div>
+                        <div>
+                            <a
+                                href="mailto:enquiry@tpes.in"
+                                class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
+                                >enquiry@tpes.in</a
+                            >
+                            <a
+                                href="mailto:info@tpes.in"
+                                class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
+                                >info@tpes.in</a
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Social Media Icons -->
+                    <div class="pt-2">
+                        <p class="text-teal-100 text-sm mb-3">Follow us on:</p>
+                        <div class="flex space-x-3">
+                            <a
+                                href="#"
+                                class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
+                                title="Facebook"
+                            >
+                                <i class="fab fa-facebook-f text-white"></i>
+                            </a>
+                            <a
+                                href="#"
+                                class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
+                                title="Twitter"
+                            >
+                                <i class="fab fa-twitter text-white"></i>
+                            </a>
+                            <a
+                                href="#"
+                                class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
+                                title="LinkedIn"
+                            >
+                                <i class="fab fa-linkedin-in text-white"></i>
+                            </a>
+                            <a
+                                href="#"
+                                class="w-10 h-10 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center transition-colors"
+                                title="Instagram"
+                            >
+                                <i class="fab fa-instagram text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Bottom Section -->
         <div class="border-t border-teal-700 mt-12 pt-8">
-          <div
-            class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
-          >
-            <div class="text-teal-200 text-sm text-center md:text-left">
-              <p>
-                &copy; 2025 Terrapure Environment Services Pvt. Ltd. All rights
-                reserved.
-              </p>
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div class="text-teal-200 text-sm text-center md:text-left">
+                    <p>&copy; 2025 Terrapure Environment Services Pvt. Ltd. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6 text-sm text-teal-200">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors">Sitemap</a>
+                </div>
             </div>
-            <div class="flex space-x-6 text-sm text-teal-200">
-              <a href="#" class="hover:text-white transition-colors"
-                >Privacy Policy</a
-              >
-              <a href="#" class="hover:text-white transition-colors"
-                >Terms of Service</a
-              >
-              <a href="#" class="hover:text-white transition-colors">Sitemap</a>
-            </div>
-          </div>
         </div>
-      </div>
-    </footer>
+    </div>
+</footer>
 
 <script src="script.js"></script>
+<script>
+  //second section animations
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(element => {
+        observer.observe(element);
+    });
+});
+</script>
 
 </body>
 </html>

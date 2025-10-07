@@ -1,372 +1,972 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Effluent Treatment Plant (ETP) - Terrapure</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <style>
-        .card-hover {
-            transition: all 0.3s ease;
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Animation keyframes */
+      @keyframes fadeInUp {
+        0% { 
+          opacity: 0; 
+          transform: translateY(20px); 
         }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        100% { 
+          opacity: 1; 
+          transform: translateY(0); 
         }
+      }
+      
+      @keyframes fadeSlideLeft {
+        0% {
+          opacity: 0;
+          transform: translateX(-40px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes scaleIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes zoomIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes staggerFade {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Animation classes */
+      .animate-fade-in-up {
+        animation: fadeInUp 1s ease-in-out forwards;
+      }
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+      .delay-400 {
+        animation-delay: 0.4s;
+      }
+
+      .animate-fade-slide-left {
+        animation: fadeSlideLeft 1s ease-out forwards;
+      }
+
+      .animate-scale-in {
+        animation: scaleIn 1s ease-out forwards;
+        animation-delay: 0.3s;
+      }
+
+      .scroll-animate {
+        opacity: 0;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .scroll-animate.animated {
+        opacity: 1;
+      }
+
+      .fade-in-left.animated {
+        animation: fadeInLeft 0.8s ease-out forwards;
+      }
+
+      .fade-in-right.animated {
+        animation: fadeInRight 0.8s ease-out forwards;
+      }
+
+      .fade-up.animated {
+        animation: fadeUp 0.8s ease-out forwards;
+      }
+
+      .slide-down.animated {
+        animation: slideDown 0.8s ease-out forwards;
+      }
+
+      .zoom-in.animated {
+        animation: zoomIn 0.8s ease-out forwards;
+      }
+
+      .stagger-fade.animated {
+        animation: staggerFade 0.6s ease-out forwards;
+      }
+
+      .fade-down.animated {
+        animation: fadeDown 0.8s ease-out forwards;
+      }
+
+      .slide-in-left.animated {
+        animation: slideInLeft 0.8s ease-out forwards;
+      }
+
+      .slide-in-right.animated {
+        animation: slideInRight 0.8s ease-out forwards;
+      }
+
+      .stagger-item.animated {
+        animation: staggerFade 0.6s ease-out forwards;
+      }
+
+      /* Custom rounded corners */
+      .rounded-tl-3xl {
+        border-top-left-radius: 1.5rem;
+      }
+      .rounded-br-3xl {
+        border-bottom-right-radius: 1.5rem;
+      }
+      .rounded-tr-3xl {
+        border-top-right-radius: 1.5rem;
+      }
+      .rounded-bl-3xl {
+        border-bottom-left-radius: 1.5rem;
+      }
+
+      /* Optional: Trigger animation on scroll */
+      [class*="animate-"] {
+        opacity: 0;
+      }
+      .in-view {
+        opacity: 1 !important;
+        animation-play-state: running;
+      }
+
+      /* Mobile menu transitions */
+      #mobile-services-menu {
+        transition: all 0.3s ease-in-out;
+      }
     </style>
-</head>
-<body class="bg-gray-50">
+  </head>
+  <body class="bg-gray-50">
     <!-- Top Info Bar -->
     <div class="bg-gradient-to-r from-green-500 to-teal-600 text-white text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row items-center justify-between py-1 sm:py-2">
-                <!-- Contact Info -->
-                <div class="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-6 text-center sm:text-left">
-                    <a href="mailto:enquiry@tpes.in" class="flex items-center space-x-2 hover:text-gray-200 transition">
-                        <i class="fas fa-envelope"></i>
-                        <span>enquiry@tpes.in</span>
-                    </a>
-                    <a href="tel:+91 9921174727" class="flex items-center space-x-2 hover:text-gray-200 transition">
-                        <i class="fas fa-phone"></i>
-                        <span>+91 9921174727 / 7507082185</span>
-                    </a>
-                </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between py-1 sm:py-2"
+        >
+          <!-- Contact Info -->
+          <div
+            class="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-6 text-center sm:text-left"
+          >
+            <a
+              href="mailto:enquiry@tpes.in"
+              class="flex items-center space-x-2 hover:text-gray-200 transition"
+            >
+              <i class="fas fa-envelope"></i>
+              <span>enquiry@tpes.in</span>
+            </a>
+            <a
+              href="tel:+91 9921174727"
+              class="flex items-center space-x-2 hover:text-gray-200 transition"
+            >
+              <i class="fas fa-phone"></i>
+              <span>+91 9921174727 / 7507082185</span>
+            </a>
+          </div>
 
-                <!-- Social Icons -->
-                <div class="flex space-x-4 mt-2 sm:mt-0">
-                    <a href="#" class="hover:text-gray-200 transition"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="hover:text-gray-200 transition"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="hover:text-gray-200 transition"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="hover:text-gray-200 transition"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
+          <!-- Social Icons -->
+          <div class="flex space-x-4 mt-2 sm:mt-0">
+            <a href="#" class="hover:text-gray-200 transition"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="hover:text-gray-200 transition"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="hover:text-gray-200 transition"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="#" class="hover:text-gray-200 transition"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Main Navigation -->
-    <nav class="backdrop-blur-md bg-white/70 shadow-md w-full border-b border-teal-200 relative z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <a href="index.html" class="flex-shrink-0 flex items-center ml-4">
-                        <img src="Images/Logo.png" alt="Terrapure Logo" class="h-16 mt-2 w-auto mr-2 rounded-md" />
-                    </a>
-                </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
-                    <a href="about.html" class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
-
-                    <!-- Services Dropdown -->
-                    <div class="relative group">
-                        <button class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors flex items-center">
-                            Services
-                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </button>
-                        <div class="absolute left-0 top-full mt-0 w-56 bg-white/95 backdrop-blur-md rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-teal-100 transform translate-y-2 group-hover:translate-y-0">
-                            <div class="py-2">
-                                <a href="services.html#ro" class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">RO Plants</a>
-                                <a href="services.html#stp" class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Sewage Treatment</a>
-                                <a href="services.html#etp" class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Effluent Treatment</a>
-                                <a href="services.html#zld" class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">ZLD Systems</a>
-                                <a href="services.html#softeners" class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Water Softeners</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="career.html" class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">Career</a>
-                    <a href="contact.html" class="bg-gradient-to-r from-teal-500 to-green-400 text-white px-5 py-2 rounded-full text-sm font-medium hover:from-teal-600 hover:to-green-500 shadow-md transition-all">Contact</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-teal-800 hover:bg-teal-100 p-2 rounded-md transition">
-                        <!-- Hamburger Icon (visible by default) -->
-                        <i id="hamburger-icon" class="fas fa-bars text-2xl"></i>
-                        <!-- Cross Icon (hidden by default) -->
-                        <i id="cross-icon" class="fas fa-times text-2xl hidden"></i>
-                    </button>
-                </div>
-            </div>
+   <nav class="backdrop-blur-md bg-white/70 shadow-md w-full border-b border-teal-200 relative z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <a href="index.html" class="flex-shrink-0 flex items-center ml-4">
+            <img src="Images/Logo.png" alt="Terrapure Logo" class="h-16 mt-2 w-auto mr-2 rounded-md" />
+          </a>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 right-0 z-50">
-            <div class="px-4 pt-4 pb-6 space-y-2 bg-white/95 backdrop-blur-md shadow-md rounded-b-lg relative border-t border-teal-100">
-                <a href="index.html" class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50">Home</a>
-                <a href="about.html" class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50">About</a>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="index.html"
+            class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
+          <a href="about.html"
+            class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
 
-                <!-- Mobile Services Dropdown -->
-                <div class="pt-2">
-                    <button id="mobile-services-toggle" class="w-full text-left text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors flex justify-between items-center rounded-md hover:bg-teal-50">
-                        <span>Services</span>
-                        <i class="fas fa-chevron-down text-xs transition-transform duration-300" id="services-arrow"></i>
-                    </button>
-                    <div id="mobile-services-menu" class="hidden pl-6 space-y-2 mt-2 border-l-2 border-teal-200 ml-3">
-                        <a href="services.html#ro" class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">RO Plants</a>
-                        <a href="services.html#stp" class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Sewage Treatment</a>
-                        <a href="services.html#etp" class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Effluent Treatment</a>
-                        <a href="services.html#zld" class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">ZLD Systems</a>
-                        <a href="services.html#softeners" class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Water Softeners</a>
-                    </div>
-                </div>
-
-                <a href="career.html" class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50">Career</a>
-                <a href="contact.html" class="block bg-gradient-to-r from-teal-500 to-green-400 text-white px-3 py-2 rounded-md text-base font-medium shadow-md text-center hover:from-teal-600 hover:to-green-500 transition-all mt-4">Contact</a>
+          <!-- Services Dropdown -->
+          <div class="relative group">
+            <button
+              class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors flex items-center">
+              Services
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div
+              class="absolute left-0 top-full mt-0 w-56 bg-white/95 backdrop-blur-md rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-teal-100 transform translate-y-2 group-hover:translate-y-0">
+              <div class="py-2">
+                <a href="RO.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">RO
+                  Plants</a>
+                <a href="sewage.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Sewage
+                  Treatment</a>
+                <a href="ETP.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Effluent
+                  Treatment</a>
+                <a href="ZLD.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">ZLD
+                  Systems</a>
+                <a href="water-softener-plant.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Water
+                  Softeners</a>
+                <!-- New services -->
+             <a href="WTP.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Water
+                  Treatment Plant</a>
+                <a href="wastewater-treatment.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Wastewater
+                  Treatment Plant</a>
+              
+                <a href="demineralization-plants(DM).html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Demineralization
+                  Plant (DM)</a>
+                <a href="operation & maintenance.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">Operation
+                  & Maintenance</a>
+                <a href="AMC.html"
+                  class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors">AMC</a>
+              </div>
             </div>
+          </div>
+
+          <a href="career.html"
+            class="text-teal-900 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">Career</a>
+          <a href="contact.html"
+            class="bg-gradient-to-r from-teal-500 to-green-400 text-white px-5 py-2 rounded-full text-sm font-medium hover:from-teal-600 hover:to-green-500 shadow-md transition-all">Contact</a>
         </div>
-    </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-teal-800 hover:bg-teal-100 p-2 rounded-md transition">
+            <!-- Hamburger Icon (visible by default) -->
+            <i id="hamburger-icon" class="fas fa-bars text-2xl"></i>
+            <!-- Cross Icon (hidden by default) -->
+            <i id="cross-icon" class="fas fa-times text-2xl hidden"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 right-0 z-50">
+      <div
+        class="px-4 pt-4 pb-6 space-y-2 bg-white/95 backdrop-blur-md shadow-md rounded-b-lg relative border-t border-teal-100">
+        <a href="index.html"
+          class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50">Home</a>
+        <a href="about.html"
+          class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50">About</a>
+
+        <!-- Mobile Services Dropdown -->
+        <div class="pt-2">
+          <button id="mobile-services-toggle"
+            class="w-full text-left text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors flex justify-between items-center rounded-md hover:bg-teal-50">
+            <span>Services</span>
+            <i class="fas fa-chevron-down text-xs transition-transform duration-300" id="services-arrow"></i>
+          </button>
+          <div id="mobile-services-menu" class="hidden pl-6 space-y-2 mt-2 border-l-2 border-teal-200 ml-3">
+            <a href="RO.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">RO
+              Plants</a>
+            <a href="sewage.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Sewage
+              Treatment</a>
+            <a href="ETP.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Effluent
+              Treatment</a>
+            <a href="ZLD.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">ZLD
+              Systems</a>
+            <a href="water-softener-plant.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Water
+              Softeners</a>
+            <!-- New services -->
+            <a href="WTP.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Water
+              Treatment Plant Manufacturer</a>
+
+            <a href="wastewater-treatment.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Water
+              Treatment Plant</a>
+            <a href="demineralization-plants(DM).html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Demineralization
+              Plant (DM)</a>
+            <a href="operation & maintenance.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">Operation
+              & Maintenance</a>
+            <a href="AMC.html"
+              class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50">AMC</a>
+          </div>
+        </div>
+
+        <a href="career.html"
+          class="block text-teal-900 hover:text-teal-600 px-3 py-2 text-base font-medium transition-colors rounded-md hover:bg-teal-50">Career</a>
+        <a href="contact.html"
+          class="block bg-gradient-to-r from-teal-500 to-green-400 text-white px-3 py-2 rounded-md text-base font-medium shadow-md text-center hover:from-teal-600 hover:to-green-500 transition-all mt-4">Contact</a>
+      </div>
+    </div>
+  </nav>
 
     <!-- Banner for Effluent Treatment Plant -->
-    <section class="relative h-96 bg-cover bg-center bg-no-repeat" style="background-image: url('');">
-        <!-- Dark Overlay -->
-        <div class="absolute inset-0 bg-black/60"></div>
-        
-        <!-- Watermark Headings -->
-        <div class="absolute inset-0 flex flex-col items-center justify-center text-white opacity-10 pointer-events-none">
-            <h1 class="text-9xl font-bold tracking-widest drop-shadow-2xl">Effluent Treatment Plant</h1>
-            <p class="text-5xl font-light mt-4 tracking-wide drop-shadow-2xl">Industrial Wastewater Solutions</p>
-        </div>
-        
-        <!-- Content Overlay for Button -->
-        <div class="absolute bottom-8 left-8 z-10">
-            <!-- Request a Quote Button -->
-            <a href="contact.html" class="bg-gradient-to-r from-teal-500 to-green-400 hover:from-teal-600 hover:to-green-500 text-white font-semibold py-4 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-lg">
-                <i class="fas fa-file-alt mr-2"></i>Request a Quote
-            </a>
-        </div>
-    </section>
+<section class="relative h-60 sm:h-72 md:h-80 bg-cover bg-center bg-no-repeat overflow-hidden" 
+         style="background-image: url('Images/etp-banner.jpg');">
+
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black/30"></div>
+
+    <!-- Animated Text Content -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-white px-4 text-center">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide animate-fade-in-up">
+            Effluent Treatment Plant
+        </h1>
+        <p class="mt-2 sm:mt-4 text-lg sm:text-xl md:text-2xl animate-fade-in-up delay-200">
+            Industrial Wastewater Solutions
+        </p>
+        <a href="contact.html" 
+           class="mt-4 sm:mt-6 bg-gradient-to-r from-teal-500 to-green-400 hover:from-teal-600 hover:to-green-500 
+                  text-white font-semibold py-2 sm:py-3 md:py-3 px-6 rounded-full shadow-lg transform 
+                  hover:scale-105 transition-all duration-500 animate-fade-in-up delay-400 inline-flex items-center">
+            <i class="fas fa-file-alt mr-2"></i>Request a Quote
+        </a>
+    </div>
+</section>
 
     <!-- Product Overview Section -->
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold text-teal-900 mb-6">Product Overview</h2>
-                    <p class="text-gray-700 text-lg leading-relaxed mb-4">Effluent Treatment Plants (ETP) are specialized systems designed to treat industrial wastewater and remove contaminants before discharge or reuse. These plants play a crucial role in protecting the environment and ensuring compliance with pollution control regulations.</p>
-                    <p class="text-gray-700 text-lg leading-relaxed">Our ETP systems employ advanced treatment technologies including physical, chemical, and biological processes to effectively treat industrial effluents from various manufacturing sectors. We design customized ETP solutions based on specific effluent characteristics and discharge requirements.</p>
-                </div>
-                <div class="bg-teal-50 p-8 rounded-lg">
-                    <img src="" alt="Effluent Treatment Plant Facility" class="w-full rounded-lg shadow-md">
-                </div>
-            </div>
+    <section class="py-16 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <!-- Text Content -->
+          <div class="animate-fade-slide-left">
+            <h2 class="text-3xl font-bold text-teal-900 mb-6">
+              Product Overview
+            </h2>
+            <p class="text-gray-700 text-lg leading-relaxed mb-4">
+              Effluent Treatment Plants (ETP) are specialized systems designed
+              to treat industrial wastewater and remove contaminants before
+              discharge or reuse. These plants play a crucial role in protecting
+              the environment and ensuring compliance with pollution control
+              regulations.
+            </p>
+            <p class="text-gray-700 text-lg leading-relaxed">
+              Our ETP systems employ advanced treatment technologies including
+              physical, chemical, and biological processes to effectively treat
+              industrial effluents from various manufacturing sectors. We design
+              customized ETP solutions based on specific effluent
+              characteristics and discharge requirements.
+            </p>
+          </div>
+
+          <!-- Image Card -->
+          <div
+            class="bg-teal-50 p-8 rounded-lg transform transition duration-700 animate-scale-in opacity-0"
+          >
+            <img
+              src="Images/etp2.jpg"
+              alt="Effluent Treatment Plant Facility"
+              class="w-full rounded-lg shadow-md"
+            />
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Why ETP Plants Are Important Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="bg-teal-50 p-8 rounded-lg order-2 md:order-1">
-                    <img src="" alt="Importance of Effluent Treatment Plants" class="w-full rounded-lg shadow-md">
-                </div>
-                <div class="order-1 md:order-2">
-                    <h2 class="text-3xl font-bold text-teal-900 mb-6">Why Effluent Treatment Plants Are Important?</h2>
-                    <p class="text-gray-700 text-lg leading-relaxed mb-6">Industrial effluents contain various pollutants that can severely damage the environment if discharged untreated. ETP plants are essential for sustainable industrial operations and environmental protection.</p>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start space-x-3">
-                            <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
-                            <span class="text-sm md:text-base">Prevents water pollution and protects aquatic life</span>
-                        </li>
-                        <li class="flex items-start space-x-3">
-                            <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
-                            <span class="text-sm md:text-base">Ensures compliance with environmental regulations</span>
-                        </li>
-                        <li class="flex items-start space-x-3">
-                            <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
-                            <span class="text-sm md:text-base">Enables water recycling and reduces freshwater consumption</span>
-                        </li>
-                        <li class="flex items-start space-x-3">
-                            <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
-                            <span class="text-sm md:text-base">Protects public health and maintains ecological balance</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <section
+      class="relative py-16 bg-cover bg-center bg-no-repeat"
+      style="background-image: url('Images/application bg.jpeg')"
+      id="animated-section"
+    >
+      <!-- White Overlay -->
+      <div class="absolute inset-0 bg-white/50"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <!-- Image with transparent background card -->
+          <div
+            class="bg-teal-50/80 p-8 rounded-lg order-2 md:order-1 shadow-lg backdrop-blur-sm scroll-animate fade-in-left"
+          >
+            <img
+              src="Images/ETP.jpeg"
+              alt="Importance of Effluent Treatment Plants"
+              class="w-full rounded-lg shadow-md scroll-animate zoom-in"
+              data-delay="400"
+            />
+          </div>
+
+          <!-- Text content with semi-transparent background -->
+          <div
+            class="order-1 md:order-2 bg-white/80 p-8 rounded-lg shadow-lg backdrop-blur-sm scroll-animate fade-in-right"
+          >
+            <h2
+              class="text-3xl font-bold text-teal-900 mb-6 scroll-animate slide-down"
+              data-delay="200"
+            >
+              Why Effluent Treatment Plants Are Important?
+            </h2>
+            <p
+              class="text-gray-700 text-lg leading-relaxed mb-6 scroll-animate fade-up"
+              data-delay="300"
+            >
+              Industrial effluents contain various pollutants that can severely
+              damage the environment if discharged untreated. ETP plants are
+              essential for sustainable industrial operations and environmental
+              protection.
+            </p>
+            <ul class="space-y-3 text-gray-700">
+              <li
+                class="flex items-start space-x-3 scroll-animate stagger-fade"
+                data-delay="400"
+              >
+                <i
+                  class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"
+                ></i>
+                <span class="text-sm md:text-base"
+                  >Prevents water pollution and protects aquatic life</span
+                >
+              </li>
+              <li
+                class="flex items-start space-x-3 scroll-animate stagger-fade"
+                data-delay="500"
+              >
+                <i
+                  class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"
+                ></i>
+                <span class="text-sm md:text-base"
+                  >Ensures compliance with environmental regulations</span
+                >
+              </li>
+              <li
+                class="flex items-start space-x-3 scroll-animate stagger-fade"
+                data-delay="600"
+              >
+                <i
+                  class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"
+                ></i>
+                <span class="text-sm md:text-base"
+                  >Enables water recycling and reduces freshwater
+                  consumption</span
+                >
+              </li>
+              <li
+                class="flex items-start space-x-3 scroll-animate stagger-fade"
+                data-delay="700"
+              >
+                <i
+                  class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"
+                ></i>
+                <span class="text-sm md:text-base"
+                  >Protects public health and maintains ecological balance</span
+                >
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- We Provide ETP Plants Section -->
     <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-blue-900 mb-4">We Provide Effluent Treatment Plants</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Customized ETP solutions for various industrial sectors and effluent characteristics</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <img src="" alt="ETP Plant 1" class="w-full rounded-lg shadow-md">
-                </div>
-                <div>
-                    <img src="" alt="ETP Plant 2" class="w-full rounded-lg shadow-md">
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-blue-900 mb-4">
+            We Provide Effluent Treatment Plants
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Customized ETP solutions for various industrial sectors and effluent
+            characteristics
+          </p>
         </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <img src="" alt="ETP Plant 1" class="w-full rounded-lg shadow-md" />
+          </div>
+          <div>
+            <img src="" alt="ETP Plant 2" class="w-full rounded-lg shadow-md" />
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Process Explanation Section - Diagrammatic Form -->
+    <!-- Process Explanation Section - Fixed Mobile Layout -->
     <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-teal-900 text-center mb-12">Process Explanation</h2>
-            <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-4 lg:space-x-6 max-w-6xl mx-auto overflow-x-auto pb-4">
-                <!-- Step 1: Effluent Collection -->
-                <div class="flex flex-col items-center space-y-2 text-center">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base">Effluent Collection</span>
-                </div>
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block"></i>
-                <div class="flex items-center space-x-2 md:hidden">
-                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                </div>
-
-                <!-- Step 2: Screening & Equalization -->
-                <div class="flex flex-col items-center space-y-2 text-center">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-filter"></i>
-                    </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base">Screening & Equalization</span>
-                    <p class="text-xs text-gray-600 w-24 md:w-32">Removal of large solids</p>
-                </div>
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block"></i>
-                <div class="flex items-center space-x-2 md:hidden">
-                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                </div>
-
-                <!-- Step 3: Chemical Treatment -->
-                <div class="flex flex-col items-center space-y-2 text-center">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base">Chemical Treatment</span>
-                    <p class="text-xs text-gray-600 w-24 md:w-32">Coagulation and flocculation</p>
-                </div>
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block"></i>
-                <div class="flex items-center space-x-2 md:hidden">
-                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                </div>
-
-                <!-- Step 4: Biological Treatment -->
-                <div class="flex flex-col items-center space-y-2 text-center">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-bug"></i>
-                    </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base">Biological Treatment</span>
-                    <p class="text-xs text-gray-600 w-24 md:w-32">Aerobic/anaerobic processes</p>
-                </div>
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block"></i>
-                <div class="flex items-center space-x-2 md:hidden">
-                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                </div>
-
-                <!-- Step 5: Tertiary Treatment -->
-                <div class="flex flex-col items-center space-y-2 text-center">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-vial"></i>
-                    </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base">Tertiary Treatment</span>
-                    <p class="text-xs text-gray-600 w-24 md:w-32">Polishing and disinfection</p>
-                </div>
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block"></i>
-                <div class="flex items-center space-x-2 md:hidden">
-                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                </div>
-
-                <!-- Step 6: Treated Water Output -->
-                <div class="flex flex-col items-center space-y-2 text-center">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base">Treated Water Output</span>
-                </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-teal-900 text-center mb-12">
+          Process Explanation
+        </h2>
+        
+        <!-- Desktop View -->
+        <div class="hidden md:flex items-center justify-center space-x-4 lg:space-x-6 max-w-6xl mx-auto">
+          <!-- Step 1: Effluent Collection -->
+          <div class="flex flex-col items-center space-y-2 text-center">
+            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-xl">
+              <i class="fas fa-industry"></i>
             </div>
+            <span class="text-gray-700 font-medium text-base">Effluent Collection</span>
+          </div>
+          <i class="fas fa-arrow-right text-teal-600 text-3xl"></i>
+
+          <!-- Step 2: Screening & Equalization -->
+          <div class="flex flex-col items-center space-y-2 text-center">
+            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-xl">
+              <i class="fas fa-filter"></i>
+            </div>
+            <span class="text-gray-700 font-medium text-base">Screening & Equalization</span>
+            <p class="text-xs text-gray-600 w-32">Removal of large solids</p>
+          </div>
+          <i class="fas fa-arrow-right text-teal-600 text-3xl"></i>
+
+          <!-- Step 3: Chemical Treatment -->
+          <div class="flex flex-col items-center space-y-2 text-center">
+            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-xl">
+              <i class="fas fa-flask"></i>
+            </div>
+            <span class="text-gray-700 font-medium text-base">Chemical Treatment</span>
+            <p class="text-xs text-gray-600 w-32">Coagulation and flocculation</p>
+          </div>
+          <i class="fas fa-arrow-right text-teal-600 text-3xl"></i>
+
+          <!-- Step 4: Biological Treatment -->
+          <div class="flex flex-col items-center space-y-2 text-center">
+            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-xl">
+              <i class="fas fa-bug"></i>
+            </div>
+            <span class="text-gray-700 font-medium text-base">Biological Treatment</span>
+            <p class="text-xs text-gray-600 w-32">Aerobic/anaerobic processes</p>
+          </div>
+          <i class="fas fa-arrow-right text-teal-600 text-3xl"></i>
+
+          <!-- Step 5: Tertiary Treatment -->
+          <div class="flex flex-col items-center space-y-2 text-center">
+            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-xl">
+              <i class="fas fa-vial"></i>
+            </div>
+            <span class="text-gray-700 font-medium text-base">Tertiary Treatment</span>
+            <p class="text-xs text-gray-600 w-32">Polishing and disinfection</p>
+          </div>
+          <i class="fas fa-arrow-right text-teal-600 text-3xl"></i>
+
+          <!-- Step 6: Treated Water Output -->
+          <div class="flex flex-col items-center space-y-2 text-center">
+            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-xl">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <span class="text-gray-700 font-medium text-base">Treated Water Output</span>
+          </div>
         </div>
+
+        <!-- Mobile View - Vertical Layout -->
+        <div class="md:hidden space-y-8 max-w-md mx-auto">
+          <!-- Step 1: Effluent Collection -->
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg flex-shrink-0">
+              <i class="fas fa-industry"></i>
+            </div>
+            <div>
+              <span class="text-gray-700 font-medium block">Effluent Collection</span>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
+            <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
+          </div>
+
+          <!-- Step 2: Screening & Equalization -->
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white text-lg flex-shrink-0">
+              <i class="fas fa-filter"></i>
+            </div>
+            <div>
+              <span class="text-gray-700 font-medium block">Screening & Equalization</span>
+              <p class="text-xs text-gray-600">Removal of large solids</p>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
+            <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
+          </div>
+
+          <!-- Step 3: Chemical Treatment -->
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg flex-shrink-0">
+              <i class="fas fa-flask"></i>
+            </div>
+            <div>
+              <span class="text-gray-700 font-medium block">Chemical Treatment</span>
+              <p class="text-xs text-gray-600">Coagulation and flocculation</p>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
+            <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
+          </div>
+
+          <!-- Step 4: Biological Treatment -->
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white text-lg flex-shrink-0">
+              <i class="fas fa-bug"></i>
+            </div>
+            <div>
+              <span class="text-gray-700 font-medium block">Biological Treatment</span>
+              <p class="text-xs text-gray-600">Aerobic/anaerobic processes</p>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
+            <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
+          </div>
+
+          <!-- Step 5: Tertiary Treatment -->
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg flex-shrink-0">
+              <i class="fas fa-vial"></i>
+            </div>
+            <div>
+              <span class="text-gray-700 font-medium block">Tertiary Treatment</span>
+              <p class="text-xs text-gray-600">Polishing and disinfection</p>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
+            <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
+          </div>
+
+          <!-- Step 6: Treated Water Output -->
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white text-lg flex-shrink-0">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div>
+              <span class="text-gray-700 font-medium block">Treated Water Output</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Applications and Features & Benefits Section -->
-    <section class="py-8 sm:py-12 md:py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-teal-900 text-center mb-6 sm:mb-8 md:mb-12">Applications & Features and Benefits</h2>
-            <div class="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
-                <!-- Applications Column -->
-                <div class="bg-blue-50 p-4 sm:p-6 md:p-8 rounded-lg">
-                    <h3 class="text-xl sm:text-2xl font-semibold text-blue-900 mb-4 sm:mb-6 text-center">Applications</h3>
-                    <ul class="space-y-2 sm:space-y-3 md:space-y-4">
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Textile and dye manufacturing industries</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Pharmaceutical and chemical plants</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Food processing and beverage industries</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Metal finishing and electroplating units</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Paper and pulp manufacturing plants</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Automobile and engineering industries</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Tanneries and leather processing units</span>
-                        </li>
-                    </ul>
-                </div>
+    <section
+      class="py-8 sm:py-12 md:py-16 bg-white"
+      id="applications-features-section"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-2xl sm:text-3xl md:text-4xl font-bold text-teal-900 text-center mb-6 sm:mb-8 md:mb-12 scroll-animate fade-down"
+        >
+          Applications & Features and Benefits
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
+          <!-- Applications Column -->
+          <div
+            class="bg-blue-50 p-4 sm:p-6 md:p-8 scroll-animate slide-in-left rounded-tl-3xl rounded-br-3xl"
+          >
+            <h3
+              class="text-xl sm:text-2xl font-semibold text-blue-900 mb-4 sm:mb-6 text-center"
+            >
+              Applications
+            </h3>
+            <ul class="space-y-2 sm:space-y-3 md:space-y-4">
+              <li
+                class="flex items-center space-x-2 sm:space-x-3 scroll-animate stagger-item"
+                data-delay="100"
+              >
+                <i
+                  class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"
+                ></i>
+                <span class="text-gray-700 text-xs sm:text-sm md:text-base"
+                  >Textile and dye manufacturing industries</span
+                >
+              </li>
+              <li
+                class="flex items-center space-x-2 sm:space-x-3 scroll-animate stagger-item"
+                data-delay="150"
+              >
+                <i
+                  class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"
+                ></i>
+                <span class="text-gray-700 text-xs sm:text-sm md:text-base"
+                  >Pharmaceutical and chemical plants</span
+                >
+              </li>
+              <li
+                class="flex items-center space-x-2 sm:space-x-3 scroll-animate stagger-item"
+                data-delay="200"
+              >
+                <i
+                  class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"
+                ></i>
+                <span class="text-gray-700 text-xs sm:text-sm md:text-base"
+                  >Food processing and beverage industries</span
+                >
+              </li>
+              <li
+                class="flex items-center space-x-2 sm:space-x-3 scroll-animate stagger-item"
+                data-delay="250"
+              >
+                <i
+                  class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"
+                ></i>
+                <span class="text-gray-700 text-xs sm:text-sm md:text-base"
+                  >Metal finishing and electroplating units</span
+                >
+              </li>
+              <li
+                class="flex items-center space-x-2 sm:space-x-3 scroll-animate stagger-item"
+                data-delay="300"
+              >
+                <i
+                  class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"
+                ></i>
+                <span class="text-gray-700 text-xs sm:text-sm md:text-base"
+                  >Paper and pulp manufacturing plants</span
+                >
+              </li>
+              <li
+                class="flex items-center space-x-2 sm:space-x-3 scroll-animate stagger-item"
+                data-delay="350"
+              >
+                <i
+                  class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"
+                ></i>
+                <span class="text-gray-700 text-xs sm:text-sm md:text-base"
+                  >Automobile and engineering industries</span
+                >
+              </li>
+              <li
+                class="flex items-center space-x-2 sm:space-x-3 scroll-animate stagger-item"
+                data-delay="400"
+              >
+                <i
+                  class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"
+                ></i>
+                <span class="text-gray-700 text-xs sm:text-sm md:text-base"
+                  >Tanneries and leather processing units</span
+                >
+              </li>
+            </ul>
+          </div>
 
-                <!-- Features and Benefits Column -->
-                <div class="bg-green-50 p-4 sm:p-6 md:p-8 rounded-lg">
-                    <h3 class="text-xl sm:text-2xl font-semibold text-teal-900 mb-4 sm:mb-6 text-center">Features and Benefits</h3>
-                    <ul class="space-y-2 sm:space-y-3 md:space-y-4">
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Customized design for specific effluent characteristics</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Advanced biological and chemical treatment</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Compact design with minimal space requirements</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Automated operation and monitoring systems</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Energy-efficient treatment processes</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Compliance with pollution control standards</span>
-                        </li>
-                        <li class="flex items-center space-x-2 sm:space-x-3">
-                            <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Water recycling and reuse capabilities</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+          <!-- Features and Benefits Column -->
+          <div
+            class="bg-green-50 p-4 sm:p-6 md:p-8 scroll-animate slide-in-right rounded-tr-3xl rounded-bl-3xl"
+          >
+            <h3
+              class="text-xl sm:text-2xl font-semibold text-teal-900 mb-4 sm:mb-6 text-center"
+            >
+              Features and Benefits
+            </h3>
+            <ul class="space-y-2 sm:space-y-3 md:space-y-4">
+              <li
+                class="flex items-center space-x-2 sm:space-x-3 scroll-animate stagger-item"
+                data-delay="100"
+              >
+                <i
+                  class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"
+                ></i>
+                <span class="text-gray-700 text-xs sm:text-sm md:text-base"
+                  >Customized design for specific effluent characteristics</span
+                >
+              </li>
+              <li
+                class="flex items-center space-x-2 sm:space-x-3 scroll-animate stagger-item"
+                data-delay="150"
+              >
+                <i
+                  class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"
+                ></i>
+                <span class="text-gray-700 text-xs sm:text-sm md:text-base"
+                  >Advanced biological and chemical treatment</span
+                >
+              </li>
+              <li
+                class="flex items-center space-x-2 sm:space-x-3 scroll-animate stagger-item"
+                data-delay="200"
+              >
+                <i
+                  class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"
+                ></i>
+                <span class="text-gray-700 text-xs sm:text-sm md:text-base"
+                  >Compact design with minimal space requirements</span
+                >
+              </li>
+              <li
+                class="flex items-center space-x-2 sm:space-x-3 scroll-animate stagger-item"
+                data-delay="250"
+              >
+                <i
+                  class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"
+                ></i>
+                <span class="text-gray-700 text-xs sm:text-sm md:text-base"
+                  >Automated operation and monitoring systems</span
+                >
+              </li>
+              <li
+                class="flex items-center space-x-2 sm:space-x-3 scroll-animate stagger-item"
+                data-delay="300"
+              >
+                <i
+                  class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"
+                ></i>
+                <span class="text-gray-700 text-xs sm:text-sm md:text-base"
+                  >Energy-efficient treatment processes</span
+                >
+              </li>
+              <li
+                class="flex items-center space-x-2 sm:space-x-3 scroll-animate stagger-item"
+                data-delay="350"
+              >
+                <i
+                  class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"
+                ></i>
+                <span class="text-gray-700 text-xs sm:text-sm md:text-base"
+                  >Compliance with pollution control standards</span
+                >
+              </li>
+              <li
+                class="flex items-center space-x-2 sm:space-x-3 scroll-animate stagger-item"
+                data-delay="400"
+              >
+                <i
+                  class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"
+                ></i>
+                <span class="text-gray-700 text-xs sm:text-sm md:text-base"
+                  >Water recycling and reuse capabilities</span
+                >
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </section>
 
-   <!-- Footer -->
+    <!-- Footer -->
     <footer
       class="relative bg-gradient-to-br from-teal-800 to-green-900 text-white pt-16 pb-8"
     >
@@ -445,15 +1045,17 @@
                   Services
                 </a>
               </li>
-               <li>
-                        <a
-                            href="career.html"
-                            class="text-teal-100 hover:text-white transition-colors flex items-center group"
-                        >
-                            <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
-                            Career
-                        </a>
-                    </li>
+              <li>
+                <a
+                  href="career.html"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                >
+                  <i
+                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"
+                  ></i>
+                  Career
+                </a>
+              </li>
               <li>
                 <a
                   href="contact.html"
@@ -637,7 +1239,116 @@
       </div>
     </footer>
 
-<script src="script.js"></script>
+    <script>
+      // Mobile Menu Toggle
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const crossIcon = document.getElementById('cross-icon');
+        const mobileServicesToggle = document.getElementById('mobile-services-toggle');
+        const mobileServicesMenu = document.getElementById('mobile-services-menu');
+        const servicesArrow = document.getElementById('services-arrow');
 
-</body>
+        // Toggle main mobile menu
+        mobileMenuButton.addEventListener('click', function() {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          
+          if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            hamburgerIcon.classList.add('hidden');
+            crossIcon.classList.remove('hidden');
+          } else {
+            mobileMenu.classList.add('hidden');
+            hamburgerIcon.classList.remove('hidden');
+            crossIcon.classList.add('hidden');
+            // Also close services menu when closing main menu
+            mobileServicesMenu.classList.add('hidden');
+            servicesArrow.classList.remove('fa-chevron-up');
+            servicesArrow.classList.add('fa-chevron-down');
+          }
+        });
+
+        // Toggle services submenu
+        if (mobileServicesToggle) {
+          mobileServicesToggle.addEventListener('click', function() {
+            const isHidden = mobileServicesMenu.classList.contains('hidden');
+            
+            if (isHidden) {
+              mobileServicesMenu.classList.remove('hidden');
+              servicesArrow.classList.remove('fa-chevron-down');
+              servicesArrow.classList.add('fa-chevron-up');
+            } else {
+              mobileServicesMenu.classList.add('hidden');
+              servicesArrow.classList.remove('fa-chevron-up');
+              servicesArrow.classList.add('fa-chevron-down');
+            }
+          });
+        }
+
+        // Scroll animation observers
+        const observerOptions = {
+          threshold: 0.2,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        // Observer for animated-section
+        const animatedSectionObserver = new IntersectionObserver(function(entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const elements = entry.target.querySelectorAll(".scroll-animate");
+              elements.forEach((element) => {
+                const delay = element.getAttribute("data-delay") || 0;
+                setTimeout(() => {
+                  element.classList.add("animated");
+                }, parseInt(delay));
+              });
+              animatedSectionObserver.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const animatedSection = document.getElementById("animated-section");
+        if (animatedSection) {
+          animatedSectionObserver.observe(animatedSection);
+        }
+
+        // Observer for applications-features-section
+        const appsFeaturesObserver = new IntersectionObserver(function(entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const elements = entry.target.querySelectorAll(".scroll-animate");
+              elements.forEach((element) => {
+                const delay = element.getAttribute("data-delay") || 0;
+                setTimeout(() => {
+                  element.classList.add("animated");
+                }, parseInt(delay));
+              });
+              appsFeaturesObserver.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const appsFeaturesSection = document.getElementById("applications-features-section");
+        if (appsFeaturesSection) {
+          appsFeaturesObserver.observe(appsFeaturesSection);
+        }
+
+        // Trigger animations on scroll for other sections
+        const animatedElements = document.querySelectorAll('[class*="animate-"]');
+        const generalObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+
+        animatedElements.forEach((el) => generalObserver.observe(el));
+      });
+    </script>
+  </body>
 </html>
