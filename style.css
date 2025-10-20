@@ -162,3 +162,25 @@
     .video-column > div {
       transform: translateX(30px);
     }
+
+    /*stats circle*/ 
+  
+  /* Circle stroke transition */
+  .progress-circle {
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-linecap: round;
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.3s linear;
+  }
+
+  /* Optional: subtle glow effect */
+  .progress-circle-glow {
+    filter: drop-shadow(0 0 6px rgba(0, 150, 136, 0.6));
+  }
+
+  .count-up {
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+  }

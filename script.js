@@ -371,3 +371,55 @@ document.addEventListener('DOMContentLoaded', function () {
 
     observer.observe(section);
 });
+
+
+// stats count
+  function animateStats() {
+    const counters = document.querySelectorAll('.count-up');
+
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      const circle = counter.closest('.group').querySelector('.progress-circle');
+      const radius = circle.r.baseVal.value;
+      const circumference = 2 * Math.PI * radius;
+
+      circle.style.strokeDasharray = circumference;
+      circle.style.strokeDashoffset = circumference;
+      circle.classList.add('progress-circle-glow');
+
+      let count = 0;
+      const duration = 3000; // 3 seconds
+      const intervalTime = 20; // 20ms per step
+      const steps = duration / intervalTime;
+      const increment = target / steps;
+
+      let step = 0;
+
+      const interval = setInterval(() => {
+        step++;
+        count += increment;
+        if (count > target) count = target;
+
+        counter.innerText = Math.floor(count);
+
+        // Animate stroke dash offset
+        const offset = circumference - (count / target) * circumference;
+        circle.style.strokeDashoffset = offset;
+
+        if (count >= target) clearInterval(interval);
+      }, intervalTime);
+    });
+  }
+
+  // Intersection Observer to trigger animation when visible
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateStats();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsSection = document.querySelector('.relative.py-20');
+  if (statsSection) observer.observe(statsSection);
