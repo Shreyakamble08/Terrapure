@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trusted By Leading Brands Worldwide — Clients | Terrapure</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+  <style>
+    :root{ --teal-600:#0ea5a3; --teal-800:#075b56; }
+    body { font-family: "Rubik", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    .font-alansans { font-family: "Alan Sans", sans-serif; }
+
+    /* simple fade-up animation used on headings/cards */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp .65s ease-out both; }
+
+    /* World map marker ping */
+    @keyframes pingSlower {
+      0% { transform: scale(1); opacity: 1; }
+      80% { transform: scale(1.9); opacity: 0; }
+      100% { transform: scale(1.9); opacity: 0; }
+    }
+    .ping-slower { animation: pingSlower 1.8s cubic-bezier(.4,0,.2,1) infinite; }
+
+    /* Popup card animation */
+    .popup-show { animation: fadeUp .2s ease-out both; }
+
+    /* Logo card hover */
+    .logo-card { transition: transform .28s ease, box-shadow .28s ease; will-change: transform; }
+    .logo-card:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 12px 30px rgba(2,6,23,0.12); }
+
+    /* Map responsiveness */
+    .map-wrap { min-height: 360px; }
+    @media (min-width:1024px) { .map-wrap { min-height: 420px; } }
+
+    /* small adjustment to popup arrow */
+    .popup::after {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: -8px;
+      border-width: 8px;
+      border-style: solid;
+      border-color: transparent transparent white transparent;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Page container -->
+  <main class="min-h-screen">
+
+    <!-- Hero / Title -->
+    <section class="py-12 bg-white shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-3xl md:text-4xl font-alansans font-bold text-teal-800 mb-2 fade-up">Trusted By Leading Brands Worldwide</h1>
+        <p class="max-w-3xl mx-auto text-gray-600 mt-2">Commercial, Government and International partners who rely on our water & wastewater solutions.</p>
+      </div>
+    </section>
+
+    <!-- Commercial Clients -->
+    <section class="py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-semibold text-teal-900">Commercial Clients</h2>
+          <p class="text-sm text-gray-500">Selected partners and installations</p>
+        </div>
+
+        <!-- logos grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <!-- Replace images with real colored logos; placeholders used -->
+          <div class="bg-white rounded-lg p-4 flex items-center justify-center logo-card fade-up">
+            <img src="Images/clients/commercial-1.png" alt="Client" class="max-h-12 object-contain"/>
+          </div>
+          <div class="bg-white rounded-lg p-4 flex items-center justify-center logo-card fade-up" style="animation-delay: .05s">
+            <img src="Images/clients/commercial-2.png" alt="Client" class="max-h-12 object-contain"/>
+          </div>
+          <div class="bg-white rounded-lg p-4 flex items-center justify-center logo-card fade-up" style="animation-delay: .1s">
+            <img src="Images/clients/commercial-3.png" alt="Client" class="max-h-12 object-contain"/>
+          </div>
+          <div class="bg-white rounded-lg p-4 flex items-center justify-center logo-card fade-up" style="animation-delay: .15s">
+            <img src="Images/clients/commercial-4.png" alt="Client" class="max-h-12 object-contain"/>
+          </div>
+          <div class="bg-white rounded-lg p-4 flex items-center justify-center logo-card fade-up" style="animation-delay: .2s">
+            <img src="Images/clients/commercial-5.png" alt="Client" class="max-h-12 object-contain"/>
+          </div>
+          <div class="bg-white rounded-lg p-4 flex items-center justify-center logo-card fade-up" style="animation-delay: .25s">
+            <img src="Images/clients/commercial-6.png" alt="Client" class="max-h-12 object-contain"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Government Clients -->
+    <section class="py-12 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-semibold text-teal-900">Government Clients</h2>
+          <p class="text-sm text-gray-500">Municipal & public sector collaborations</p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <div class="bg-white rounded-lg p-4 flex items-center justify-center logo-card fade-up">
+            <img src="Images/clients/gov-1.png" alt="Gov Client" class="max-h-12 object-contain"/>
+          </div>
+          <div class="bg-white rounded-lg p-4 flex items-center justify-center logo-card fade-up" style="animation-delay:.05s">
+            <img src="Images/clients/gov-2.png" alt="Gov Client" class="max-h-12 object-contain"/>
+          </div>
+          <div class="bg-white rounded-lg p-4 flex items-center justify-center logo-card fade-up" style="animation-delay:.1s">
+            <img src="Images/clients/gov-3.png" alt="Gov Client" class="max-h-12 object-contain"/>
+          </div>
+          <div class="bg-white rounded-lg p-4 flex items-center justify-center logo-card fade-up" style="animation-delay:.15s">
+            <img src="Images/clients/gov-4.png" alt="Gov Client" class="max-h-12 object-contain"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- International Clients (Map + Markers + Popups) -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-8">
+          <h2 class="text-2xl md:text-3xl font-semibold text-teal-900 fade-up">International Clients & Projects</h2>
+          <p class="text-gray-600 max-w-3xl mx-auto mt-2">We partner globally — project delivery, commissioning and long-term support across Asia and Africa.</p>
+        </div>
+
+        <!-- Map area -->
+        <div class="relative rounded-lg overflow-hidden border border-gray-100 shadow-sm map-wrap">
+          <!-- world map watermark image (set your own image at Images/world-map.png) -->
+          <div class="absolute inset-0 bg-center bg-cover" style="background-image:url('Images/world-map.png'); opacity:.14; filter:grayscale(.0);"></div>
+
+          <!-- interactive map area -->
+          <div class="relative z-10 h-full w-full min-h-[320px]">
+            <!-- markers container (use absolute percents to position) -->
+            <!-- Nepal marker -->
+            <div class="absolute left-[73%] top-[46%] transform -translate-x-1/2 -translate-y-1/2">
+              <button class="relative group" aria-expanded="false" data-country="nepal" onclick="togglePopup('nepal')" title="Nepal">
+                <span class="block w-4 h-4 bg-teal-600 rounded-full"></span>
+                <span class="block w-2 h-2 bg-teal-600 rounded-full absolute left-1 top-1 animate-ping-slower"></span>
+              </button>
+
+              <!-- popup (hidden initially) -->
+              <div id="popup-nepal" class="popup hidden absolute left-[calc(100%+8px)] top-[-6px] bg-white rounded-md shadow-lg px-3 py-2 text-sm w-44">
+                <strong class="block text-sm text-teal-800">Nepal</strong>
+                <span class="text-xs text-gray-600">RO plant supply & commissioning — 2022</span>
+              </div>
+            </div>
+
+            <!-- Bhutan marker (slightly north-east of Nepal) -->
+            <div class="absolute left-[75%] top-[42%] transform -translate-x-1/2 -translate-y-1/2">
+              <button class="relative group" aria-expanded="false" data-country="bhutan" onclick="togglePopup('bhutan')" title="Bhutan">
+                <span class="block w-4 h-4 bg-blue-600 rounded-full"></span>
+                <span class="block w-2 h-2 bg-blue-600 rounded-full absolute left-1 top-1 animate-ping-slower"></span>
+              </button>
+
+              <div id="popup-bhutan" class="popup hidden absolute left-[calc(100%+8px)] top-[-6px] bg-white rounded-md shadow-lg px-3 py-2 text-sm w-44">
+                <strong class="block text-sm text-teal-800">Bhutan</strong>
+                <span class="text-xs text-gray-600">Turnkey water treatment project — 2021</span>
+              </div>
+            </div>
+
+            <!-- South Africa marker -->
+            <div class="absolute left-[58%] top-[80%] transform -translate-x-1/2 -translate-y-1/2">
+              <button class="relative group" aria-expanded="false" data-country="southafrica" onclick="togglePopup('southafrica')" title="South Africa">
+                <span class="block w-4 h-4 bg-green-600 rounded-full"></span>
+                <span class="block w-2 h-2 bg-green-600 rounded-full absolute left-1 top-1 animate-ping-slower"></span>
+              </button>
+
+              <div id="popup-southafrica" class="popup hidden absolute left-[calc(100%+8px)] top-[-6px] bg-white rounded-md shadow-lg px-3 py-2 text-sm w-44">
+                <strong class="block text-sm text-teal-800">South Africa</strong>
+                <span class="text-xs text-gray-600">O&M contract & spare supplies — 2023</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- International logos row -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mt-8">
+          <div class="bg-white rounded-lg p-4 flex items-center justify-center logo-card">
+            <img src="Images/clients/intl-1.png" alt="Intl client" class="max-h-12 object-contain"/>
+          </div>
+          <div class="bg-white rounded-lg p-4 flex items-center justify-center logo-card">
+            <img src="Images/clients/intl-2.png" alt="Intl client" class="max-h-12 object-contain"/>
+          </div>
+          <div class="bg-white rounded-lg p-4 flex items-center justify-center logo-card">
+            <img src="Images/clients/intl-3.png" alt="Intl client" class="max-h-12 object-contain"/>
+          </div>
+          <div class="bg-white rounded-lg p-4 flex items-center justify-center logo-card">
+            <img src="Images/clients/intl-4.png" alt="Intl client" class="max-h-12 object-contain"/>
+          </div>
+          <div class="bg-white rounded-lg p-4 flex items-center justify-center logo-card">
+            <img src="Images/clients/intl-5.png" alt="Intl client" class="max-h-12 object-contain"/>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Short CTA -->
+    <section class="py-12 bg-gradient-to-r from-teal-600 to-emerald-500 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h3 class="text-xl md:text-2xl font-semibold">Want to be our next success story?</h3>
+        <p class="mt-2 text-sm md:text-base max-w-2xl mx-auto">Contact us for turnkey projects, commissioning, and long-term maintenance support across regions.</p>
+        <a href="contact.html" class="inline-block mt-4 bg-white text-teal-700 font-semibold px-6 py-3 rounded-full shadow hover:scale-105 transition-transform">Get in touch</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Popup & interaction script -->
+  <script>
+    // toggle popup visibility by id
+    function togglePopup(key) {
+      // close any open popups first
+      ['nepal','bhutan','southafrica'].forEach(k=>{
+        const el = document.getElementById('popup-' + k);
+        if (el && k !== key) el.classList.add('hidden');
+      });
+      const popup = document.getElementById('popup-' + key);
+      if (!popup) return;
+      popup.classList.toggle('hidden');
+      if (!popup.classList.contains('hidden')) popup.classList.add('popup-show');
+    }
+
+    // close popups when clicking outside
+    document.addEventListener('click', function (e) {
+      // if click is inside a marker or popup, ignore
+      const inside = e.target.closest('[data-country]') || e.target.closest('.popup');
+      if (!inside) {
+        ['nepal','bhutan','southafrica'].forEach(k=>{
+          const el = document.getElementById('popup-' + k);
+          if (el) el.classList.add('hidden');
+        });
+      }
+    });
+
+    // keyboard close (Esc)
+    document.addEventListener('keyup', function(e){
+      if (e.key === 'Escape') {
+        ['nepal','bhutan','southafrica'].forEach(k=>{
+          const el = document.getElementById('popup-' + k);
+          if (el) el.classList.add('hidden');
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

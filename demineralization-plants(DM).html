@@ -23,39 +23,180 @@
         }
         body {
             font-family: "Rubik", sans-serif;
+            overflow-x: hidden;
+            width: 100%;
         }
         .font-alansans {
             font-family: "Alan Sans", sans-serif;
         }
+        
         /* Fix for Process Explanation Overflow */
-        @media (max-width: 767px) {
-            .process-steps {
-                flex-direction: column;
-                align-items: center;
-                overflow-x: hidden;
-            }
-            .process-steps > div {
-                width: 100%;
-                max-width: 300px;
-            }
-            .process-steps .hidden.md\\:block {
-                display: none;
-            }
-            .process-steps .md\\:hidden {
-                display: flex;
-            }
+        .process-steps-container {
+            width: 100%;
+            overflow-x: hidden;
         }
+        
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            width: 100%;
+        }
+        
         @media (min-width: 768px) {
             .process-steps {
                 flex-direction: row;
-                overflow-x: auto;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem 2rem;
+            }
+        }
+        
+        .process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 150px;
+        }
+        
+        .process-step-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .process-step-text {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.25rem;
+        }
+        
+        .process-step-desc {
+            font-size: 0.75rem;
+            color: #6B7280;
+            max-width: 140px;
+        }
+        
+        .process-arrow {
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .process-arrow {
+                display: block;
+                color: #0D9488;
+                font-size: 1.5rem;
+            }
+            
+            .process-step {
+                max-width: 140px;
+            }
+        }
+        
+        .process-arrow-mobile {
+            color: #0D9488;
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+        
+        @media (min-width: 768px) {
+            .process-arrow-mobile {
+                display: none;
+            }
+        }
+        
+        /* Fix for large background text */
+        .background-text {
+            font-size: 3rem;
+            opacity: 0.05;
+            font-weight: 900;
+            color: #134E4A;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100vw;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .background-text {
+                font-size: 8rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .background-text {
+                font-size: 10rem;
+            }
+        }
+        
+        /* Ensure images don't overflow */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Prevent text overflow */
+        .text-overflow-safe {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+        }
+        
+        /* Fix for footer overflow */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        /* Ensure all containers don't overflow */
+        .container-fix {
+            max-width: 100%;
+            overflow: hidden;
+        }
+        
+        /* Fix for any potential horizontal scroll */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Mobile-specific fixes */
+        @media (max-width: 767px) {
+            .mobile-padding {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .mobile-text-center {
+                text-align: center;
+            }
+            
+            .mobile-full-width {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Top Info Bar -->
-    <div class="bg-gradient-to-r from-green-500 to-teal-600 text-white text-sm fade-in">
+    <div class="bg-gradient-to-r from-green-500 to-teal-600 text-white text-sm fade-in container-fix">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row items-center justify-between py-1 sm:py-2">
                 <div class="flex items-center space-x-6">
@@ -77,7 +218,7 @@
     </div>
 
     <!-- Main Navigation -->
-    <nav
+       <nav
       class="backdrop-blur-md bg-white/70 shadow-md w-full border-b border-teal-200 relative z-50"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -310,20 +451,20 @@
 
     <!-- Banner for Demineralization Plants -->
     <section 
-        class="relative h-48 sm:h-60 md:h-72 lg:h-80 bg-cover bg-center bg-no-repeat overflow-hidden"
+        class="relative h-48 sm:h-60 md:h-72 lg:h-80 bg-cover bg-center bg-no-repeat overflow-hidden container-fix"
         style="background-image: url('Images/DM2.png');"
         data-aos="fade-zoom-in"
         data-aos-duration="1000"
     >
         <div class="absolute inset-0 bg-black/40"></div>
         <div class="absolute inset-0 flex flex-col items-center justify-center text-white px-4 text-center">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-alansans font-bold tracking-wide"
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-alansans font-bold tracking-wide text-overflow-safe mobile-text-center"
                 data-aos="fade-up"
                 data-aos-delay="200"
                 data-aos-duration="1000">
                 Demineralization Plants
             </h1>
-            <p class="mt-2 sm:mt-4 text-lg sm:text-xl md:text-2xl"
+            <p class="mt-2 sm:mt-4 text-lg sm:text-xl md:text-2xl text-overflow-safe mobile-text-center"
                 data-aos="fade-up"
                 data-aos-delay="400"
                 data-aos-duration="1000">
@@ -332,7 +473,7 @@
             <a href="contact.html" 
                class="mt-6 bg-gradient-to-r from-teal-500 to-green-400 hover:from-teal-600 hover:to-green-500 
                       text-white font-semibold py-2 sm:py-3 md:py-4 px-6 rounded-full shadow-lg transform hover:scale-105 
-                      transition-all duration-500 inline-flex items-center"
+                      transition-all duration-500 inline-flex items-center mobile-text-center"
                data-aos="zoom-in"
                data-aos-delay="600"
                data-aos-duration="1000">
@@ -342,19 +483,19 @@
     </section>
 
     <!-- Product Overview Section -->
-    <section class="py-16 bg-white" data-aos="fade-up" data-aos-duration="1000">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-16 bg-white container-fix" data-aos="fade-up" data-aos-duration="1000">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right" data-aos-delay="200">
-                    <h2 class="text-3xl font-bold font-alansans text-teal-900 mb-6">Product Overview</h2>
-                    <p class="text-gray-700 text-lg leading-relaxed mb-4">
+                    <h2 class="text-3xl font-bold font-alansans text-teal-900 mb-6 text-overflow-safe">Product Overview</h2>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-4 text-overflow-safe">
                         Demineralization (DM) Plants are advanced water treatment systems designed to remove mineral salts and ions from water, producing high-purity demineralized water. These plants are essential for industries requiring ultra-pure water for various processes.
                     </p>
-                    <p class="text-gray-700 text-lg leading-relaxed">
+                    <p class="text-gray-700 text-lg leading-relaxed text-overflow-safe">
                         Our DM plants utilize ion exchange technology with cation and anion exchange resins to effectively remove cations and anions, resulting in water with very low conductivity and high purity levels.
                     </p>
                 </div>
-                <div class="bg-teal-50 p-8 rounded-lg shadow-lg card-hover"
+                <div class="bg-teal-50 p-8 rounded-lg shadow-lg card-hover container-fix"
                      data-aos="zoom-in"
                      data-aos-delay="400">
                     <img src="Images/DM2.png" alt="Demineralization Plant Facility" class="w-full rounded-lg shadow-md" />
@@ -364,41 +505,41 @@
     </section>
 
     <!-- Why Demineralization Plants Are Important Section -->
-    <section class="py-16 bg-gray-50" data-aos="fade-up" data-aos-duration="1000">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-16 bg-gray-50 container-fix" data-aos="fade-up" data-aos-duration="1000">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="bg-teal-50 p-8 rounded-lg order-2 md:order-1 card-hover"
+                <div class="bg-teal-50 p-8 rounded-lg order-2 md:order-1 card-hover container-fix"
                      data-aos="zoom-in"
                      data-aos-delay="200">
                     <img src="Images/DM1.jpeg" 
                          alt="Importance of Demineralization Plants" 
                          class="w-full rounded-lg shadow-md">
                 </div>
-                <div class="order-1 md:order-2" 
+                <div class="order-1 md:order-2 container-fix" 
                      data-aos="fade-left"
                      data-aos-delay="300">
-                    <h2 class="text-3xl font-alansans font-bold text-teal-900 mb-6">
+                    <h2 class="text-3xl font-alansans font-bold text-teal-900 mb-6 text-overflow-safe">
                         Why Demineralization Plants Are Important?
                     </h2>
-                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6 text-overflow-safe">
                         Demineralized water is crucial for numerous industrial applications where mineral-free water is essential to prevent scaling, corrosion, and product contamination. DM plants ensure consistent water quality for critical processes.
                     </p>
                     <ul class="space-y-3 text-gray-700">
                         <li class="flex items-start space-x-3" data-aos="fade-up" data-aos-delay="400">
                             <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
-                            <span class="text-sm md:text-base">Prevents scaling in boilers, cooling towers, and heat exchangers</span>
+                            <span class="text-sm md:text-base text-overflow-safe">Prevents scaling in boilers, cooling towers, and heat exchangers</span>
                         </li>
                         <li class="flex items-start space-x-3" data-aos="fade-up" data-aos-delay="500">
                             <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
-                            <span class="text-sm md:text-base">Eliminates corrosion caused by dissolved minerals</span>
+                            <span class="text-sm md:text-base text-overflow-safe">Eliminates corrosion caused by dissolved minerals</span>
                         </li>
                         <li class="flex items-start space-x-3" data-aos="fade-up" data-aos-delay="600">
                             <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
-                            <span class="text-sm md:text-base">Ensures product quality in pharmaceutical and food industries</span>
+                            <span class="text-sm md:text-base text-overflow-safe">Ensures product quality in pharmaceutical and food industries</span>
                         </li>
                         <li class="flex items-start space-x-3" data-aos="fade-up" data-aos-delay="700">
                             <i class="fas fa-check-circle text-teal-500 text-sm mt-1 flex-shrink-0"></i>
-                            <span class="text-sm md:text-base">Improves efficiency and extends equipment lifespan</span>
+                            <span class="text-sm md:text-base text-overflow-safe">Improves efficiency and extends equipment lifespan</span>
                         </li>
                     </ul>
                 </div>
@@ -407,10 +548,10 @@
     </section>
 
     <!-- Contact CTA Section -->
-    <section class="py-16 bg-gradient-to-r from-teal-500 to-green-400 text-white" data-aos="fade-up" data-aos-duration="1000">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-alansans font-bold mb-4" data-aos="fade-up" data-aos-delay="200">Need High-Purity Demineralized Water?</h2>
-            <p class="text-xl mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="300">Contact us for customized DM plant solutions tailored to your specific requirements</p>
+    <section class="py-16 bg-gradient-to-r from-teal-500 to-green-400 text-white container-fix" data-aos="fade-up" data-aos-duration="1000">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mobile-padding">
+            <h2 class="text-3xl font-alansans font-bold mb-4 text-overflow-safe" data-aos="fade-up" data-aos-delay="200">Need High-Purity Demineralized Water?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto text-overflow-safe" data-aos="fade-up" data-aos-delay="300">Contact us for customized DM plant solutions tailored to your specific requirements</p>
             <a href="contact.html" class="bg-white text-teal-600 font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 text-lg inline-block" data-aos="zoom-in" data-aos-delay="400">
                 <i class="fas fa-file-alt mr-2"></i>Request a Quote
             </a>
@@ -418,24 +559,24 @@
     </section>
 
     <!-- We Provide Demineralization Plants Section -->
-    <section class="py-16 bg-white" data-aos="fade-up" data-aos-duration="1000">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-16 bg-white container-fix" data-aos="fade-up" data-aos-duration="1000">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
             <div class="text-center mb-12" data-aos="fade-down" data-aos-delay="200">
-                <h2 class="text-4xl font-alansans font-bold text-blue-900 mb-4">
+                <h2 class="text-4xl font-alansans font-bold text-blue-900 mb-4 text-overflow-safe">
                     We Provide Demineralization Plants
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto text-overflow-safe">
                     Customized DM plant solutions for various industrial applications and capacity requirements
                 </p>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="rounded-lg overflow-hidden shadow-md h-72 sm:h-80 md:h-96 flex items-center justify-center bg-gray-100 card-hover"
+                <div class="rounded-lg overflow-hidden shadow-md h-72 sm:h-80 md:h-96 flex items-center justify-center bg-gray-100 card-hover container-fix"
                      data-aos="zoom-in" data-aos-delay="300">
                     <img src="Images/DM2.png" 
                          alt="DM Plant 1" 
                          class="w-full h-full object-cover">
                 </div>
-                <div class="rounded-lg overflow-hidden shadow-md h-72 sm:h-80 md:h-96 flex items-center justify-center bg-gray-100 card-hover"
+                <div class="rounded-lg overflow-hidden shadow-md h-72 sm:h-80 md:h-96 flex items-center justify-center bg-gray-100 card-hover container-fix"
                      data-aos="zoom-in" data-aos-delay="400">
                     <img src="Images/DM3.png" 
                          alt="DM Plant 2" 
@@ -446,184 +587,186 @@
     </section>
 
     <!-- Process Explanation Section - Diagrammatic Form -->
-    <section class="py-16 bg-gray-50 relative overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <span class="text-teal-900 font-extrabold opacity-5 text-[90px] md:text-[160px] tracking-widest whitespace-nowrap select-none">
+    <section class="py-16 bg-gray-50 relative overflow-hidden container-fix" data-aos="fade-up" data-aos-duration="1000">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none container-fix">
+            <span class="background-text select-none">
                 TERRAPURE
             </span>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <h2 class="text-3xl font-bold font-alansans text-teal-900 text-center mb-12" data-aos="fade-down" data-aos-delay="200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative mobile-padding">
+            <h2 class="text-3xl font-bold font-alansans text-teal-900 text-center mb-12 text-overflow-safe" data-aos="fade-down" data-aos-delay="200">
                 Process Explanation
             </h2>
-            <div class="process-steps flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-4 lg:space-x-6 max-w-6xl mx-auto pb-4">
-                <!-- Step 1: Raw Water Input -->
-                <div class="flex flex-col items-center space-y-2 text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-tint"></i>
+            <div class="process-steps-container">
+                <div class="process-steps">
+                    <!-- Step 1: Raw Water Input -->
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                        <div class="process-step-icon bg-blue-500">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <span class="process-step-text">Raw Water Input</span>
                     </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base">Raw Water Input</span>
-                </div>
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block" data-aos="fade-up" data-aos-delay="350"></i>
-                <div class="flex items-center space-x-2 md:hidden" data-aos="fade-up" data-aos-delay="350">
-                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                </div>
-                <!-- Step 2: Pretreatment -->
-                <div class="flex flex-col items-center space-y-2 text-center" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-filter"></i>
+                    
+                    <i class="process-arrow fas fa-arrow-right" data-aos="fade-up" data-aos-delay="350"></i>
+                    <i class="process-arrow-mobile fas fa-arrow-down" data-aos="fade-up" data-aos-delay="350"></i>
+                    
+                    <!-- Step 2: Pretreatment -->
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                        <div class="process-step-icon bg-green-500">
+                            <i class="fas fa-filter"></i>
+                        </div>
+                        <span class="process-step-text">Pretreatment</span>
+                        <p class="process-step-desc">Multi-grade filtration and activated carbon</p>
                     </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base">Pretreatment</span>
-                    <p class="text-xs text-gray-600 w-24 md:w-32">Multi-grade filtration and activated carbon</p>
-                </div>
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block" data-aos="fade-up" data-aos-delay="450"></i>
-                <div class="flex items-center space-x-2 md:hidden" data-aos="fade-up" data-aos-delay="450">
-                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                </div>
-                <!-- Step 3: Cation Exchange -->
-                <div class="flex flex-col items-center space-y-2 text-center" data-aos="fade-up" data-aos-delay="500">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-exchange-alt"></i>
+                    
+                    <i class="process-arrow fas fa-arrow-right" data-aos="fade-up" data-aos-delay="450"></i>
+                    <i class="process-arrow-mobile fas fa-arrow-down" data-aos="fade-up" data-aos-delay="450"></i>
+                    
+                    <!-- Step 3: Cation Exchange -->
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="500">
+                        <div class="process-step-icon bg-blue-500">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <span class="process-step-text">Cation Exchange</span>
+                        <p class="process-step-desc">Removal of positive ions (Ca²⁺, Mg²⁺, Na⁺)</p>
                     </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base">Cation Exchange</span>
-                    <p class="text-xs text-gray-600 w-24 md:w-32">Removal of positive ions (Ca²⁺, Mg²⁺, Na⁺)</p>
-                </div>
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block" data-aos="fade-up" data-aos-delay="550"></i>
-                <div class="flex items-center space-x-2 md:hidden" data-aos="fade-up" data-aos-delay="550">
-                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                </div>
-                <!-- Step 4: Anion Exchange -->
-                <div class="flex flex-col items-center space-y-2 text-center" data-aos="fade-up" data-aos-delay="600">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-exchange-alt"></i>
+                    
+                    <i class="process-arrow fas fa-arrow-right" data-aos="fade-up" data-aos-delay="550"></i>
+                    <i class="process-arrow-mobile fas fa-arrow-down" data-aos="fade-up" data-aos-delay="550"></i>
+                    
+                    <!-- Step 4: Anion Exchange -->
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="600">
+                        <div class="process-step-icon bg-green-500">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <span class="process-step-text">Anion Exchange</span>
+                        <p class="process-step-desc">Removal of negative ions (Cl⁻, SO₄²⁻, NO₃⁻)</p>
                     </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base">Anion Exchange</span>
-                    <p class="text-xs text-gray-600 w-24 md:w-32">Removal of negative ions (Cl⁻, SO₄²⁻, NO₃⁻)</p>
-                </div>
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block" data-aos="fade-up" data-aos-delay="650"></i>
-                <div class="flex items-center space-x-2 md:hidden" data-aos="fade-up" data-aos-delay="650">
-                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                </div>
-                <!-- Step 5: Mixed Bed -->
-                <div class="flex flex-col items-center space-y-2 text-center" data-aos="fade-up" data-aos-delay="700">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-vial"></i>
+                    
+                    <i class="process-arrow fas fa-arrow-right" data-aos="fade-up" data-aos-delay="650"></i>
+                    <i class="process-arrow-mobile fas fa-arrow-down" data-aos="fade-up" data-aos-delay="650"></i>
+                    
+                    <!-- Step 5: Mixed Bed -->
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="700">
+                        <div class="process-step-icon bg-blue-500">
+                            <i class="fas fa-vial"></i>
+                        </div>
+                        <span class="process-step-text">Mixed Bed</span>
+                        <p class="process-step-desc">Final polishing for ultra-pure water</p>
                     </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base">Mixed Bed</span>
-                    <p class="text-xs text-gray-600 w-24 md:w-32">Final polishing for ultra-pure water</p>
-                </div>
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block" data-aos="fade-up" data-aos-delay="750"></i>
-                <div class="flex items-center space-x-2 md:hidden" data-aos="fade-up" data-aos-delay="750">
-                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                </div>
-                <!-- Step 6: DM Water Output -->
-                <div class="flex flex-col items-center space-y-2 text-center" data-aos="fade-up" data-aos-delay="800">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-check-circle"></i>
+                    
+                    <i class="process-arrow fas fa-arrow-right" data-aos="fade-up" data-aos-delay="750"></i>
+                    <i class="process-arrow-mobile fas fa-arrow-down" data-aos="fade-up" data-aos-delay="750"></i>
+                    
+                    <!-- Step 6: DM Water Output -->
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="800">
+                        <div class="process-step-icon bg-green-500">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <span class="process-step-text">DM Water Output</span>
                     </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base">DM Water Output</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Applications, Features & Benefits, and Advantages Section -->
-    <section class="py-8 sm:py-12 md:py-16 bg-white" data-aos="fade-up" data-aos-duration="1000">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-alansans text-teal-900 text-center mb-6 sm:mb-8 md:mb-12" data-aos="fade-down" data-aos-delay="200">Applications, Features & Benefits, Advantages</h2>
+    <section class="py-8 sm:py-12 md:py-16 bg-white container-fix" data-aos="fade-up" data-aos-duration="1000">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-padding">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-alansans text-teal-900 text-center mb-6 sm:mb-8 md:mb-12 text-overflow-safe" data-aos="fade-down" data-aos-delay="200">Applications, Features & Benefits, Advantages</h2>
             <div class="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-                <div class="bg-blue-50 p-4 sm:p-6 md:p-8 rounded-lg card-hover" data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-xl sm:text-2xl font-semibold text-blue-900 mb-4 sm:mb-6 text-center">Applications</h3>
+                <div class="bg-blue-50 p-4 sm:p-6 md:p-8 rounded-lg card-hover container-fix" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl sm:text-2xl font-semibold text-blue-900 mb-4 sm:mb-6 text-center text-overflow-safe">Applications</h3>
                     <ul class="space-y-2 sm:space-y-3 md:space-y-4">
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="400">
                             <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Boiler feed water for power plants and industries</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Boiler feed water for power plants and industries</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="450">
                             <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Pharmaceutical manufacturing and drug formulation</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Pharmaceutical manufacturing and drug formulation</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="500">
                             <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Electronics and semiconductor industry</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Electronics and semiconductor industry</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="550">
                             <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Chemical processing and manufacturing</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Chemical processing and manufacturing</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="600">
                             <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Laboratories and research facilities</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Laboratories and research facilities</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="650">
                             <i class="fas fa-check-circle text-blue-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Automotive and paint industries</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Automotive and paint industries</span>
                         </li>
                     </ul>
                 </div>
-                <div class="bg-green-50 p-4 sm:p-6 md:p-8 rounded-lg card-hover" data-aos="fade-up" data-aos-delay="350">
-                    <h3 class="text-xl sm:text-2xl font-semibold text-teal-900 mb-4 sm:mb-6 text-center">Features and Benefits</h3>
+                <div class="bg-green-50 p-4 sm:p-6 md:p-8 rounded-lg card-hover container-fix" data-aos="fade-up" data-aos-delay="350">
+                    <h3 class="text-xl sm:text-2xl font-semibold text-teal-900 mb-4 sm:mb-6 text-center text-overflow-safe">Features and Benefits</h3>
                     <ul class="space-y-2 sm:space-y-3 md:space-y-4">
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="400">
                             <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">High efficiency removal of dissolved minerals</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">High efficiency removal of dissolved minerals</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="450">
                             <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Automated operation with minimal supervision</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Automated operation with minimal supervision</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="500">
                             <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Compact design saves valuable space</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Compact design saves valuable space</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="550">
                             <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Cost-effective operation and maintenance</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Cost-effective operation and maintenance</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="600">
                             <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Prevents scaling and corrosion in equipment</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Prevents scaling and corrosion in equipment</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="650">
                             <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Produces ultra-pure water consistently</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Produces ultra-pure water consistently</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="700">
                             <i class="fas fa-check-circle text-green-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Extends equipment lifespan significantly</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Extends equipment lifespan significantly</span>
                         </li>
                     </ul>
                 </div>
-                <div class="bg-teal-50 p-4 sm:p-6 md:p-8 rounded-lg card-hover" data-aos="fade-up" data-aos-delay="400">
-                    <h3 class="text-xl sm:text-2xl font-semibold text-teal-900 mb-4 sm:mb-6 text-center">Advantages</h3>
+                <div class="bg-teal-50 p-4 sm:p-6 md:p-8 rounded-lg card-hover container-fix" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl sm:text-2xl font-semibold text-teal-900 mb-4 sm:mb-6 text-center text-overflow-safe">Advantages</h3>
                     <ul class="space-y-2 sm:space-y-3 md:space-y-4">
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="450">
                             <i class="fas fa-check-circle text-teal-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Prevents corrosion in boilers and heat exchangers</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Prevents corrosion in boilers and heat exchangers</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="500">
                             <i class="fas fa-check-circle text-teal-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Eliminates scale formation completely</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Eliminates scale formation completely</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="550">
                             <i class="fas fa-check-circle text-teal-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Produces water with conductivity &lt;10 μS/cm</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Produces water with conductivity &lt;10 μS/cm</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="600">
                             <i class="fas fa-check-circle text-teal-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Improves thermal efficiency in systems</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Improves thermal efficiency in systems</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="650">
                             <i class="fas fa-check-circle text-teal-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Resins can be regenerated multiple times</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Resins can be regenerated multiple times</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="700">
                             <i class="fas fa-check-circle text-teal-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Consistent quality regardless of raw water</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Consistent quality regardless of raw water</span>
                         </li>
                         <li class="flex items-center space-x-2 sm:space-x-3" data-aos="fade-up" data-aos-delay="750">
                             <i class="fas fa-check-circle text-teal-500 text-sm sm:text-base md:text-lg"></i>
-                            <span class="text-gray-700 text-xs sm:text-sm md:text-base">Environmentally friendly regeneration process</span>
+                            <span class="text-gray-700 text-xs sm:text-sm md:text-base text-overflow-safe">Environmentally friendly regeneration process</span>
                         </li>
                     </ul>
                 </div>
@@ -632,20 +775,20 @@
     </section>
 
     <!-- Footer -->
-    <footer class="relative bg-gradient-to-br from-teal-800 to-green-900 text-white pt-16 pb-8" data-aos="fade-up" data-aos-duration="1000">
+    <footer class="relative bg-gradient-to-br from-teal-800 to-green-900 text-white pt-16 pb-8 container-fix" data-aos="fade-up" data-aos-duration="1000">
         <div class="absolute top-0 left-0 right-0 h-8 bg-white rounded-b-full"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="md:col-span-1" data-aos="fade-right" data-aos-delay="200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mobile-padding">
+            <div class="footer-grid">
+                <div data-aos="fade-right" data-aos-delay="200">
                     <div class="mb-6">
                         <img src="Images/Logo.png" alt="Terrapure Logo" class="h-20 bg-white p-2 rounded-lg shadow-md">
                     </div>
-                    <p class="text-teal-100 mb-4 text-sm leading-relaxed">
+                    <p class="text-teal-100 mb-4 text-sm leading-relaxed text-overflow-safe">
                         Leading environmental solutions provider specializing in water and wastewater treatment systems for sustainable future.
                     </p>
                     <div class="text-white text-lg">
                         <p class="font-semibold mb-2">Office Address:</p>
-                        <a href="https://maps.google.com/?q=Office+No.+301,+7+Bizz+Sonigara+Business+Complex,+Ravet+BRT+Road,+Pune+412101" target="_blank" class="hover:text-white text-md transition-colors block">
+                        <a href="https://maps.google.com/?q=Office+No.+301,+7+Bizz+Sonigara+Business+Complex,+Ravet+BRT+Road,+Pune+412101" target="_blank" class="hover:text-white text-md transition-colors block text-overflow-safe">
                             Office No. 301, 7 Bizz Sonigara Business Complex,<br />
                             Ravet BRT Road, Pune – 412101,<br />
                             Maharashtra, India.
@@ -653,7 +796,7 @@
                     </div>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2">Quick Links</h3>
+                    <h3 class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2 text-overflow-safe">Quick Links</h3>
                     <ul class="space-y-3">
                         <li><a href="index.html" class="text-teal-100 hover:text-white transition-colors flex items-center group"><i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Home</a></li>
                         <li><a href="about.html" class="text-teal-100 hover:text-white transition-colors flex items-center group"><i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>About Us</a></li>
@@ -662,7 +805,7 @@
                     </ul>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="400">
-                    <h3 class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2">Our Services</h3>
+                    <h3 class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2 text-overflow-safe">Our Services</h3>
                     <ul class="space-y-3">
                         <li><a href="services.html#ro" class="text-teal-100 hover:text-white transition-colors flex items-center group"><i class="fas fa-tint text-xs mr-2"></i>RO Plants</a></li>
                         <li><a href="services.html#stp" class="text-teal-100 hover:text-white transition-colors flex items-center group"><i class="fas fa-recycle text-xs mr-2"></i>Sewage Treatment</a></li>
@@ -672,7 +815,7 @@
                     </ul>
                 </div>
                 <div data-aos="fade-left" data-aos-delay="500">
-                    <h3 class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2">Connect With Us</h3>
+                    <h3 class="text-lg font-bold mb-6 text-white border-b border-teal-600 pb-2 text-overflow-safe">Connect With Us</h3>
                     <div class="space-y-4">
                         <div class="flex items-start">
                             <div class="w-8 h-8 bg-teal-700 rounded-full flex items-center justify-center mr-3">
