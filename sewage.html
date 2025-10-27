@@ -592,77 +592,91 @@
 
 
     <!-- Process Explanation Section - Diagrammatic Form - COMPLETELY FIXED -->
-    <section class="py-8 sm:py-12 md:py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-alansans font-bold text-teal-900 text-center mb-6 sm:mb-8 md:mb-12 animate-on-scroll">Process Explanation</h2>
-            <div class="process-container">
-                <!-- Step 1: Raw Wastewater Input -->
-                <div class="process-step-container process-step">
-                    <div class="flex flex-col items-center space-y-2 text-center">
-                        <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-base sm:text-lg md:text-xl">
-                            <i class="fas fa-industry"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-xs sm:text-sm md:text-base">Raw Wastewater Input</span>
-                    </div>
-                </div>
-                
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
-                <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
+ <section class="py-8 sm:py-12 md:py-16 bg-gray-50 relative overflow-hidden">
+    
+    <!-- TERRAPURE Watermark -->
+    <div class="absolute inset-0 flex justify-center items-center opacity-5 pointer-events-none">
+        <h1 class="text-[80px] sm:text-[120px] md:text-[180px] font-extrabold tracking-widest text-teal-700">
+            TERRAPURE
+        </h1>
+    </div>
 
-                <!-- Step 2: Preliminary Treatment -->
-                <div class="process-step-container process-step">
-                    <div class="flex flex-col items-center space-y-2 text-center">
-                        <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-base sm:text-lg md:text-xl">
-                            <i class="fas fa-filter"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-xs sm:text-sm md:text-base">Preliminary Treatment</span>
-                        <p class="text-xs text-gray-600 px-2 text-center">Removal of large objects, oils, grease using skimmers</p>
-                    </div>
-                </div>
-                
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
-                <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-alansans font-bold text-teal-900 text-center mb-6 sm:mb-8 md:mb-12 animate-on-scroll">
+            Process Explanation
+        </h2>
 
-                <!-- Step 3: Secondary Treatment -->
-                <div class="process-step-container process-step">
-                    <div class="flex flex-col items-center space-y-2 text-center">
-                        <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-base sm:text-lg md:text-xl">
-                            <i class="fas fa-bug"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-xs sm:text-sm md:text-base">Secondary Treatment</span>
-                        <p class="text-xs text-gray-600 px-2 text-center">Biological breakdown by microorganisms</p>
-                    </div>
-                </div>
-                
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
-                <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
+        <div class="process-container">
 
-                <!-- Step 4: Tertiary Treatment -->
-                <div class="process-step-container process-step">
-                    <div class="flex flex-col items-center space-y-2 text-center">
-                        <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-base sm:text-lg md:text-xl">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-xs sm:text-sm md:text-base">Tertiary Treatment</span>
-                        <p class="text-xs text-gray-600 px-2 text-center">Disinfection via UV light, filtration, chlorine</p>
+            <!-- Step 1 -->
+            <div class="process-step-container process-step">
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white">
+                        <i class="fas fa-industry"></i>
                     </div>
-                </div>
-                
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
-                <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
-
-                <!-- Step 5: Treated Effluent Output -->
-                <div class="process-step-container process-step">
-                    <div class="flex flex-col items-center space-y-2 text-center">
-                        <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-base sm:text-lg md:text-xl">
-                            <i class="fas fa-recycle"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-xs sm:text-sm md:text-base">Treated Effluent Output</span>
-                    </div>
+                    <span class="text-gray-700 font-medium text-xs sm:text-sm md:text-base">Raw Wastewater Input</span>
                 </div>
             </div>
+
+            <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
+            <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
+
+            <!-- Step 2 -->
+            <div class="process-step-container process-step">
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <span class="text-gray-700 font-medium text-xs sm:text-sm md:text-base">Preliminary Treatment</span>
+                    <p class="text-xs text-gray-600 px-2">Removal of large objects, oils, grease using skimmers</p>
+                </div>
+            </div>
+
+            <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
+            <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
+
+            <!-- Step 3 -->
+            <div class="process-step-container process-step">
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <span class="text-gray-700 font-medium text-xs sm:text-sm md:text-base">Secondary Treatment</span>
+                    <p class="text-xs text-gray-600 px-2">Biological breakdown by microorganisms</p>
+                </div>
+            </div>
+
+            <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
+            <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
+
+            <!-- Step 4 -->
+            <div class="process-step-container process-step">
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <span class="text-gray-700 font-medium text-xs sm:text-sm md:text-base">Tertiary Treatment</span>
+                    <p class="text-xs text-gray-600 px-2">Disinfection via UV light, filtration, chlorine</p>
+                </div>
+            </div>
+
+            <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
+            <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
+
+            <!-- Step 5 -->
+            <div class="process-step-container process-step">
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <span class="text-gray-700 font-medium text-xs sm:text-sm md:text-base">Treated Effluent Output</span>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Applications and Features & Benefits Section -->
    <section class="py-6 sm:py-8 md:py-10 bg-white">
