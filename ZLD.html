@@ -462,91 +462,102 @@
     </section>
 
     <!-- Process Explanation Section - Diagrammatic Form - FIXED -->
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-teal-900 text-center font-alansans mb-12 fade-in">Process Explanation</h2>
-            <div class="process-container">
-                <!-- Step 1: Wastewater Input -->
-                <div class="process-step-container process-step">
-                    <div class="flex flex-col items-center space-y-2 text-center">
-                        <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                            <i class="fas fa-tint"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-sm md:text-base">Wastewater Input</span>
-                    </div>
-                </div>
-                
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
-                <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
+  <section class="py-16 bg-gray-50 relative overflow-hidden">
 
-                <!-- Step 2: Pretreatment -->
-                <div class="process-step-container process-step">
-                    <div class="flex flex-col items-center space-y-2 text-center">
-                        <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                            <i class="fas fa-filter"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-sm md:text-base">Pretreatment</span>
-                        <p class="text-xs text-gray-600 px-2 text-center">Clarification and filtration</p>
-                    </div>
-                </div>
-                
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
-                <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
+    <!-- Watermark Background -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <h1 class="font-extrabold text-[150px] md:text-[230px] text-teal-900/5 leading-none tracking-widest select-none whitespace-nowrap">
+            TERRAPURE
+        </h1>
+    </div>
 
-                <!-- Step 3: RO System -->
-                <div class="process-step-container process-step">
-                    <div class="flex flex-col items-center space-y-2 text-center">
-                        <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                            <i class="fas fa-exchange-alt"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-sm md:text-base">Reverse Osmosis</span>
-                        <p class="text-xs text-gray-600 px-2 text-center">Primary concentration</p>
-                    </div>
-                </div>
-                
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
-                <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <h2 class="text-3xl font-bold text-teal-900 text-center font-alansans mb-12 fade-in">Process Explanation</h2>
 
-                <!-- Step 4: Evaporation -->
-                <div class="process-step-container process-step">
-                    <div class="flex flex-col items-center space-y-2 text-center">
-                        <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                            <i class="fas fa-temperature-high"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-sm md:text-base">Evaporation</span>
-                        <p class="text-xs text-gray-600 px-2 text-center">Further concentration</p>
+        <div class="process-container">
+            <!-- Step 1 -->
+            <div class="process-step-container process-step">
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                        <i class="fas fa-tint"></i>
                     </div>
-                </div>
-                
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
-                <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
-
-                <!-- Step 5: Crystallization -->
-                <div class="process-step-container process-step">
-                    <div class="flex flex-col items-center space-y-2 text-center">
-                        <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                            <i class="fas fa-snowflake"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-sm md:text-base">Crystallization</span>
-                        <p class="text-xs text-gray-600 px-2 text-center">Solid salt formation</p>
-                    </div>
-                </div>
-                
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
-                <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
-
-                <!-- Step 6: Water & Solids Output -->
-                <div class="process-step-container process-step">
-                    <div class="flex flex-col items-center space-y-2 text-center">
-                        <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-sm md:text-base">Pure Water & Solids</span>
-                    </div>
+                    <span class="text-gray-700 font-medium text-sm md:text-base">Wastewater Input</span>
                 </div>
             </div>
+
+            <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
+            <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
+
+            <!-- Step 2 -->
+            <div class="process-step-container process-step">
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <span class="text-gray-700 font-medium text-sm md:text-base">Pretreatment</span>
+                    <p class="text-xs text-gray-600 px-2 text-center">Clarification and filtration</p>
+                </div>
+            </div>
+
+            <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
+            <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
+
+            <!-- Step 3 -->
+            <div class="process-step-container process-step">
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <span class="text-gray-700 font-medium text-sm md:text-base">Reverse Osmosis</span>
+                    <p class="text-xs text-gray-600 px-2 text-center">Primary concentration</p>
+                </div>
+            </div>
+
+            <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
+            <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
+
+            <!-- Step 4 -->
+            <div class="process-step-container process-step">
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                        <i class="fas fa-temperature-high"></i>
+                    </div>
+                    <span class="text-gray-700 font-medium text-sm md:text-base">Evaporation</span>
+                    <p class="text-xs text-gray-600 px-2 text-center">Further concentration</p>
+                </div>
+            </div>
+
+            <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
+            <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
+
+            <!-- Step 5 -->
+            <div class="process-step-container process-step">
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <span class="text-gray-700 font-medium text-sm md:text-base">Crystallization</span>
+                    <p class="text-xs text-gray-600 px-2 text-center">Solid salt formation</p>
+                </div>
+            </div>
+
+            <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl process-step process-arrow-desktop"></i>
+            <i class="fas fa-arrow-down text-teal-600 text-2xl process-step process-arrow-mobile"></i>
+
+            <!-- Step 6 -->
+            <div class="process-step-container process-step">
+                <div class="flex flex-col items-center space-y-2 text-center">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span class="text-gray-700 font-medium text-sm md:text-base">Pure Water & Solids</span>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Applications and Features & Benefits Section -->
     <section class="py-12 bg-white">
