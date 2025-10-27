@@ -22,7 +22,7 @@
         body {
             font-family: "Rubik", sans-serif;
             scroll-behavior: smooth;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            overflow-x: hidden;
         }
 
         .font-alansans {
@@ -183,24 +183,36 @@
             50% { border-color: white }
         }
 
-        /* Mobile-specific fixes */
+        /* Mobile-specific fixes - UPDATED */
         @media (max-width: 768px) {
+            /* Fix process section overflow */
             .process-container {
-                overflow-x: auto;
+                overflow-x: hidden;
                 padding-bottom: 1rem;
+                width: 100%;
             }
             
             .process-steps-wrapper {
-                min-width: 700px; /* Ensure enough width for all steps */
-                padding: 0 1rem;
+                min-width: auto;
+                width: 100%;
+                padding: 0 0.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
+            .process-step {
+                flex: 0 0 auto;
+                margin-bottom: 1rem;
+            }
+            
+            /* Fix text overflow */
             .mobile-text-center {
                 text-align: center;
             }
             
             .mobile-full-width {
                 width: 100%;
+                max-width: 100%;
             }
             
             .mobile-px-4 {
@@ -276,6 +288,29 @@
             .mobile-img-fluid {
                 max-width: 100%;
                 height: auto;
+            }
+            
+            /* Fix body overflow */
+            body {
+                overflow-x: hidden;
+                width: 100%;
+                position: relative;
+            }
+            
+            /* Fix container overflow */
+            .max-w-7xl {
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+            
+            /* Ensure all sections don't overflow */
+            section {
+                overflow-x: hidden;
+            }
+            
+            /* Fix text width in process steps */
+            .mobile-w-20 {
+                width: 5rem;
             }
         }
     </style>
@@ -491,86 +526,162 @@
     </section>
 
     <!-- Process Explanation Section - Diagrammatic Form -->
-    <section class="py-16 bg-gray-50 mobile-py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-teal-900 font-alansans text-center mb-12 fade-in mobile-text-2xl">Process Explanation</h2>
-            <div class="process-container">
-                <div class="process-steps-wrapper flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-4 lg:space-x-6 max-w-6xl mx-auto pb-4 mobile-flex-col mobile-space-y-4">
-                    <!-- Step 1: Raw Water Intake -->
-                    <div class="flex flex-col items-center space-y-2 text-center process-step">
-                        <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                            <i class="fas fa-water"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-sm md:text-base mobile-text-sm">Raw Water Intake</span>
-                    </div>
-                    <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block process-step"></i>
-                    <div class="flex items-center space-x-2 md:hidden process-step">
-                        <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                    </div>
+<section class="py-16 bg-gray-50 relative overflow-hidden">
+    
+    <!-- ✅ Watermark Background -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span class="text-[18vw] md:text-[10vw] font-extrabold text-teal-800 opacity-5 select-none whitespace-nowrap tracking-widest">
+            TERRAPURE
+        </span>
+    </div>
 
-                    <!-- Step 2: Screening & Filtration -->
-                    <div class="flex flex-col items-center space-y-2 text-center process-step">
-                        <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                            <i class="fas fa-filter"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-sm md:text-base mobile-text-sm">Screening & Filtration</span>
-                        <p class="text-xs text-gray-600 w-24 md:w-32 mobile-text-xs">Sand & carbon filters</p>
-                    </div>
-                    <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block process-step"></i>
-                    <div class="flex items-center space-x-2 md:hidden process-step">
-                        <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <h2 class="text-3xl font-bold text-teal-900 font-alansans text-center mb-12 mobile-text-2xl">
+            Process Explanation
+        </h2>
 
-                    <!-- Step 3: Chemical Treatment -->
-                    <div class="flex flex-col items-center space-y-2 text-center process-step">
-                        <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                            <i class="fas fa-flask"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-sm md:text-base mobile-text-sm">Chemical Treatment</span>
-                        <p class="text-xs text-gray-600 w-24 md:w-32 mobile-text-xs">Coagulation & flocculation</p>
-                    </div>
-                    <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block process-step"></i>
-                    <div class="flex items-center space-x-2 md:hidden process-step">
-                        <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                    </div>
-
-                    <!-- Step 4: Advanced Filtration -->
-                    <div class="flex flex-col items-center space-y-2 text-center process-step">
-                        <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-sm md:text-base mobile-text-sm">Advanced Filtration</span>
-                        <p class="text-xs text-gray-600 w-24 md:w-32 mobile-text-xs">RO/UF/DM systems</p>
-                    </div>
-                    <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block process-step"></i>
-                    <div class="flex items-center space-x-2 md:hidden process-step">
-                        <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                    </div>
-
-                    <!-- Step 5: Disinfection -->
-                    <div class="flex flex-col items-center space-y-2 text-center process-step">
-                        <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-sm md:text-base mobile-text-sm">Disinfection</span>
-                        <p class="text-xs text-gray-600 w-24 md:w-32 mobile-text-xs">UV/Ozone treatment</p>
-                    </div>
-                    <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block process-step"></i>
-                    <div class="flex items-center space-x-2 md:hidden process-step">
-                        <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                    </div>
-
-                    <!-- Step 6: Treated Water Output -->
-                    <div class="flex flex-col items-center space-y-2 text-center process-step">
-                        <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <span class="text-gray-700 font-medium text-sm md:text-base mobile-text-sm">Treated Water Output</span>
-                    </div>
+        <!-- Mobile Vertical Layout -->
+        <div class="lg:hidden flex flex-col items-center space-y-8">
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-xl">
+                    <i class="fas fa-water"></i>
                 </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Raw Water</span>
+            </div>
+
+            <!-- Down Arrow -->
+            <i class="fas fa-arrow-down text-teal-700 text-xl"></i>
+
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-xl">
+                    <i class="fas fa-filter"></i>
+                </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Screening & Filtration</span>
+                <p class="text-xs text-gray-600">Sand & carbon filters</p>
+            </div>
+
+            <!-- Down Arrow -->
+            <i class="fas fa-arrow-down text-teal-700 text-xl"></i>
+
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-xl">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Chemical Treatment</span>
+                <p class="text-xs text-gray-600">Coagulation & flocculation</p>
+            </div>
+
+            <!-- Down Arrow -->
+            <i class="fas fa-arrow-down text-teal-700 text-xl"></i>
+
+            <!-- Step 4 -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-xl">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Advanced Filtration</span>
+                <p class="text-xs text-gray-600">RO / UF / DM</p>
+            </div>
+
+            <!-- Down Arrow -->
+            <i class="fas fa-arrow-down text-teal-700 text-xl"></i>
+
+            <!-- Step 5 -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-xl">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Disinfection</span>
+                <p class="text-xs text-gray-600">UV / Ozone</p>
+            </div>
+
+            <!-- Down Arrow -->
+            <i class="fas fa-arrow-down text-teal-700 text-xl"></i>
+
+            <!-- Step 6 -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-xl">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Output Water</span>
             </div>
         </div>
-    </section>
+
+        <!-- Desktop Horizontal Layout -->
+        <div class="hidden lg:flex flex-row items-center justify-center gap-8 max-w-6xl mx-auto">
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-xl">
+                    <i class="fas fa-water"></i>
+                </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Raw Water</span>
+            </div>
+
+            <!-- Arrow -->
+            <i class="fas fa-arrow-right text-teal-700 text-2xl"></i>
+
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-xl">
+                    <i class="fas fa-filter"></i>
+                </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Screening & Filtration</span>
+                <p class="text-xs text-gray-600">Sand & carbon filters</p>
+            </div>
+
+            <!-- Arrow -->
+            <i class="fas fa-arrow-right text-teal-700 text-2xl"></i>
+
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-xl">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Chemical Treatment</span>
+                <p class="text-xs text-gray-600">Coagulation & flocculation</p>
+            </div>
+
+            <!-- Arrow -->
+            <i class="fas fa-arrow-right text-teal-700 text-2xl"></i>
+
+            <!-- Step 4 -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-xl">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Advanced Filtration</span>
+                <p class="text-xs text-gray-600">RO / UF / DM</p>
+            </div>
+
+            <!-- Arrow -->
+            <i class="fas fa-arrow-right text-teal-700 text-2xl"></i>
+
+            <!-- Step 5 -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-xl">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Disinfection</span>
+                <p class="text-xs text-gray-600">UV / Ozone</p>
+            </div>
+
+            <!-- Arrow -->
+            <i class="fas fa-arrow-right text-teal-700 text-2xl"></i>
+
+            <!-- Step 6 -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-xl">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Output Water</span>
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <!-- Treatment Types Section -->
     <section class="py-16 bg-white mobile-py-8">

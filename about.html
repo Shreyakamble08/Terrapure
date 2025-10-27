@@ -363,66 +363,73 @@
       }
     </style>
 
-    <!-- Company Overview -->
-    <section class="py-16 bg-white overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <!-- Left Content -->
-          <div class="fade-slide-left opacity-0">
-            <h2
-              class="typing-overview text-3xl font-bold font-alansans text-teal-800 mb-6 section-title"
-            >
-              Company Overview
-            </h2>
-            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
-              Terrapure Environment Services Pvt. Ltd., formerly Earth
-              Environment Services (est. 2014), is a trusted name in water and
-              wastewater treatment. We deliver large-scale, reliable, and
-              sustainable solutions for industries and communities.
-            </p>
-            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
-              With 10+ years of proven expertise and projects across diverse
-              sectors, we specialize in ETPs, STPs, WTPs, RO systems, and
-              advanced recycling technologies.
-            </p>
-            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
-              Guided by Mr. Dhairyashil Gaud, our Managing Director with 35+
-              years of engineering leadership, we combine innovation with
-              sustainability to build a cleaner future.
-            </p>
-            <div class="flex flex-wrap gap-4 mt-8">
-              <div class="bg-teal-50 px-4 py-3 rounded-lg">
-                <h3 class="font-semibold text-teal-800">10+ Years</h3>
-                <p class="text-sm text-teal-600">Experience</p>
-              </div>
-              <div class="bg-teal-50 px-4 py-3 rounded-lg">
-                <h3 class="font-semibold text-teal-800">35+ Years</h3>
-                <p class="text-sm text-teal-600">Leadership</p>
-              </div>
-              <div class="bg-teal-50 px-4 py-3 rounded-lg">
-                <h3 class="font-semibold text-teal-800">Diverse</h3>
-                <p class="text-sm text-teal-600">Projects</p>
-              </div>
-            </div>
-          </div>
 
-          <!-- Right Image -->
-          <div class="relative fade-slide-right opacity-0">
-            <img
-              src="Images/About info.png"
-              alt="About information image"
-              class="rounded-lg shadow-lg"
-            />
-            <div
-              class="absolute -bottom-6 -left-6 bg-teal-500 text-white p-6 rounded-lg shadow-lg"
-            >
-              <h3 class="text-xl font-bold">Since 2014</h3>
-              <p class="text-teal-100">Serving Industries</p>
-            </div>
+  <!-- Company Overview -->
+<section class="py-16 bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Left Content -->
+      <div class="fade-slide-left opacity-0">
+        <h2
+          class="typing-overview text-3xl font-bold font-alansans text-teal-800 mb-6 section-title"
+        >
+          Company Overview
+        </h2>
+
+        <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+  Terrapure Environment Services Pvt. Ltd., formerly Earth Environment Services
+  (est. 2014), is a leading manufacturer and service provider of advanced water
+  and wastewater treatment plants. We deliver reliable and sustainable solutions
+  for industries and communities.
+</p>
+
+<p class="text-gray-600 mb-6 text-lg leading-relaxed">
+  Our expertise covers Industrial Water Treatment Systems, RO Plants, Mineral
+  Water Plants, and customized Turnkey Projects — backed by strong
+  manufacturing, exporting, and servicing capabilities.
+</p>
+
+<p class="text-gray-600 mb-6 text-lg leading-relaxed">
+  Guided by 35+ years of engineering leadership, we ensure high performance
+  through complete support — installation, maintenance, and long-term plant
+  operation care.
+</p>
+
+
+        <div class="flex flex-wrap gap-4 mt-8">
+          <div class="bg-teal-50 px-4 py-3 rounded-lg">
+            <h3 class="font-semibold text-teal-800">10+ Years</h3>
+            <p class="text-sm text-teal-600">Experience</p>
+          </div>
+          <div class="bg-teal-50 px-4 py-3 rounded-lg">
+            <h3 class="font-semibold text-teal-800">35+ Years</h3>
+            <p class="text-sm text-teal-600">Leadership</p>
+          </div>
+          <div class="bg-teal-50 px-4 py-3 rounded-lg">
+            <h3 class="font-semibold text-teal-800">Diverse</h3>
+            <p class="text-sm text-teal-600">Projects</p>
           </div>
         </div>
       </div>
-    </section>
+
+      <!-- Right Image -->
+      <div class="relative fade-slide-right opacity-0">
+        <img
+          src="Images/About info.png"
+          alt="About information image"
+          class="rounded-lg shadow-lg"
+        />
+        <div
+          class="absolute -bottom-6 -left-6 bg-teal-500 text-white p-6 rounded-lg shadow-lg"
+        >
+          <h3 class="text-xl font-bold">Since 2014</h3>
+          <p class="text-teal-100">Serving Industries</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <style>
       /* Fade + Slide Animations */
@@ -1239,5 +1246,27 @@
       </div>
     </footer>
     <script src="script.js"></script>
+    <script>
+       // Mobile menu functionality
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const crossIcon = document.getElementById('cross-icon');
+            const mobileServicesToggle = document.getElementById('mobile-services-toggle');
+            const mobileServicesMenu = document.getElementById('mobile-services-menu');
+            const servicesArrow = document.getElementById('services-arrow');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                hamburgerIcon.classList.toggle('hidden');
+                crossIcon.classList.toggle('hidden');
+            });
+
+            mobileServicesToggle.addEventListener('click', () => {
+                mobileServicesMenu.classList.toggle('hidden');
+                servicesArrow.classList.toggle('rotate-180');
+            });
+
+    </script>
   </body>
 </html>
