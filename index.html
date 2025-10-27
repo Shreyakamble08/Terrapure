@@ -14,7 +14,6 @@
       rel="stylesheet"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <!-- Include AOS CSS and JS in your head/before-->
@@ -27,8 +26,13 @@
     />
 
     <style>
+      * {
+        box-sizing: border-box;
+      }
+      
       body {
         font-family: "Rubik", sans-serif;
+        overflow-x: hidden;
       }
 
       .font-alansans {
@@ -40,10 +44,99 @@
         background-size: cover;
         background-position: center;
       }
+      
+      /* Fix for mobile overflow */
+      .container-fix {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+      
+      /* Ensure images don't cause overflow */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      /* Responsive text sizing */
+      @media (max-width: 640px) {
+        .responsive-text {
+          font-size: 0.9rem;
+        }
+        
+        .responsive-heading {
+          font-size: 1.5rem;
+        }
+        
+        .responsive-subheading {
+          font-size: 1.25rem;
+        }
+        
+        /* Fix for timeline section on mobile */
+        .timeline-container {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+        
+        .timeline-step {
+          flex-direction: column;
+          gap: 1rem;
+        }
+        
+        .timeline-content {
+          width: 100% !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          text-align: left !important;
+        }
+        
+        /* Fix for hero section on mobile */
+        .hero-content {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+        
+        /* Fix for navigation dots */
+        .nav-dots {
+          bottom: 1rem;
+        }
+        
+        /* Fix for circular stats */
+        .circular-stat {
+          width: 120px !important;
+          height: 120px !important;
+        }
+        
+        /* Fix for service tabs */
+        .service-tabs {
+          flex-direction: column;
+        }
+        
+        .tab-content-grid {
+          grid-template-columns: 1fr !important;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .service-tabs-container {
+          flex-direction: column;
+        }
+        
+        .tab-buttons {
+          width: 100%;
+          flex-direction: row;
+          overflow-x: auto;
+          padding-bottom: 0.5rem;
+        }
+        
+        .tab-button {
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+      }
     </style>
   </head>
 
-  <body class="font-['Rubik'] bg-white">
+  <body class="font-['Rubik'] bg-white container-fix">
     <!-- ✅ Top Info Bar -->
     <div class="bg-gradient-to-r from-green-500 to-teal-600 text-white text-sm">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,128 +179,124 @@
     <nav
       class="backdrop-blur-md bg-white/70 shadow-md w-full border-b border-teal-200 relative z-50"
     >
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  <div class="flex justify-between h-20 items-center"> <!-- increased height -->
-    
-    <!-- Logo -->
-    <div class="flex items-center">
-      <a href="index.html" class="flex-shrink-0 flex items-center ml-4">
-        <img
-          src="Images/Logo.png"
-          alt="Terrapure Logo"
-          class="h-20 w-auto mr-3 rounded-md transition-transform duration-300 hover:scale-105"
-        />
-      </a>
-    </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a href="index.html" class="flex-shrink-0 flex items-center ml-4">
+              <img
+                src="Images/Logo.png"
+                alt="Terrapure Logo"
+                class="h-20 w-auto mr-3 rounded-md transition-transform duration-300 hover:scale-105"
+              />
+            </a>
+          </div>
 
-    <!-- Desktop Menu -->
-    <div class="hidden md:flex items-center space-x-8"> <!-- wider spacing -->
-      <a
-        href="index.html"
-        class="text-teal-900 hover:text-teal-600 px-3 py-3 text-base font-medium transition-colors"
-        >Home</a
-      >
-      <a
-        href="about.html"
-        class="text-teal-900 hover:text-teal-600 px-3 py-3 text-base font-medium transition-colors"
-        >About</a
-      >
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="index.html"
+              class="text-teal-900 hover:text-teal-600 px-3 py-3 text-base font-medium transition-colors"
+              >Home</a
+            >
+            <a
+              href="about.html"
+              class="text-teal-900 hover:text-teal-600 px-3 py-3 text-base font-medium transition-colors"
+              >About</a
+            >
 
-      <!-- Services Dropdown -->
-      <div class="relative group">
-        <button
-          class="text-teal-900 hover:text-teal-600 px-3 py-3 text-base font-medium transition-colors flex items-center"
-        >
-          Services
-          <i class="fas fa-chevron-down ml-2 text-sm"></i>
-        </button>
+            <!-- Services Dropdown -->
+            <div class="relative group">
+              <button
+                class="text-teal-900 hover:text-teal-600 px-3 py-3 text-base font-medium transition-colors flex items-center"
+              >
+                Services
+                <i class="fas fa-chevron-down ml-2 text-sm"></i>
+              </button>
 
-        <!-- Dropdown Menu -->
-        <div
-          class="absolute left-0 top-full mt-1 w-56 bg-white/95 backdrop-blur-md rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-teal-100 transform translate-y-2 group-hover:translate-y-0"
-        >
-          <div class="py-2">
+              <!-- Dropdown Menu -->
+              <div
+                class="absolute left-0 top-full mt-1 w-56 bg-white/95 backdrop-blur-md rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-teal-100 transform translate-y-2 group-hover:translate-y-0"
+              >
+                <div class="py-2">
+                  <a
+                    href="RO.html"
+                    class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                    >RO Plants</a
+                  >
+                  <a
+                    href="sewage.html"
+                    class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                    >Sewage Treatment</a
+                  >
+                  <a
+                    href="ETP.html"
+                    class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                    >Effluent Treatment</a
+                  >
+                  <a
+                    href="ZLD.html"
+                    class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                    >ZLD Systems</a
+                  >
+                  <a
+                    href="water-softener-plant.html"
+                    class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                    >Water Softeners</a
+                  >
+                  <a
+                    href="WTP.html"
+                    class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                    >Water Treatment Plant</a
+                  >
+                  <a
+                    href="wastewater-treatment.html"
+                    class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                    >Wastewater Treatment Plant</a
+                  >
+                  <a
+                    href="demineralization-plants(DM).html"
+                    class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                    >Demineralization Plant (DM)</a
+                  >
+                  <a
+                    href="operation & maintenance.html"
+                    class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                    >Operation & Maintenance</a
+                  >
+                  <a
+                    href="AMC.html"
+                    class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                    >AMC</a
+                  >
+                </div>
+              </div>
+            </div>
+
             <a
-              href="RO.html"
-              class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
-              >RO Plants</a
+              href="career.html"
+              class="text-teal-900 hover:text-teal-600 px-3 py-3 text-base font-medium transition-colors"
+              >Career</a
             >
             <a
-              href="sewage.html"
-              class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
-              >Sewage Treatment</a
+              href="contact.html"
+              class="text-teal-900 hover:text-teal-600 px-3 py-3 text-base font-medium transition-colors"
+              >Contact</a
             >
-            <a
-              href="ETP.html"
-              class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
-              >Effluent Treatment</a
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-button"
+              class="text-teal-800 hover:bg-teal-100 p-2 rounded-md transition"
             >
-            <a
-              href="ZLD.html"
-              class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
-              >ZLD Systems</a
-            >
-            <a
-              href="water-softener-plant.html"
-              class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
-              >Water Softeners</a
-            >
-            <a
-              href="WTP.html"
-              class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
-              >Water Treatment Plant</a
-            >
-            <a
-              href="wastewater-treatment.html"
-              class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
-              >Wastewater Treatment Plant</a
-            >
-            <a
-              href="demineralization-plants(DM).html"
-              class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
-              >Demineralization Plant (DM)</a
-            >
-            <a
-              href="operation & maintenance.html"
-              class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
-              >Operation & Maintenance</a
-            >
-            <a
-              href="AMC.html"
-              class="block px-4 py-2 text-sm text-teal-900 hover:bg-teal-50 hover:text-teal-700 transition-colors"
-              >AMC</a
-            >
+              <i id="hamburger-icon" class="fas fa-bars text-3xl"></i>
+              <i id="cross-icon" class="fas fa-times text-3xl hidden"></i>
+            </button>
           </div>
         </div>
       </div>
-
-      <a
-        href="career.html"
-        class="text-teal-900 hover:text-teal-600 px-3 py-3 text-base font-medium transition-colors"
-        >Career</a
-      >
-      <a
-        href="contact.html"
-        class="text-teal-900 hover:text-teal-600 px-3 py-3 text-base font-medium transition-colors"
-        >Contact</a
-      >
-    </div>
-
-    <!-- Mobile Menu Button -->
-    <div class="md:hidden flex items-center">
-      <button
-        id="mobile-menu-button"
-        class="text-teal-800 hover:bg-teal-100 p-2 rounded-md transition"
-      >
-        <!-- Hamburger Icon -->
-        <i id="hamburger-icon" class="fas fa-bars text-3xl"></i>
-        <!-- Cross Icon -->
-        <i id="cross-icon" class="fas fa-times text-3xl hidden"></i>
-      </button>
-    </div>
-  </div>
-</div>
-
 
       <!-- Mobile Menu -->
       <div
@@ -269,7 +358,6 @@
                 class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50"
                 >Water Softeners</a
               >
-              <!-- New services -->
               <a
                 href="WTP.html"
                 class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50"
@@ -324,12 +412,12 @@
           >
             <!-- Slide 1 -->
             <div
-              class="relative min-w-full flex items-center justify-start py-16 md:py-24 px-6 md:px-10"
+              class="relative min-w-full flex items-center justify-start py-16 md:py-24 px-6 md:px-10 hero-content"
             >
               <!-- Background Image Only -->
               <div
                 class="absolute top-0 left-0 w-full h-full bg-cover bg-center"
-                style="background-image: url('Images/banner4\ copy.png')"
+                style="background-image: url('Images/banner1 copy.jpg')"
               ></div>
 
               <!-- Preserve spacing and layout for functionality (buttons or future content) -->
@@ -338,9 +426,9 @@
               </div>
             </div>
 
-            <!-- Slide 1 -->
+            <!-- Slide 2 -->
             <div
-              class="relative min-w-full flex items-center justify-start py-16 md:py-24 px-6 md:px-10"
+              class="relative min-w-full flex items-center justify-start py-16 md:py-24 px-6 md:px-10 hero-content"
             >
               <!-- Background Image with Enhanced Gradient Overlay -->
               <div
@@ -375,13 +463,13 @@
                   >
                 </div>
                 <h1
-                  class="text-2xl md:text-4xl font-bold text-white mb-4 leading-tight"
+                  class="text-2xl md:text-4xl font-bold text-white mb-4 leading-tight responsive-heading"
                 >
                   Empowering Sustainable<br />
-                  <span class="text-teal-300">Water Solutions</span>
+                  <span class="text-teal-300 responsive-subheading">Water Solutions</span>
                 </h1>
                 <p
-                  class="text-base md:text-lg text-blue-100 mb-6 leading-relaxed"
+                  class="text-base md:text-lg text-blue-100 mb-6 leading-relaxed responsive-text"
                 >
                   Innovative water and wastewater management solutions for
                   industrial and commercial clients.
@@ -389,14 +477,14 @@
                 <div class="flex flex-col sm:flex-row gap-3">
                   <a
                     href="contact.html"
-                    class="inline-flex items-center justify-center bg-white text-blue-900 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow"
+                    class="inline-flex items-center justify-center bg-white text-blue-900 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow responsive-text"
                   >
                     <i class="fas fa-quote-right mr-2 text-sm"></i>
                     Get a Quote
                   </a>
                   <a
                     href="about.html"
-                    class="inline-flex items-center justify-center border border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-all duration-300 text-base"
+                    class="inline-flex items-center justify-center border border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-all duration-300 text-base responsive-text"
                   >
                     Learn More
                   </a>
@@ -404,9 +492,9 @@
               </div>
             </div>
 
-            <!-- Slide 2 -->
+            <!-- Slide 3 -->
             <div
-              class="relative min-w-full flex items-center justify-start py-16 md:py-24 px-6 md:px-10"
+              class="relative min-w-full flex items-center justify-start py-16 md:py-24 px-6 md:px-10 hero-content"
             >
               <!-- Background Image with Enhanced Gradient Overlay -->
               <div
@@ -441,13 +529,13 @@
                   >
                 </div>
                 <h1
-                  class="text-2xl md:text-4xl font-bold text-white mb-4 leading-tight"
+                  class="text-2xl md:text-4xl font-bold text-white mb-4 leading-tight responsive-heading"
                 >
                   Innovative RO &<br />
-                  <span class="text-emerald-100">STP Technologies</span>
+                  <span class="text-emerald-100 responsive-subheading">STP Technologies</span>
                 </h1>
                 <p
-                  class="text-base md:text-lg text-green-100 mb-6 leading-relaxed"
+                  class="text-base md:text-lg text-green-100 mb-6 leading-relaxed responsive-text"
                 >
                   Advanced reverse osmosis and sewage treatment plants for pure,
                   reusable water.
@@ -455,14 +543,14 @@
                 <div class="flex flex-col sm:flex-row gap-3">
                   <a
                     href="sewage.html"
-                    class="inline-flex items-center justify-center bg-white text-green-900 px-6 py-3 rounded-lg font-medium hover:bg-green-50 hover:scale-105 transition-all duration-300 shadow"
+                    class="inline-flex items-center justify-center bg-white text-green-900 px-6 py-3 rounded-lg font-medium hover:bg-green-50 hover:scale-105 transition-all duration-300 shadow responsive-text"
                   >
                     <i class="fas fa-cogs mr-2 text-sm"></i>
                     Learn More
                   </a>
                   <a
                     href="contact.html"
-                    class="inline-flex items-center justify-center border border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-all duration-300 text-base"
+                    class="inline-flex items-center justify-center border border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-all duration-300 text-base responsive-text"
                   >
                     Contact Us
                   </a>
@@ -470,9 +558,9 @@
               </div>
             </div>
 
-            <!-- Slide 3 -->
+            <!-- Slide 4 -->
             <div
-              class="relative min-w-full flex items-center justify-start py-16 md:py-24 px-6 md:px-10"
+              class="relative min-w-full flex items-center justify-start py-16 md:py-24 px-6 md:px-10 hero-content"
             >
               <!-- Background Image with Enhanced Gradient Overlay -->
               <div
@@ -507,13 +595,13 @@
                   >
                 </div>
                 <h1
-                  class="text-2xl md:text-4xl font-bold text-yellow-600 mb-4 leading-tight"
+                  class="text-2xl md:text-4xl font-bold text-yellow-600 mb-4 leading-tight responsive-heading"
                 >
                   Zero Liquid<br />
-                  <span class="text-yellow-500">Discharge Solutions</span>
+                  <span class="text-yellow-500 responsive-subheading">Discharge Solutions</span>
                 </h1>
                 <p
-                  class="text-base md:text-lg text-yellow-900 mb-6 leading-relaxed"
+                  class="text-base md:text-lg text-yellow-900 mb-6 leading-relaxed responsive-text"
                 >
                   Sustainable ZLD systems ensuring 100% water recovery and zero
                   environmental impact.
@@ -521,14 +609,14 @@
                 <div class="flex flex-col sm:flex-row gap-3">
                   <a
                     href="about.html"
-                    class="inline-flex items-center justify-center bg-white text-yellow-900 px-6 py-3 rounded-lg font-medium hover:bg-purple-50 hover:scale-105 transition-all duration-300 shadow"
+                    class="inline-flex items-center justify-center bg-white text-yellow-900 px-6 py-3 rounded-lg font-medium hover:bg-purple-50 hover:scale-105 transition-all duration-300 shadow responsive-text"
                   >
                     <i class="fas fa-leaf mr-2 text-sm"></i>
                     Learn More
                   </a>
                   <a
                     href="contact.html"
-                    class="inline-flex items-center justify-center border border-yellow-800 text-yellow-600 px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-all duration-300 text-base"
+                    class="inline-flex items-center justify-center border border-yellow-800 text-yellow-600 px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-all duration-300 text-base responsive-text"
                   >
                     Get a Quote
                   </a>
@@ -539,7 +627,7 @@
 
           <!-- Compact Navigation Dots -->
           <div
-            class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3"
+            class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3 nav-dots"
           >
             <button
               onclick="currentSlide(0)"
@@ -554,24 +642,14 @@
             <button
               onclick="currentSlide(2)"
               class="w-3 h-3 bg-white/70 rounded-full hover:bg-white hover:scale-125 transition-all duration-300"
-              id="dot-1"
+              id="dot-2"
             ></button>
             <button
               onclick="currentSlide(3)"
               class="w-3 h-3 bg-white/70 rounded-full hover:bg-white hover:scale-125 transition-all duration-300"
-              id="dot-2"
+              id="dot-3"
             ></button>
           </div>
-
-          <!-- Compact Navigation Arrows -->
-          <!-- <button onclick="prevSlide()"
-        class="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 hover:scale-110 transition-all duration-300">
-        <i class="fas fa-chevron-left text-sm"></i>
-      </button>
-      <button onclick="nextSlide()"
-        class="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 hover:scale-110 transition-all duration-300">
-        <i class="fas fa-chevron-right text-sm"></i>
-      </button> -->
         </div>
       </div>
     </section>
@@ -604,13 +682,13 @@
         <!-- Section Header -->
         <div class="text-center mb-10">
           <h2
-            class="text-3xl font-bold font-alansans bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-4 typing-animation"
+            class="text-3xl font-bold font-alansans bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-4 typing-animation responsive-heading"
             data-aos="fade-down"
           >
             About Terrapure
           </h2>
           <p
-            class="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            class="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed responsive-text"
             data-aos="fade-up"
             data-aos-delay="200"
           >
@@ -696,13 +774,13 @@
                 >
               </div>
               <p
-                class="text-gray-600 leading-relaxed mb-2 border-l-4 border-blue-400 pl-3 text-sm"
+                class="text-gray-600 leading-relaxed mb-2 border-l-4 border-blue-400 pl-3 text-sm responsive-text"
               >
                 With over 35 years of expertise, Mr. Gaud is renowned for his
                 visionary leadership and clean vision, driving EES's growth and
                 redefining industry standards.
               </p>
-              <p class="text-gray-600 leading-relaxed text-sm">
+              <p class="text-gray-600 leading-relaxed text-sm responsive-text">
                 His unparalleled expertise in project designing and plotting has
                 been instrumental in shaping EES's trajectory, making it a
                 beacon of excellence and environmental stewardship.
@@ -779,11 +857,11 @@
                 >
               </div>
               <p
-                class="text-gray-600 leading-relaxed mb-2 border-l-4 border-teal-400 pl-3 text-sm"
+                class="text-gray-600 leading-relaxed mb-2 border-l-4 border-teal-400 pl-3 text-sm responsive-text"
               >
                 [Director 2 bio content will go here.]
               </p>
-              <p class="text-gray-600 leading-relaxed text-sm">
+              <p class="text-gray-600 leading-relaxed text-sm responsive-text">
                 [Additional details about the second director.]
               </p>
             </div>
@@ -816,7 +894,7 @@
               </svg>
             </div>
             <h3 class="text-xl font-bold text-gray-800 mb-2">Our Mission</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">
+            <p class="text-gray-600 text-sm leading-relaxed responsive-text">
               Providing sustainable, technology-driven solutions for water
               treatment and environmental conservation.
             </p>
@@ -846,7 +924,7 @@
               </svg>
             </div>
             <h3 class="text-xl font-bold text-gray-800 mb-2">Our Vision</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">
+            <p class="text-gray-600 text-sm leading-relaxed responsive-text">
               Leading the industry towards zero liquid discharge and sustainable
               water management practices.
             </p>
@@ -876,7 +954,7 @@
               </svg>
             </div>
             <h3 class="text-xl font-bold text-gray-800 mb-2">Our Values</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">
+            <p class="text-gray-600 text-sm leading-relaxed responsive-text">
               Commitment to excellence, innovation, and environmental
               responsibility in all our projects.
             </p>
@@ -894,48 +972,50 @@
 
       // Typing animation for heading
       const typingText = document.querySelector(".typing-animation");
-      const textContent = typingText.textContent;
-      typingText.textContent = "";
-      let i = 0;
-      function type() {
-        if (i < textContent.length) {
-          typingText.textContent += textContent.charAt(i);
-          i++;
-          setTimeout(type, 100);
+      if (typingText) {
+        const textContent = typingText.textContent;
+        typingText.textContent = "";
+        let i = 0;
+        function type() {
+          if (i < textContent.length) {
+            typingText.textContent += textContent.charAt(i);
+            i++;
+            setTimeout(type, 100);
+          }
         }
+        type();
       }
-      type();
     </script>
 
     <!-- Core Services Section -->
     <section class="py-16 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          class="text-4xl font-bold text-center text-teal-800 mb-12 font-alansans"
+          class="text-4xl font-bold text-center text-teal-800 mb-12 font-alansans responsive-heading"
         >
           Core Services
         </h2>
 
-        <div class="flex flex-col lg:flex-row gap-10">
+        <div class="flex flex-col lg:flex-row gap-10 service-tabs-container">
           <!-- Left Sidebar Tabs -->
-          <div class="lg:w-1/4 flex flex-col space-y-3">
+          <div class="lg:w-1/4 flex flex-col space-y-3 tab-buttons">
             <button
-              class="tab-btn active-tab bg-teal-700 text-white py-4 px-5 rounded-lg text-left font-medium transition-all duration-300 shadow-md"
+              class="tab-btn active-tab bg-teal-700 text-white py-4 px-5 rounded-lg text-left font-medium transition-all duration-300 shadow-md tab-button responsive-text"
             >
               Water Treatment
             </button>
             <button
-              class="tab-btn bg-white text-gray-800 py-4 px-5 rounded-lg text-left font-medium hover:bg-teal-50 hover:text-teal-900 transition-all duration-300 shadow-sm hover:shadow-md"
+              class="tab-btn bg-white text-gray-800 py-4 px-5 rounded-lg text-left font-medium hover:bg-teal-50 hover:text-teal-900 transition-all duration-300 shadow-sm hover:shadow-md tab-button responsive-text"
             >
               Wastewater Solutions
             </button>
             <button
-              class="tab-btn bg-white text-gray-800 py-4 px-5 rounded-lg text-left font-medium hover:bg-teal-50 transition-all duration-300 shadow-sm hover:text-teal-900 hover:shadow-md"
+              class="tab-btn bg-white text-gray-800 py-4 px-5 rounded-lg text-left font-medium hover:bg-teal-50 transition-all duration-300 shadow-sm hover:text-teal-900 hover:shadow-md tab-button responsive-text"
             >
               Zero Discharge & Recycling
             </button>
             <button
-              class="tab-btn bg-white text-gray-800 py-4 px-5 rounded-lg text-left font-medium hover:bg-teal-50 transition-all duration-300 shadow-sm hover:text-teal-900 hover:shadow-md"
+              class="tab-btn bg-white text-gray-800 py-4 px-5 rounded-lg text-left font-medium hover:bg-teal-50 transition-all duration-300 shadow-sm hover:text-teal-900 hover:shadow-md tab-button responsive-text"
             >
               Maintenance & Operation
             </button>
@@ -945,7 +1025,7 @@
           <div class="lg:w-3/4">
             <!-- Water Treatment -->
             <div
-              class="tab-content block grid gap-6 sm:grid-cols-2 lg:grid-cols-2"
+              class="tab-content block grid gap-6 sm:grid-cols-2 lg:grid-cols-2 tab-content-grid"
               id="water"
             >
               <!-- RO -->
@@ -967,7 +1047,7 @@
                   </h3>
                   <a
                     href="services.html#ro"
-                    class="inline-flex items-center text-teal-700 font-medium hover:text-blue-600 transition-colors mt-1"
+                    class="inline-flex items-center text-teal-700 font-medium hover:text-blue-600 transition-colors mt-1 responsive-text"
                     >Learn More<i class="fas fa-arrow-right ml-2 text-xs"></i
                   ></a>
                 </div>
@@ -992,7 +1072,7 @@
                   </h3>
                   <a
                     href="services.html#wtp"
-                    class="inline-flex items-center text-teal-700 font-medium hover:text-cyan-600 transition-colors mt-1"
+                    class="inline-flex items-center text-teal-700 font-medium hover:text-cyan-600 transition-colors mt-1 responsive-text"
                     >Learn More<i class="fas fa-arrow-right ml-2 text-xs"></i
                   ></a>
                 </div>
@@ -1017,7 +1097,7 @@
                   </h3>
                   <a
                     href="services.html#dm"
-                    class="inline-flex items-center text-teal-700 font-medium hover:text-sky-600 transition-colors mt-1"
+                    class="inline-flex items-center text-teal-700 font-medium hover:text-sky-600 transition-colors mt-1 responsive-text"
                     >Learn More<i class="fas fa-arrow-right ml-2 text-xs"></i
                   ></a>
                 </div>
@@ -1042,7 +1122,7 @@
                   </h3>
                   <a
                     href="services.html#softeners"
-                    class="inline-flex items-center text-teal-700 font-medium hover:text-blue-500 transition-colors mt-1"
+                    class="inline-flex items-center text-teal-700 font-medium hover:text-blue-500 transition-colors mt-1 responsive-text"
                     >Learn More<i class="fas fa-arrow-right ml-2 text-xs"></i
                   ></a>
                 </div>
@@ -1051,7 +1131,7 @@
 
             <!-- Wastewater -->
             <div
-              class="tab-content hidden grid gap-6 sm:grid-cols-2 lg:grid-cols-2"
+              class="tab-content hidden grid gap-6 sm:grid-cols-2 lg:grid-cols-2 tab-content-grid"
               id="wastewater"
             >
               <!-- STP -->
@@ -1073,7 +1153,7 @@
                   </h3>
                   <a
                     href="services.html#stp"
-                    class="inline-flex items-center text-teal-700 font-medium hover:text-green-600 transition-colors mt-1"
+                    class="inline-flex items-center text-teal-700 font-medium hover:text-green-600 transition-colors mt-1 responsive-text"
                     >Learn More<i class="fas fa-arrow-right ml-2 text-xs"></i
                   ></a>
                 </div>
@@ -1098,7 +1178,7 @@
                   </h3>
                   <a
                     href="services.html#etp"
-                    class="inline-flex items-center text-teal-700 font-medium hover:text-purple-600 transition-colors mt-1"
+                    class="inline-flex items-center text-teal-700 font-medium hover:text-purple-600 transition-colors mt-1 responsive-text"
                     >Learn More<i class="fas fa-arrow-right ml-2 text-xs"></i
                   ></a>
                 </div>
@@ -1107,7 +1187,7 @@
 
             <!-- Zero Discharge -->
             <div
-              class="tab-content hidden grid gap-6 sm:grid-cols-2 lg:grid-cols-2"
+              class="tab-content hidden grid gap-6 sm:grid-cols-2 lg:grid-cols-2 tab-content-grid"
               id="zld"
             >
               <div
@@ -1128,7 +1208,7 @@
                   </h3>
                   <a
                     href="services.html#zld"
-                    class="inline-flex items-center text-teal-700 font-medium hover:text-teal-600 transition-colors mt-1"
+                    class="inline-flex items-center text-teal-700 font-medium hover:text-teal-600 transition-colors mt-1 responsive-text"
                     >Learn More<i class="fas fa-arrow-right ml-2 text-xs"></i
                   ></a>
                 </div>
@@ -1152,7 +1232,7 @@
                   </h3>
                   <a
                     href="services.html#wwtp"
-                    class="inline-flex items-center text-teal-700 font-medium hover:text-indigo-600 transition-colors mt-1"
+                    class="inline-flex items-center text-teal-700 font-medium hover:text-indigo-600 transition-colors mt-1 responsive-text"
                     >Learn More<i class="fas fa-arrow-right ml-2 text-xs"></i
                   ></a>
                 </div>
@@ -1161,7 +1241,7 @@
 
             <!-- Maintenance -->
             <div
-              class="tab-content hidden grid gap-6 sm:grid-cols-2 lg:grid-cols-2"
+              class="tab-content hidden grid gap-6 sm:grid-cols-2 lg:grid-cols-2 tab-content-grid"
               id="maintenance"
             >
               <div
@@ -1182,7 +1262,7 @@
                   </h3>
                   <a
                     href="services.html#amc"
-                    class="inline-flex items-center text-teal-700 font-medium hover:text-emerald-600 transition-colors mt-1"
+                    class="inline-flex items-center text-teal-700 font-medium hover:text-emerald-600 transition-colors mt-1 responsive-text"
                     >Learn More<i class="fas fa-arrow-right ml-2 text-xs"></i
                   ></a>
                 </div>
@@ -1206,7 +1286,7 @@
                   </h3>
                   <a
                     href="services.html#operation"
-                    class="inline-flex items-center text-teal-700 font-medium hover:text-lime-600 transition-colors mt-1"
+                    class="inline-flex items-center text-teal-700 font-medium hover:text-lime-600 transition-colors mt-1 responsive-text"
                     >Learn More<i class="fas fa-arrow-right ml-2 text-xs"></i
                   ></a>
                 </div>
@@ -1245,11 +1325,11 @@
         <!-- Section Heading -->
         <div class="text-center mb-10">
           <h2
-            class="text-4xl font-bold font-alansans bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-4"
+            class="text-4xl font-bold font-alansans bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-4 responsive-heading"
           >
             Our Impact in Numbers
           </h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto responsive-text">
             Quantifying our commitment to excellence and sustainable water
             solutions
           </p>
@@ -1259,7 +1339,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <!-- Card 1 -->
           <div class="group text-center">
-            <div class="relative w-40 h-40 mx-auto mb-6">
+            <div class="relative w-40 h-40 mx-auto mb-6 circular-stat">
               <!-- Circular Progress -->
               <svg
                 class="w-full h-full transform -rotate-90"
@@ -1313,14 +1393,14 @@
             <h3 class="text-xl font-semibold text-gray-800 mb-2">
               Projects Delivered
             </h3>
-            <p class="text-gray-600 text-sm">
+            <p class="text-gray-600 text-sm responsive-text">
               Across diverse industrial sectors
             </p>
           </div>
 
           <!-- Card 2 -->
           <div class="group text-center">
-            <div class="relative w-40 h-40 mx-auto mb-6">
+            <div class="relative w-40 h-40 mx-auto mb-6 circular-stat">
               <svg
                 class="w-full h-full transform -rotate-90"
                 viewBox="0 0 100 100"
@@ -1369,12 +1449,12 @@
             <h3 class="text-xl font-semibold text-gray-800 mb-2">
               Years Excellence
             </h3>
-            <p class="text-gray-600 text-sm">Proven track record</p>
+            <p class="text-gray-600 text-sm responsive-text">Proven track record</p>
           </div>
 
           <!-- Card 3 -->
           <div class="group text-center">
-            <div class="relative w-40 h-40 mx-auto mb-6">
+            <div class="relative w-40 h-40 mx-auto mb-6 circular-stat">
               <svg
                 class="w-full h-full transform -rotate-90"
                 viewBox="0 0 100 100"
@@ -1432,12 +1512,12 @@
             <h3 class="text-xl font-semibold text-gray-800 mb-2">
               Government Approved
             </h3>
-            <p class="text-gray-600 text-sm">Fully compliant & certified</p>
+            <p class="text-gray-600 text-sm responsive-text">Fully compliant & certified</p>
           </div>
 
           <!-- Card 4 -->
           <div class="group text-center">
-            <div class="relative w-40 h-40 mx-auto mb-6">
+            <div class="relative w-40 h-40 mx-auto mb-6 circular-stat">
               <svg
                 class="w-full h-full transform -rotate-90"
                 viewBox="0 0 100 100"
@@ -1488,137 +1568,566 @@
             <h3 class="text-xl font-semibold text-gray-800 mb-2">
               Industries Served
             </h3>
-            <p class="text-gray-600 text-sm">Customized solutions</p>
+            <p class="text-gray-600 text-sm responsive-text">Customized solutions</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Industries Served -->
+    <!-- Our Team & Trusted Clients Section -->
     <section class="py-16 bg-white">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-800 mb-4">
-            12 Industries Served
+          <h2 class="text-3xl font-alansans font-bold text-green-800 mb-4 responsive-heading">
+            Our Team & Trusted Clients
           </h2>
-          <p class="text-gray-600">
-            Tap any industry to learn about our specialized solutions
+          <p class="text-gray-600 responsive-text">
+            Celebrating collaboration, innovation, and the people behind our
+            success.
           </p>
         </div>
 
-        <!-- Icon Grid -->
-        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6">
-          <div class="text-center group cursor-pointer">
-            <div
-              class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-100 transition-colors"
-            >
-              <i class="fas fa-city text-blue-600 text-xl"></i>
+        <!-- Card Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <!-- Card 1 -->
+          <div
+            class="bg-white shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 rounded-tl-3xl rounded-br-3xl"
+          >
+            <img
+              src="Images/team .jpg"
+              alt="Team Visit"
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-3">Our Team</h3>
+              <p class="text-gray-600 mb-4 responsive-text">
+                A passionate group of professionals committed to driving
+                innovation and sustainability together.
+              </p>
+              <a
+                href="#"
+                class="inline-block bg-emerald-600 text-white text-sm font-medium px-4 py-2 rounded-md hover:bg-emerald-700 transition responsive-text"
+                >LEARN MORE →</a
+              >
             </div>
-            <span class="text-sm font-medium text-gray-700">Municipal</span>
           </div>
 
-          <div class="text-center group cursor-pointer">
-            <div
-              class="w-16 h-16 bg-cyan-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-cyan-100 transition-colors"
-            >
-              <i class="fas fa-industry text-cyan-600 text-xl"></i>
+          <!-- Card 2 -->
+          <div
+            class="bg-white shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 rounded-tr-3xl rounded-bl-3xl"
+          >
+            <img
+              src="Images/client visit .jpg"
+              alt="Client Collaboration"
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                Client Visit – Thailand
+              </h3>
+              <p class="text-gray-600 mb-4 responsive-text">
+                Our team had a productive visit with clients in Thailand,
+                strengthening partnerships and exploring new opportunities for
+                sustainable growth.
+              </p>
+              <a
+                href="#"
+                class="inline-block bg-emerald-600 text-white text-sm font-medium px-4 py-2 rounded-md hover:bg-emerald-700 transition responsive-text"
+                >LEARN MORE →</a
+              >
             </div>
-            <span class="text-sm font-medium text-gray-700">Industrial</span>
-          </div>
-
-          <div class="text-center group cursor-pointer">
-            <div
-              class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-green-100 transition-colors"
-            >
-              <i class="fas fa-hospital text-green-600 text-xl"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">Healthcare</span>
-          </div>
-
-          <div class="text-center group cursor-pointer">
-            <div
-              class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-purple-100 transition-colors"
-            >
-              <i class="fas fa-flask text-purple-600 text-xl"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">Pharma</span>
-          </div>
-
-          <div class="text-center group cursor-pointer">
-            <div
-              class="w-16 h-16 bg-pink-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-pink-100 transition-colors"
-            >
-              <i class="fas fa-tshirt text-pink-600 text-xl"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">Textiles</span>
-          </div>
-
-          <div class="text-center group cursor-pointer">
-            <div
-              class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-red-100 transition-colors"
-            >
-              <i class="fas fa-utensils text-red-600 text-xl"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">Food</span>
-          </div>
-
-          <div class="text-center group cursor-pointer">
-            <div
-              class="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-yellow-100 transition-colors"
-            >
-              <i class="fas fa-wine-bottle text-yellow-600 text-xl"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">Dairy</span>
-          </div>
-
-          <div class="text-center group cursor-pointer">
-            <div
-              class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-orange-100 transition-colors"
-            >
-              <i class="fas fa-bolt text-orange-600 text-xl"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">Power</span>
-          </div>
-
-          <div class="text-center group cursor-pointer">
-            <div
-              class="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-gray-100 transition-colors"
-            >
-              <i class="fas fa-cog text-gray-600 text-xl"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">Auto</span>
-          </div>
-
-          <div class="text-center group cursor-pointer">
-            <div
-              class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-emerald-100 transition-colors"
-            >
-              <i class="fas fa-building text-emerald-600 text-xl"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">Real Estate</span>
-          </div>
-
-          <div class="text-center group cursor-pointer">
-            <div
-              class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-amber-100 transition-colors"
-            >
-              <i class="fas fa-hotel text-amber-600 text-xl"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">Hospitality</span>
-          </div>
-
-          <div class="text-center group cursor-pointer">
-            <div
-              class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-amber-100 transition-colors"
-            >
-              <i class="fas fa-scroll text-amber-700 text-xl"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">Paper</span>
           </div>
         </div>
       </div>
     </section>
+
+    
+    <!-- Process Timeline Flow Section -->
+    <section class="py-20 bg-gradient-to-br from-slate-50 to-blue-50 timeline-container">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <h2
+            class="text-4xl md:text-4xl font-bold text-gray-900 font-alansans mb-4 responsive-heading"
+          >
+            From
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600"
+              >Enquiry to Execution</span
+            >
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto responsive-text">
+            Our proven process ensures every wastewater treatment project is
+            delivered with clarity, transparency, and professional excellence
+          </p>
+        </div>
+
+        <!-- Timeline Process Flow -->
+        <div class="relative">
+          <!-- Main Timeline Line -->
+          <div
+            class="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-200 via-green-200 to-emerald-200 transform md:-translate-x-1/2"
+          ></div>
+
+          <!-- Process Steps -->
+          <div class="space-y-8">
+            <!-- Step 1: Enquiry -->
+            <div
+              class="relative flex flex-col md:flex-row items-start gap-8 group timeline-step"
+            >
+              <!-- Left Side - Content -->
+              <div
+                class="md:w-1/2 md:pr-12 md:text-right timeline-content"
+                data-aos="fade-right"
+              >
+                <div
+                  class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-blue-500 md:border-l-0 md:border-r-4 md:border-blue-500 hover:shadow-xl transition-all duration-300"
+                >
+                  <div class="flex items-start md:justify-end mb-4">
+                    <div
+                      class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 md:mr-0 md:ml-4"
+                    >
+                      <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-bold text-gray-900">Enquiry</h3>
+                      <p class="text-blue-600 font-medium">
+                        Project Initiation
+                      </p>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 text-sm leading-relaxed responsive-text">
+                    Submit your requirement via website form, email, or direct
+                    call to begin the conversation about your wastewater
+                    treatment needs.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Timeline Node -->
+              <div
+                class="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-10"
+                data-aos="zoom-in"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform duration-300"
+                >
+                  <span class="text-white font-bold text-sm">1</span>
+                </div>
+              </div>
+
+              <!-- Right Side - Empty for alignment -->
+              <div class="md:w-1/2"></div>
+            </div>
+
+            <!-- Step 2: Acknowledgement -->
+            <div
+              class="relative flex flex-col md:flex-row items-start gap-8 group timeline-step"
+            >
+              <!-- Left Side - Empty for alignment -->
+              <div class="md:w-1/2"></div>
+
+              <!-- Timeline Node -->
+              <div
+                class="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-10"
+                data-aos="zoom-in"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform duration-300"
+                >
+                  <span class="text-white font-bold text-sm">2</span>
+                </div>
+              </div>
+
+              <!-- Right Side - Content -->
+              <div class="md:w-1/2 md:pl-12 timeline-content" data-aos="fade-left">
+                <div
+                  class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-green-500 hover:shadow-xl transition-all duration-300"
+                >
+                  <div class="flex items-start mb-4">
+                    <div
+                      class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mr-4"
+                    >
+                      <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-bold text-gray-900">
+                        Acknowledgement
+                      </h3>
+                      <p class="text-green-600 font-medium">Prompt Response</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 text-sm leading-relaxed responsive-text">
+                    We respond within 1 hour to acknowledge your enquiry and
+                    confirm all project details for accurate understanding.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Requirement Analysis -->
+            <div
+              class="relative flex flex-col md:flex-row items-start gap-8 group timeline-step"
+            >
+              <!-- Left Side - Content -->
+              <div
+                class="md:w-1/2 md:pr-12 md:text-right timeline-content"
+                data-aos="fade-right"
+              >
+                <div
+                  class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-purple-500 md:border-l-0 md:border-r-4 md:border-purple-500 hover:shadow-xl transition-all duration-300"
+                >
+                  <div class="flex items-start md:justify-end mb-4">
+                    <div
+                      class="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mr-4 md:mr-0 md:ml-4"
+                    >
+                      <i class="fas fa-search text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-bold text-gray-900">
+                        Requirement Analysis
+                      </h3>
+                      <p class="text-purple-600 font-medium">
+                        Deep Understanding
+                      </p>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 text-sm leading-relaxed responsive-text">
+                    Comprehensive analysis of your project needs: wastewater
+                    type, flow rate (KLD), quality parameters, and site-specific
+                    requirements.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Timeline Node -->
+              <div
+                class="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-10"
+                data-aos="zoom-in"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform duration-300"
+                >
+                  <span class="text-white font-bold text-sm">3</span>
+                </div>
+              </div>
+
+              <!-- Right Side - Empty for alignment -->
+              <div class="md:w-1/2"></div>
+            </div>
+
+            <!-- Step 4: Site Visit & Data Collection -->
+            <div
+              class="relative flex flex-col md:flex-row items-start gap-8 group timeline-step"
+            >
+              <!-- Left Side - Empty for alignment -->
+              <div class="md:w-1/2"></div>
+
+              <!-- Timeline Node -->
+              <div
+                class="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-10"
+                data-aos="zoom-in"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform duration-300"
+                >
+                  <span class="text-white font-bold text-sm">4</span>
+                </div>
+              </div>
+
+              <!-- Right Side - Content -->
+              <div class="md:w-1/2 md:pl-12 timeline-content" data-aos="fade-left">
+                <div
+                  class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-orange-500 hover:shadow-xl transition-all duration-300"
+                >
+                  <div class="flex items-start mb-4">
+                    <div
+                      class="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mr-4"
+                    >
+                      <i
+                        class="fas fa-map-marker-alt text-orange-600 text-xl"
+                      ></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-bold text-gray-900">
+                        Site Visit & Data Collection
+                      </h3>
+                      <p class="text-orange-600 font-medium">
+                        On-Ground Assessment
+                      </p>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 text-sm leading-relaxed responsive-text">
+                    Physical site inspection, sample collection, and
+                    comprehensive system study to gather all necessary data for
+                    solution design.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 5: Customized Proposal -->
+            <div
+              class="relative flex flex-col md:flex-row items-start gap-8 group timeline-step"
+            >
+              <!-- Left Side - Content -->
+              <div
+                class="md:w-1/2 md:pr-12 md:text-right timeline-content"
+                data-aos="fade-right"
+              >
+                <div
+                  class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-cyan-500 md:border-l-0 md:border-r-4 md:border-cyan-500 hover:shadow-xl transition-all duration-300"
+                >
+                  <div class="flex items-start md:justify-end mb-4">
+                    <div
+                      class="flex-shrink-0 w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mr-4 md:mr-0 md:ml-4"
+                    >
+                      <i class="fas fa-file-alt text-cyan-600 text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-bold text-gray-900">
+                        Customized Proposal
+                      </h3>
+                      <p class="text-cyan-600 font-medium">Tailored Solution</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 text-sm leading-relaxed responsive-text">
+                    Detailed technical proposal including process design,
+                    equipment specifications, cost breakdown, and project
+                    timeline.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Timeline Node -->
+              <div
+                class="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-10"
+                data-aos="zoom-in"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform duration-300"
+                >
+                  <span class="text-white font-bold text-sm">5</span>
+                </div>
+              </div>
+
+              <!-- Right Side - Empty for alignment -->
+              <div class="md:w-1/2"></div>
+            </div>
+
+            <!-- Step 6: Agreement & Mobilization -->
+            <div
+              class="relative flex flex-col md:flex-row items-start gap-8 group timeline-step"
+            >
+              <!-- Left Side - Empty for alignment -->
+              <div class="md:w-1/2"></div>
+
+              <!-- Timeline Node -->
+              <div
+                class="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-10"
+                data-aos="zoom-in"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform duration-300"
+                >
+                  <span class="text-white font-bold text-sm">6</span>
+                </div>
+              </div>
+
+              <!-- Right Side - Content -->
+              <div class="md:w-1/2 md:pl-12 timeline-content" data-aos="fade-left">
+                <div
+                  class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-indigo-500 hover:shadow-xl transition-all duration-300"
+                >
+                  <div class="flex items-start mb-4">
+                    <div
+                      class="flex-shrink-0 w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mr-4"
+                    >
+                      <i class="fas fa-handshake text-indigo-600 text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-bold text-gray-900">
+                        Agreement & Mobilization
+                      </h3>
+                      <p class="text-indigo-600 font-medium">
+                        Project Kick-off
+                      </p>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 text-sm leading-relaxed responsive-text">
+                    Finalize Purchase Order/Contract, allocate manpower, and
+                    mobilize materials to begin project execution.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 7: Installation & Commissioning -->
+            <div
+              class="relative flex flex-col md:flex-row items-start gap-8 group timeline-step"
+            >
+              <!-- Left Side - Content -->
+              <div
+                class="md:w-1/2 md:pr-12 md:text-right timeline-content"
+                data-aos="fade-right"
+              >
+                <div
+                  class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-red-500 md:border-l-0 md:border-r-4 md:border-red-500 hover:shadow-xl transition-all duration-300"
+                >
+                  <div class="flex items-start md:justify-end mb-4">
+                    <div
+                      class="flex-shrink-0 w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mr-4 md:mr-0 md:ml-4"
+                    >
+                      <i class="fas fa-cogs text-red-600 text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-bold text-gray-900">
+                        Installation & Commissioning
+                      </h3>
+                      <p class="text-red-600 font-medium">
+                        System Implementation
+                      </p>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 text-sm leading-relaxed responsive-text">
+                    Complete system installation, pre-testing, trial runs, and
+                    performance validation to ensure optimal operation.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Timeline Node -->
+              <div
+                class="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-10"
+                data-aos="zoom-in"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform duration-300"
+                >
+                  <span class="text-white font-bold text-sm">7</span>
+                </div>
+              </div>
+
+              <!-- Right Side - Empty for alignment -->
+              <div class="md:w-1/2"></div>
+            </div>
+
+            <!-- Step 8: Handover & Training -->
+            <div
+              class="relative flex flex-col md:flex-row items-start gap-8 group timeline-step"
+            >
+              <!-- Left Side - Empty for alignment -->
+              <div class="md:w-1/2"></div>
+
+              <!-- Timeline Node -->
+              <div
+                class="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-10"
+                data-aos="zoom-in"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform duration-300"
+                >
+                  <span class="text-white font-bold text-sm">8</span>
+                </div>
+              </div>
+
+              <!-- Right Side - Content -->
+              <div class="md:w-1/2 md:pl-12 timeline-content" data-aos="fade-left">
+                <div
+                  class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-teal-500 hover:shadow-xl transition-all duration-300"
+                >
+                  <div class="flex items-start mb-4">
+                    <div
+                      class="flex-shrink-0 w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mr-4"
+                    >
+                      <i
+                        class="fas fa-graduation-cap text-teal-600 text-xl"
+                      ></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-bold text-gray-900">
+                        Handover & Training
+                      </h3>
+                      <p class="text-teal-600 font-medium">
+                        Knowledge Transfer
+                      </p>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 text-sm leading-relaxed responsive-text">
+                    Complete project handover with operator training, Standard
+                    Operating Procedures (SOPs), and comprehensive
+                    documentation.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 9: After-Sales Service -->
+            <div
+              class="relative flex flex-col md:flex-row items-start gap-8 group timeline-step"
+            >
+              <!-- Left Side - Content -->
+              <div
+                class="md:w-1/2 md:pr-12 md:text-right timeline-content"
+                data-aos="fade-right"
+              >
+                <div
+                  class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-emerald-500 md:border-l-0 md:border-r-4 md:border-emerald-500 hover:shadow-xl transition-all duration-300"
+                >
+                  <div class="flex items-start md:justify-end mb-4">
+                    <div
+                      class="flex-shrink-0 w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mr-4 md:mr-0 md:ml-4"
+                    >
+                      <i class="fas fa-headset text-emerald-600 text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-bold text-gray-900">
+                        After-Sales Service
+                      </h3>
+                      <p class="text-emerald-600 font-medium">
+                        Ongoing Support
+                      </p>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 text-sm leading-relaxed responsive-text">
+                    Comprehensive AMC/O&M support, preventive maintenance
+                    programs, and round-the-clock service for continuous optimal
+                    performance.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Timeline Node -->
+              <div
+                class="absolute left-6 md:left-1/2 transform -translate-x-1/2 z-10"
+                data-aos="zoom-in"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:scale-110 transition-transform duration-300"
+                >
+                  <span class="text-white font-bold text-sm">9</span>
+                </div>
+              </div>
+
+              <!-- Right Side - Empty for alignment -->
+              <div class="md:w-1/2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
+        duration: 800,
+        offset: 50,
+      });
+    </script>
 
     <!-- Footer -->
     <footer
@@ -1626,30 +2135,19 @@
     >
       <!-- Top Border Curve -->
       <div
-        class="absolute top-0 left-0 right-0 h-8 bg-white rounded-b-full"
+        class="absolute top-0 left-0 right-0 h-8 bg-blue-50 rounded-b-full"
       ></div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <!-- Company Info with Logo and Address -->
           <div class="md:col-span-1">
-            <!-- <div class="mb-6">
-              <img
-                src="Images/Logo.png"
-                alt="Terrapure Logo"
-                class="h-20 bg-white p-2 rounded-lg shadow-md"
-              />
-            </div> -->
-            <!-- <p class="text-teal-100 mb-4 text-sm leading-relaxed">
-              Leading environmental solutions provider specializing in water and
-              wastewater treatment systems for sustainable future.
-            </p> -->
-            <div class="text-white text-lg ">
+            <div class="text-white text-lg">
               <p class="font-semibold mb-2">Office Address:</p>
               <a
                 href="https://maps.google.com/?q=Office+No.+301,+7+Bizz+Sonigara+Business+Complex,+Ravet+BRT+Road,+Pune+412101"
                 target="_blank"
-                class="hover:text-white text-md transition-colors block"
+                class="hover:text-white text-md transition-colors block responsive-text"
               >
                 Office No. 301, 7 Bizz Sonigara Business Complex,<br />
                 Ravet BRT Road, Pune – 412101,<br />
@@ -1669,7 +2167,7 @@
               <li>
                 <a
                   href="index.html"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group responsive-text"
                 >
                   <i
                     class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"
@@ -1680,7 +2178,7 @@
               <li>
                 <a
                   href="about.html"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group responsive-text"
                 >
                   <i
                     class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"
@@ -1688,16 +2186,10 @@
                   About Us
                 </a>
               </li>
-              <!-- <li>
-              <a href="services.html" class="text-teal-100 hover:text-white transition-colors flex items-center group">
-                <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>
-                Services
-              </a>
-            </li> -->
               <li>
                 <a
                   href="career.html"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group responsive-text"
                 >
                   <i
                     class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"
@@ -1708,7 +2200,7 @@
               <li>
                 <a
                   href="contact.html"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group responsive-text"
                 >
                   <i
                     class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"
@@ -1730,7 +2222,7 @@
               <li>
                 <a
                   href="services.html#ro"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group responsive-text"
                 >
                   <i class="fas fa-tint text-xs mr-2"></i>
                   RO Plants
@@ -1739,7 +2231,7 @@
               <li>
                 <a
                   href="services.html#stp"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group responsive-text"
                 >
                   <i class="fas fa-recycle text-xs mr-2"></i>
                   Sewage Treatment
@@ -1748,7 +2240,7 @@
               <li>
                 <a
                   href="services.html#etp"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group responsive-text"
                 >
                   <i class="fas fa-industry text-xs mr-2"></i>
                   Effluent Treatment
@@ -1757,7 +2249,7 @@
               <li>
                 <a
                   href="services.html#zld"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group responsive-text"
                 >
                   <i class="fas fa-infinity text-xs mr-2"></i>
                   ZLD Systems
@@ -1766,7 +2258,7 @@
               <li>
                 <a
                   href="services.html#softeners"
-                  class="text-teal-100 hover:text-white transition-colors flex items-center group"
+                  class="text-teal-100 hover:text-white transition-colors flex items-center group responsive-text"
                 >
                   <i class="fas fa-filter text-xs mr-2"></i>
                   Water Softeners
@@ -1786,17 +2278,16 @@
               <!-- Phone Numbers -->
               <div class="flex items-start">
                 <div
-                  class="w-8 h-8 bg-teal-700 rounded-full flex items-center justify-center mr-3 "
+                  class="w-8 h-8 bg-teal-700 rounded-full flex items-center justify-center mr-3"
                 >
                   <i class="fas fa-phone text-white text-xs"></i>
                 </div>
                 <div>
                   <a
                     href="tel:+919921174727"
-                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
+                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium responsive-text"
                     >+91 9921174727</a
                   >
-                  
                 </div>
               </div>
 
@@ -1810,12 +2301,12 @@
                 <div>
                   <a
                     href="mailto:enquiry@tpes.in"
-                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
+                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium responsive-text"
                     >enquiry@tpes.in</a
                   >
                   <a
                     href="mailto:info@tpes.in"
-                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium"
+                    class="text-teal-100 hover:text-white transition-colors block text-sm font-medium responsive-text"
                     >info@tpes.in</a
                   >
                 </div>
@@ -1864,20 +2355,19 @@
           <div
             class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
           >
-            <div class="text-teal-200 text-sm text-center md:text-left">
+            <div class="text-teal-200 text-sm text-center md:text-left responsive-text">
               <p>
                 &copy; 2025 Terrapure Environment Services Pvt. Ltd. All rights
                 reserved.
               </p>
             </div>
             <div class="flex space-x-6 text-sm text-teal-200">
-              <a href="#" class="hover:text-white transition-colors"
+              <a href="#" class="hover:text-white transition-colors responsive-text"
                 >Privacy Policy</a
               >
-              <a href="#" class="hover:text-white transition-colors"
+              <a href="#" class="hover:text-white transition-colors responsive-text"
                 >Terms of Service</a
               >
-          
             </div>
           </div>
         </div>
