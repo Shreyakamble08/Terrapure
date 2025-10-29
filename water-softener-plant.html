@@ -600,7 +600,7 @@
 
             <div class="grid md:grid-cols-2 gap-8 overflow-hidden">
                 <div class="flex h-full slide-in-left overflow-hidden">
-                    <img src="Images/WSP.png" alt="Water Softener Plant 1" class="w-full h-full object-cover rounded-lg shadow-md">
+                    <img src="Images/WSP.png" alt="Water Softener Plant 1" class="w-full h-full object-cover rounded-lg shadow-lg ">
                 </div>
                 <div class="flex h-full slide-in-right overflow-hidden">
                     <img src="Images/WSP2.png" alt="Water Softener Plant 2" class="w-full h-full object-cover rounded-lg shadow-md">
@@ -610,71 +610,87 @@
     </section>
 
     <!-- Process Explanation Section - Diagrammatic Form -->
-    <section class="py-16 bg-gray-50 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
-            <h2 class="text-4xl font-bold font-alansans text-teal-900 text-center mb-12 fade-in text-wrap-fix">Process Explanation</h2>
-            <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-4 lg:space-x-6 max-w-6xl mx-auto overflow-x-auto pb-4 process-container-mobile overflow-hidden">
-                <!-- Step 1: Hard Water Inlet -->
-                <div class="flex flex-col items-center space-y-2 text-center process-step overflow-hidden">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-water"></i>
-                    </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base text-wrap-fix">Hard Water Inlet</span>
-                </div>
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block process-step"></i>
-                <div class="flex items-center space-x-2 md:hidden process-step overflow-hidden">
-                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                </div>
+    <section class="relative py-16 bg-gray-50 overflow-hidden">
 
-                <!-- Step 2: Ion Exchange Resin Bed -->
-                <div class="flex flex-col items-center space-y-2 text-center process-step overflow-hidden">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-exchange-alt"></i>
-                    </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base text-wrap-fix">Ion Exchange</span>
-                    <p class="text-xs text-gray-600 w-24 md:w-32 text-wrap-fix">Sodium form resin bed</p>
-                </div>
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block process-step"></i>
-                <div class="flex items-center space-x-2 md:hidden process-step overflow-hidden">
-                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                </div>
+    <!-- ✅ Watermark Logo Background -->
+    <div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+        <img src="Images/logo.png" alt="Terrapure Logo Watermark" class="w-[300px] md:w-[450px] lg:w-[550px] object-contain">
+    </div>
 
-                <!-- Step 3: Softening Process -->
-                <div class="flex flex-col items-center space-y-2 text-center process-step overflow-hidden">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base text-wrap-fix">Softening Process</span>
-                    <p class="text-xs text-gray-600 w-24 md:w-32 text-wrap-fix">Calcium & magnesium removal</p>
-                </div>
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block process-step"></i>
-                <div class="flex items-center space-x-2 md:hidden process-step overflow-hidden">
-                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                <!-- Step 4: Regeneration -->
-                <div class="flex flex-col items-center space-y-2 text-center process-step overflow-hidden">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base text-wrap-fix">Regeneration</span>
-                    <p class="text-xs text-gray-600 w-24 md:w-32 text-wrap-fix">Using sodium chloride solution</p>
-                </div>
-                <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block process-step"></i>
-                <div class="flex items-center space-x-2 md:hidden process-step overflow-hidden">
-                    <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
-                </div>
+        <h2 class="text-4xl font-bold font-alansans text-teal-900 text-center mb-12 fade-in text-wrap-fix">
+            Process Explanation
+        </h2>
 
-                <!-- Step 5: Soft Water Output -->
-                <div class="flex flex-col items-center space-y-2 text-center process-step overflow-hidden">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <span class="text-gray-700 font-medium text-sm md:text-base text-wrap-fix">Soft Water Output</span>
+        <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-4 lg:space-x-6 max-w-6xl mx-auto overflow-x-auto pb-4 process-container-mobile">
+            
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center space-y-2 text-center process-step">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                    <i class="fas fa-water"></i>
                 </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Hard Water Inlet</span>
             </div>
+
+            <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block process-step"></i>
+            <div class="flex items-center space-x-2 md:hidden">
+                <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center space-y-2 text-center process-step">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Ion Exchange</span>
+                <p class="text-xs text-gray-600 w-24 md:w-32">Sodium form resin bed</p>
+            </div>
+
+            <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block process-step"></i>
+            <div class="flex items-center space-x-2 md:hidden">
+                <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center space-y-2 text-center process-step">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Softening Process</span>
+                <p class="text-xs text-gray-600 w-24 md:w-32">Calcium & magnesium removal</p>
+            </div>
+
+            <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block process-step"></i>
+            <div class="flex items-center space-x-2 md:hidden">
+                <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="flex flex-col items-center space-y-2 text-center process-step">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Regeneration</span>
+                <p class="text-xs text-gray-600 w-24 md:w-32">Using sodium chloride solution</p>
+            </div>
+
+            <i class="fas fa-arrow-right text-teal-600 text-xl md:text-3xl hidden md:block process-step"></i>
+            <div class="flex items-center space-x-2 md:hidden">
+                <i class="fas fa-arrow-down text-teal-600 text-2xl"></i>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="flex flex-col items-center space-y-2 text-center process-step">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-lg md:text-xl">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <span class="text-gray-700 font-medium text-sm md:text-base">Soft Water Output</span>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Applications and Features & Benefits Section -->
     <section class="py-8 sm:py-12 md:py-16 bg-white overflow-hidden">
