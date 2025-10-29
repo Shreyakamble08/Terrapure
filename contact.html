@@ -1047,37 +1047,37 @@
       </div>
     </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-//form submission script
-emailjs.init("lS4NzGusbDkqQQqdu"); // ✅ Replace
+      //form submission script
+      emailjs.init("lS4NzGusbDkqQQqdu"); // ✅ Replace
 
-const form = document.getElementById("contactForm");
-const btnText = document.getElementById("btnText");
-const btnLoader = document.getElementById("btnLoader");
+      const form = document.getElementById("contactForm");
+      const btnText = document.getElementById("btnText");
+      const btnLoader = document.getElementById("btnLoader");
 
-form.addEventListener("submit", function(event) {
-    event.preventDefault();
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    btnText.classList.add("hidden");
-    btnLoader.classList.remove("hidden");
+        btnText.classList.add("hidden");
+        btnLoader.classList.remove("hidden");
 
-    emailjs.sendForm("service_4sff5nm", "template_zs13qb9", this)
-    .then(() => {
-        alert("✅ Message Sent Successfully!");
-        form.reset();
-    })
-    .catch((err) => {
-        alert("❌ Failed to send message");
-        console.log(err);
-    })
-    .finally(() => {
-        btnLoader.classList.add("hidden");
-        btnText.classList.remove("hidden");
-    });
-});
+        emailjs
+          .sendForm("service_4sff5nm", "template_zs13qb9", this)
+          .then(() => {
+            alert("✅ Message Sent Successfully!");
+            form.reset();
+          })
+          .catch((err) => {
+            alert("❌ Failed to send message");
+            console.log(err);
+          })
+          .finally(() => {
+            btnLoader.classList.add("hidden");
+            btnText.classList.remove("hidden");
+          });
+      });
 
-      
       // Form validation and interactions
       document.addEventListener("DOMContentLoaded", function () {
         const form = document.querySelector("form");
