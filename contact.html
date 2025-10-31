@@ -122,6 +122,142 @@
         }
       }
 
+      /* Fixed overflow prevention */
+      .container-fixed {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .responsive-grid {
+        grid-template-columns: 1fr;
+      }
+
+      @media (min-width: 1024px) {
+        .responsive-grid {
+          grid-template-columns: 2fr 3fr;
+        }
+      }
+
+      /* Updated Visitor Counter Styles */
+      .visitor-counter {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background: linear-gradient(135deg, #0d9488 0%, #10b981 100%);
+        color: white;
+        padding: 16px 20px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(13, 148, 136, 0.4);
+        z-index: 1000;
+        font-size: 14px;
+        font-weight: 600;
+        backdrop-filter: blur(15px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        min-width: 160px;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+      }
+
+      .visitor-counter:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 15px 40px rgba(13, 148, 136, 0.6);
+      }
+
+      .counter-number {
+        font-size: 22px;
+        font-weight: bold;
+        margin-left: 6px;
+        background: linear-gradient(135deg, #ffffff, #e0f2fe);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .counter-icon {
+        margin-right: 8px;
+        font-size: 16px;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 6px;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .counter-label {
+        font-size: 12px;
+        opacity: 0.9;
+        margin-top: 4px;
+        font-weight: 500;
+      }
+
+      .pulse-dot {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 8px;
+        height: 8px;
+        background: #ff6b6b;
+        border-radius: 50%;
+        animation: pulse-dot 2s infinite;
+      }
+
+      @keyframes pulse-dot {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.5);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .visitor-counter {
+          bottom: 20px;
+          right: 20px;
+          padding: 14px 16px;
+          font-size: 13px;
+          min-width: 140px;
+          border-radius: 16px;
+        }
+
+        .counter-number {
+          font-size: 20px;
+        }
+
+        .counter-icon {
+          width: 24px;
+          height: 24px;
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .visitor-counter {
+          bottom: 15px;
+          right: 15px;
+          padding: 12px 14px;
+          font-size: 12px;
+          min-width: 130px;
+          border-radius: 14px;
+        }
+
+        .counter-number {
+          font-size: 18px;
+        }
+      }
+
+      /* Mobile responsive fixes */
       @media (max-width: 768px) {
         .mobile-text-center {
           text-align: center;
@@ -152,12 +288,59 @@
         .mobile-space-y-4 > * + * {
           margin-top: 1rem;
         }
+
+        /* Prevent horizontal overflow */
+        .mobile-overflow-fix {
+          max-width: 100%;
+          overflow-x: hidden;
+        }
+
+        /* Fix form overflow */
+        .mobile-form-fix {
+          padding: 1.5rem;
+        }
+
+        /* Fix grid layout */
+        .mobile-grid-fix {
+          gap: 1rem;
+        }
+      }
+
+      /* Fixed Mobile Menu Styles */
+      #mobile-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 12px 12px;
+        z-index: 1000;
+      }
+
+      .rotate-180 {
+        transform: rotate(180deg);
+      }
+
+      /* Ensure mobile menu items are properly spaced */
+      #mobile-menu a,
+      #mobile-services-toggle {
+        display: block;
+        width: 100%;
+        text-align: left;
+      }
+
+      /* Fix mobile services dropdown */
+      #mobile-services-menu {
+        background: rgba(13, 148, 136, 0.05);
+        border-left: 3px solid #0d9488;
+        margin-left: 12px;
       }
     </style>
   </head>
-  <body class="bg-gray-50">
+  <body class="bg-gray-50 container-fixed">
     <!-- Top Info Bar -->
-    <div class="bg-gradient-to-r from-green-500 to-teal-600 text-white text-sm">
+    <div class="bg-gradient-to-r from-green-500 to-teal-600 text-white text-sm mobile-overflow-fix">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           class="flex flex-col sm:flex-row items-center justify-between py-1 sm:py-2"
@@ -196,12 +379,10 @@
 
     <!-- ✅ Main Navigation -->
     <nav
-      class="backdrop-blur-md bg-white/70 shadow-md w-full border-b border-teal-200 relative z-50"
+      class="backdrop-blur-md bg-white/70 shadow-md w-full border-b border-teal-200 relative z-50 "
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
-          <!-- increased height -->
-
           <!-- Logo -->
           <div class="flex items-center">
             <a href="index.html" class="flex-shrink-0 flex items-center ml-4">
@@ -215,7 +396,6 @@
 
           <!-- Desktop Menu -->
           <div class="hidden md:flex items-center space-x-8">
-            <!-- wider spacing -->
             <a
               href="index.html"
               class="text-teal-900 hover:text-teal-600 px-3 py-3 text-base font-medium transition-colors"
@@ -318,9 +498,7 @@
               id="mobile-menu-button"
               class="text-teal-800 hover:bg-teal-100 p-2 rounded-md transition"
             >
-              <!-- Hamburger Icon -->
               <i id="hamburger-icon" class="fas fa-bars text-3xl"></i>
-              <!-- Cross Icon -->
               <i id="cross-icon" class="fas fa-times text-3xl hidden"></i>
             </button>
           </div>
@@ -387,13 +565,11 @@
                 class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50"
                 >Water Softeners</a
               >
-              <!-- New services -->
               <a
                 href="WTP.html"
                 class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50"
                 >Water Treatment Plant
               </a>
-
               <a
                 href="wastewater-treatment.html"
                 class="block text-teal-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-teal-50"
@@ -437,9 +613,10 @@
         </div>
       </div>
     </nav>
+
     <!-- Creative Hero Section -->
     <section
-      class="relative py-16 md:py-24 gradient-bg text-white overflow-hidden"
+      class="relative py-16 md:py-24 gradient-bg text-white overflow-hidden mobile-overflow-fix"
     >
       <!-- Animated Water Waves -->
       <div class="absolute top-0 left-0 w-full h-2 water-wave"></div>
@@ -483,17 +660,12 @@
           >
             Your water treatment journey begins with a simple conversation
           </p>
-
-          <!-- Scroll Indicator -->
-          <!-- <div class="mt-12 animate-bounce">
-            <i class="fas fa-chevron-down text-2xl opacity-70"></i>
-          </div> -->
         </div>
       </div>
     </section>
 
     <!-- Contact Section - Asymmetric Layout -->
-    <section class="py-16 md:py-20 bg-white mobile-py-8">
+    <section class="py-16 md:py-20 bg-white mobile-py-8 mobile-overflow-fix">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-16 mobile-mb-8">
@@ -508,12 +680,12 @@
           </p>
         </div>
 
-        <div class="grid lg:grid-cols-5 gap-8 mobile-grid-cols-1">
+        <div class="grid lg:grid-cols-5 gap-8 mobile-grid-cols-1 mobile-grid-fix">
           <!-- Left Side - Contact Info -->
           <div class="lg:col-span-2 space-y-8 mobile-space-y-6">
             <!-- Main Contact Card -->
             <div
-              class="bg-gradient-to-br from-teal-500 to-green-400 text-white rounded-2xl p-8 shadow-xl card-hover"
+              class="bg-gradient-to-br from-teal-500 to-green-400 text-white rounded-2xl p-8 shadow-xl card-hover mobile-overflow-fix"
             >
               <h3 class="text-2xl font-alansans font-bold mb-6">
                 Contact Information
@@ -576,7 +748,7 @@
 
             <!-- Social Media Card -->
             <div
-              class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 card-hover"
+              class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 card-hover mobile-overflow-fix"
             >
               <h3 class="text-xl font-alansans font-bold text-teal-900 mb-4">
                 Follow Our Journey
@@ -630,7 +802,7 @@
           <!-- Right Side - Contact Form -->
           <div class="lg:col-span-3">
             <div
-              class="relative bg-green-50 rounded-2xl shadow-xl p-8 md:p-10 card-hover border border-green-100 mobile-p-6 overflow-hidden"
+              class="relative bg-green-50 rounded-2xl shadow-xl p-8 md:p-10 card-hover border border-green-100 mobile-p-6 mobile-overflow-fix mobile-form-fix"
             >
               <!-- ✅ Watermark Logo Top-Right -->
               <img
@@ -701,7 +873,7 @@
                     for="email"
                     class="block text-sm font-medium text-gray-700 mb-2"
                     >Email Address *</label
-                  >
+                    >
                   <input
                     type="email"
                     id="email"
@@ -798,7 +970,7 @@
 
     <!-- Footer -->
     <footer
-      class="relative bg-gradient-to-br from-teal-800 to-green-900 text-white pt-16 pb-8"
+      class="relative bg-gradient-to-br from-teal-800 to-green-900 text-white pt-16 pb-8 mobile-overflow-fix"
     >
       <!-- Top Border Curve -->
       <div
@@ -809,17 +981,6 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <!-- Company Info with Logo and Address -->
           <div class="md:col-span-1">
-            <!-- <div class="mb-6">
-              <img
-                src="Images/Logo.png"
-                alt="Terrapure Logo"
-                class="h-20 bg-white p-2 rounded-lg shadow-md"
-              />
-            </div> -->
-            <!-- <p class="text-teal-100 mb-4 text-sm leading-relaxed">
-              Leading environmental solutions provider specializing in water and
-              wastewater treatment systems for sustainable future.
-            </p> -->
             <div class="text-white text-lg">
               <p class="font-semibold mb-2">Office Address:</p>
               <a
@@ -1063,62 +1224,174 @@
       </div>
     </footer>
 
+    <!-- Updated Visitor Counter -->
+    <!-- <div class="visitor-counter">
+      <div class="pulse-dot"></div>
+      <div class="flex items-center justify-center">
+        <i class="fas fa-eye counter-icon"></i>
+        <div>
+          <div class="flex items-center">
+            <span>Visits:</span>
+            <span class="counter-number" id="visitorCount">0</span>
+          </div>
+          <div class="counter-label">Live Counter</div>
+        </div>
+      </div>
+    </div> -->
+
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-      //form submission script
-      emailjs.init("lS4NzGusbDkqQQqdu"); // ✅ Replace
+      // Fixed Mobile Menu Functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const hamburgerIcon = document.getElementById("hamburger-icon");
+        const crossIcon = document.getElementById("cross-icon");
+        const mobileServicesToggle = document.getElementById("mobile-services-toggle");
+        const mobileServicesMenu = document.getElementById("mobile-services-menu");
+        const servicesArrow = document.getElementById("services-arrow");
+
+        // Toggle main mobile menu
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle("hidden");
+            hamburgerIcon.classList.toggle("hidden");
+            crossIcon.classList.toggle("hidden");
+          });
+        }
+
+        // Toggle services dropdown in mobile menu
+        if (mobileServicesToggle && mobileServicesMenu && servicesArrow) {
+          mobileServicesToggle.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mobileServicesMenu.classList.toggle("hidden");
+            servicesArrow.classList.toggle("rotate-180");
+          });
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+            mobileMenu.classList.add("hidden");
+            hamburgerIcon.classList.remove("hidden");
+            crossIcon.classList.add("hidden");
+            mobileServicesMenu.classList.add("hidden");
+            servicesArrow.classList.remove("rotate-180");
+          }
+        });
+
+        // Prevent menu from closing when clicking inside
+        mobileMenu.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      });
+
+// class SimpleVisitorCounter {
+//   constructor() {
+//     this.counterElement = document.getElementById('visitorCount');
+//     this.init();
+//   }
+
+//   init() {
+//     // Always use local counter for maximum reliability
+//     this.updateLocalCounter();
+//   }
+
+//   updateLocalCounter() {
+//     try {
+//       let count = localStorage.getItem('siteVisitCount') || 0;
+//       count = parseInt(count) + 1;
+//       localStorage.setItem('siteVisitCount', count);
+//       this.animateCounter(count);
+//     } catch (error) {
+//       // If localStorage fails, use a simple display without persistence
+//       this.counterElement.textContent = 'Welcome!';
+//     }
+//   }
+
+//   animateCounter(targetNumber) {
+//     let currentNumber = 0;
+//     const duration = 1000;
+//     const steps = 30;
+//     const increment = targetNumber / steps;
+    
+//     const timer = setInterval(() => {
+//       currentNumber += increment;
+//       if (currentNumber >= targetNumber) {
+//         currentNumber = targetNumber;
+//         clearInterval(timer);
+//       }
+//       this.counterElement.textContent = Math.floor(currentNumber).toLocaleString();
+//     }, duration / steps);
+//   }
+// }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   new SimpleVisitorCounter();
+// });
+
+
+
+
+      // EmailJS form submission
+      emailjs.init("lS4NzGusbDkqQQqdu");
 
       const form = document.getElementById("contactForm");
       const btnText = document.getElementById("btnText");
       const btnLoader = document.getElementById("btnLoader");
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
+      if (form) {
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
 
-        btnText.classList.add("hidden");
-        btnLoader.classList.remove("hidden");
+          btnText.classList.add("hidden");
+          btnLoader.classList.remove("hidden");
 
-        emailjs
-          .sendForm("service_4sff5nm", "template_zs13qb9", this)
-          .then(() => {
-            alert("✅ Message Sent Successfully!");
-            form.reset();
-          })
-          .catch((err) => {
-            alert("❌ Failed to send message");
-            console.log(err);
-          })
-          .finally(() => {
-            btnLoader.classList.add("hidden");
-            btnText.classList.remove("hidden");
-          });
-      });
+          emailjs
+            .sendForm("service_4sff5nm", "template_zs13qb9", this)
+            .then(() => {
+              alert("✅ Message Sent Successfully!");
+              form.reset();
+            })
+            .catch((err) => {
+              alert("❌ Failed to send message");
+              console.log(err);
+            })
+            .finally(() => {
+              btnLoader.classList.add("hidden");
+              btnText.classList.remove("hidden");
+            });
+        });
+      }
 
       // Form validation and interactions
       document.addEventListener("DOMContentLoaded", function () {
         const form = document.querySelector("form");
 
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
+        if (form) {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
 
-          // Get form values
-          const firstName = document.getElementById("firstName").value;
-          const email = document.getElementById("email").value;
-          const message = document.getElementById("message").value;
+            // Get form values
+            const firstName = document.getElementById("firstName").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
 
-          // Simple validation
-          if (!firstName || !email || !message) {
-            showNotification("Please fill in all required fields", "error");
-            return;
-          }
+            // Simple validation
+            if (!firstName || !email || !message) {
+              showNotification("Please fill in all required fields", "error");
+              return;
+            }
 
-          // If validation passes, show success message
-          showNotification(
-            "Thank you for your message! We will get back to you soon.",
-            "success"
-          );
-          form.reset();
-        });
+            // If validation passes, show success message
+            showNotification(
+              "Thank you for your message! We will get back to you soon.",
+              "success"
+            );
+            form.reset();
+          });
+        }
 
         function showNotification(message, type) {
           // Create notification element
@@ -1157,30 +1430,6 @@
             card.style.transform = "translateY(0)";
           });
         });
-      });
-
-      // Mobile menu functionality
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const hamburgerIcon = document.getElementById("hamburger-icon");
-      const crossIcon = document.getElementById("cross-icon");
-      const mobileServicesToggle = document.getElementById(
-        "mobile-services-toggle"
-      );
-      const mobileServicesMenu = document.getElementById(
-        "mobile-services-menu"
-      );
-      const servicesArrow = document.getElementById("services-arrow");
-
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        hamburgerIcon.classList.toggle("hidden");
-        crossIcon.classList.toggle("hidden");
-      });
-
-      mobileServicesToggle.addEventListener("click", () => {
-        mobileServicesMenu.classList.toggle("hidden");
-        servicesArrow.classList.toggle("rotate-180");
       });
     </script>
   </body>
